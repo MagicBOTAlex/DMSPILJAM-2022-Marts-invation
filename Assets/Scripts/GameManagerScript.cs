@@ -100,6 +100,7 @@ public class GameManagerScript : MonoBehaviour
             unitScript.From = from.Object.transform.position;
             unitScript.To = to.Object.transform.position;
             unitScript.Speed = UnitSpeed_;
+            unitScript.SentFrom = from;
 
             yield return new WaitForSecondsRealtime(UnitSpawnDelay_);
         }

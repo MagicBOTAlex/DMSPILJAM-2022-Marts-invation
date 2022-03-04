@@ -1,3 +1,4 @@
+using Assets;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,6 +9,7 @@ public class UnitScript : MonoBehaviour
     public float Speed = 1f;
     public Vector2 From;
     public Vector2 To;
+    public TowerInfo SentFrom;
 
     Rigidbody2D rb;
 

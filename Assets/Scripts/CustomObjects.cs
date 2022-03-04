@@ -21,7 +21,6 @@ namespace Assets
         public int UnitsInside;
         public BuildingType Type;
         public int IndexInList;
-
         public int MaxUnits;
     }
 

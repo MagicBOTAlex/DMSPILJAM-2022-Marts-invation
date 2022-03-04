@@ -153,6 +153,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GainUnitsDelay_: 1
+  PlayerTowerSprites_: []
+  NeutralTowerSprites_: []
+  EnemyTowerSprites_: []
 --- !u!4 &24099886
 Transform:
   m_ObjectHideFlags: 0
@@ -1204,6 +1207,10 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1653489732271331185, guid: ac79df103c6ef174daa07764b75ceeb4, type: 3}
       propertyPath: BuildingType
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1653489732271331185, guid: ac79df103c6ef174daa07764b75ceeb4, type: 3}
+      propertyPath: TowerStartLevel
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4930125516102996632, guid: ac79df103c6ef174daa07764b75ceeb4, type: 3}

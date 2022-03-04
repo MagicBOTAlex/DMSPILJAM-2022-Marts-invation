@@ -152,7 +152,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b106b0faba757549bde158f930bde70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Abillities_: []
   GainUnitsDelay_: 1
   PlayerTowerSprites_: []
   NeutralTowerSprites_: []
@@ -463,6 +462,7 @@ GameObject:
   - component: {fileID: 420165143}
   - component: {fileID: 420165142}
   - component: {fileID: 420165141}
+  - component: {fileID: 420165144}
   m_Layer: 0
   m_Name: LaunchPlayer
   m_TagString: Untagged
@@ -573,6 +573,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 420165139}
   m_CullTransparentMesh: 1
+--- !u!114 &420165144
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 420165139}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3335a3aa2073cc6cbb1a6473ce5f6928, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  abillityCooldown: 5
 --- !u!1 &455778372
 GameObject:
   m_ObjectHideFlags: 0
@@ -1280,6 +1293,7 @@ GameObject:
   - component: {fileID: 1139832296}
   - component: {fileID: 1139832295}
   - component: {fileID: 1139832294}
+  - component: {fileID: 1139832297}
   m_Layer: 0
   m_Name: LaunchFireball
   m_TagString: Untagged
@@ -1390,6 +1404,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1139832292}
   m_CullTransparentMesh: 1
+--- !u!114 &1139832297
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1139832292}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3335a3aa2073cc6cbb1a6473ce5f6928, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  abillityCooldown: 2
 --- !u!1 &1293628798
 GameObject:
   m_ObjectHideFlags: 0
@@ -1954,6 +1981,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1970721762}
+  - component: {fileID: 1970721763}
   m_Layer: 0
   m_Name: Bar
   m_TagString: Untagged
@@ -1983,6 +2011,19 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1970721763
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1970721761}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf2674ba33d3063b5bd98e35953e5157, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  overlayPref: {fileID: 0}
 --- !u!1001 &2021112649
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -83,4 +83,8 @@ public class AbillityCooldDown : MonoBehaviour
 
         return (p * ortho * 2f) / pixelH;
     }
+
+    public void EnableCooldown(string name) {
+        
+    }
 }

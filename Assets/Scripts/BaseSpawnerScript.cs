@@ -12,9 +12,17 @@ public class BaseSpawnerScript : MonoBehaviour
         for (int i = 0; i < scripts.Length; i++)
         {
             var spawnedBase = Instantiate(BasePrefab, scripts[i].gameObject.transform.position, Quaternion.identity) as GameObject;
-            Destroy(scripts[i].gameObject);
 
-            GameManagerScript.Bases.Add(spawnedBase);
+            GameManagerScript.Bases.Add(new Assets.TowerInfo()
+            {
+                Object = spawnedBase,
+                Type = scripts[i].BuildingType,
+                TowerLevel = 1,
+                UnitsInside = scripts[i].UnitsInside,
+                IndexInList = i
+            });
+
+            Destroy(scripts[i].gameObject);
         }
     }
 }

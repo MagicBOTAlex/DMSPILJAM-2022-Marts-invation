@@ -1,14 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Assets;
 
 public class GameManagerScript : MonoBehaviour
 {
     public static GameManagerScript instance;
 
 
-    public List<GameObject> Bases_ = new List<GameObject>();
-    public static List<GameObject> Bases { get { return instance.Bases_; } set { instance.Bases_ = value; } }
+    public List<TowerInfo> Bases_ = new List<TowerInfo>();
+    public static List<TowerInfo> Bases { get { return instance.Bases_; } set { instance.Bases_ = value; } }
 
     private void Start()
     {

@@ -18,7 +18,8 @@ public class BaseSpawnerScript : MonoBehaviour
                 Object = spawnedBase,
                 Type = scripts[i].BuildingType,
                 TowerLevel = 1,
-                UnitsInside = scripts[i].UnitsInside
+                UnitsInside = scripts[i].UnitsInside,
+                IndexInList = i
             });
 
             Destroy(scripts[i].gameObject);

@@ -20,5 +20,6 @@ namespace Assets
         public int TowerLevel;
         public int UnitsInside;
         public BuildingType Type;
+        public int IndexInList;
     }
 }

@@ -28,7 +28,8 @@ public class TowerEventHandler : MonoBehaviour
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
-    {
+    {   
+        print("Hit!");
         //if (collision.gameObject.CompareTag("Units")) Physics2D.IgnoreCollision(GetComponent<Collider2D>(), collision.collider, true);
         //if (collision.gameObject.CompareTag("Towers")) Physics2D.IgnoreCollision(GetComponent<Collider2D>(), collision.collider, true);
         if (gameObject != collision.gameObject.GetComponent<UnitScript>().To.Object) return;

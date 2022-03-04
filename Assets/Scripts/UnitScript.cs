@@ -18,6 +18,8 @@ public class UnitScript : MonoBehaviour
 
     private void FixedUpdate()
     {
-        rb.velocity = Vector2.MoveTowards(To, From, Speed);
+        Vector2 dir = -(From - To);
+        transform.position += new Vector3(1f * dir.x, 1f * dir.y, 1f)* Speed * Time.fixedDeltaTime;
+        //rb.velocity = Vector2.MoveTowards(From, To, Mathf.Infinity);
     }
 }

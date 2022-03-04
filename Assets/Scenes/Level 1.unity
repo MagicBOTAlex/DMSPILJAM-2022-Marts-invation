@@ -153,9 +153,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GainUnitsDelay_: 1
-  PlayerTowerSprites_: []
-  NeutralTowerSprites_: []
-  EnemyTowerSprites_: []
+  PlayerTowerSprites_:
+  - {fileID: 21300000, guid: b66fe6d765c117a4b93d31f82849ebf7, type: 3}
+  - {fileID: 21300000, guid: df343213e6b410048be3de431c348ca1, type: 3}
+  - {fileID: 21300000, guid: 5b93a2edea9631343bf337ecf085acfa, type: 3}
+  NeutralTowerSprites_:
+  - {fileID: 21300000, guid: 166ecb4a1f3b0fa4d9ff01ee669cb686, type: 3}
+  EnemyTowerSprites_:
+  - {fileID: 21300000, guid: 4ae01386112ac82449a8a5b062d4a7b8, type: 3}
+  - {fileID: 21300000, guid: 0b399906e2067544caaa7301c722afe1, type: 3}
+  - {fileID: 21300000, guid: a926533cd54519849afa9fd83ec8e313, type: 3}
 --- !u!4 &24099886
 Transform:
   m_ObjectHideFlags: 0
@@ -169,7 +176,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &88216422 stripped
 Transform:
@@ -1261,7 +1268,7 @@ Transform:
   - {fileID: 809583341}
   - {fileID: 1349352581}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1096388688
 MonoBehaviour:
@@ -1499,7 +1506,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1344399893
 PrefabInstance:
@@ -1509,6 +1516,10 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 1096388687}
     m_Modifications:
+    - target: {fileID: 1653489732271331185, guid: ac79df103c6ef174daa07764b75ceeb4, type: 3}
+      propertyPath: TowerStartLevel
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4930125516102996632, guid: ac79df103c6ef174daa07764b75ceeb4, type: 3}
       propertyPath: m_Name
       value: SpawnBaseHere (6)
@@ -1921,6 +1932,10 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 1096388687}
     m_Modifications:
+    - target: {fileID: 1653489732271331185, guid: ac79df103c6ef174daa07764b75ceeb4, type: 3}
+      propertyPath: TowerStartLevel
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 4930125516102996632, guid: ac79df103c6ef174daa07764b75ceeb4, type: 3}
       propertyPath: m_Name
       value: SpawnBaseHere (5)
@@ -2105,7 +2120,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4664724287875455619, guid: 23d4396c8043a7637b796dc2c3c3bc7f, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4664724287875455619, guid: 23d4396c8043a7637b796dc2c3c3bc7f, type: 3}
       propertyPath: m_LocalPosition.x

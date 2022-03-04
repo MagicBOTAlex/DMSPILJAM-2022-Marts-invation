@@ -1,9 +1,5 @@
 fileFormatVersion: 2
-<<<<<<< HEAD
 guid: d43d53ceed965d340857c37ea9720f61
-=======
-guid: 8a1adccd0646a7faa982524388945f5c
->>>>>>> 37feda95d07489571b50ff16c02d80180cc6c1c6
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -43,15 +39,11 @@ TextureImporter:
     mipBias: 0
     wrapU: 1
     wrapV: 1
-    wrapW: 1
+    wrapW: 0
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-<<<<<<< HEAD
   spriteMode: 2
-=======
-  spriteMode: 1
->>>>>>> 37feda95d07489571b50ff16c02d80180cc6c1c6
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -71,7 +63,7 @@ TextureImporter:
   compressionQualitySet: 0
   textureFormatSet: 0
   ignorePngGamma: 0
-  applyGammaDecoding: 0
+  applyGammaDecoding: 1
   swizzle: 50462976
   platformSettings:
   - serializedVersion: 3
@@ -79,20 +71,19 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-<<<<<<< HEAD
   - serializedVersion: 3
     buildTarget: Standalone
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -104,7 +95,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -115,22 +106,43 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: swush_1
+      name: swush_0
       rect:
         serializedVersion: 2
-        x: 21
+        x: 1
         y: 676
-        width: 271
+        width: 293
         height: 347
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 144d6cbcce35928478536558848202ea
-      internalID: -505443606
+      spriteID: d658096976bc9d540a2be00fb57d3e66
+      internalID: 2009015269
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: swush_1
+      rect:
+        serializedVersion: 2
+        x: 295
+        y: 676
+        width: 293
+        height: 347
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 63861e67f9827434c9579c2c9c2f27fa
+      internalID: -1599948876
       vertices: []
       indices: 
       edges: []
@@ -139,70 +151,44 @@ TextureImporter:
       name: swush_2
       rect:
         serializedVersion: 2
-        x: 315
+        x: 589
         y: 676
-        width: 273
+        width: 293
         height: 347
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 228d25033ce586d4c94b9dd5e7360460
-      internalID: 620181019
+      spriteID: d770dc8eb9a8af243a9023ce8c761463
+      internalID: -1577104147
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: swush_4
+      name: swush_3
       rect:
         serializedVersion: 2
-        x: 613
-        y: 676
-        width: 269
-        height: 347
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 7c5660a2cee151e449c780f9c6446ec7
-      internalID: -1526977665
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: swush_5
-      rect:
-        serializedVersion: 2
-        x: 21
+        x: 1
         y: 327
-        width: 273
+        width: 293
         height: 347
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0cc635a5978463646b2c48d736cd7592
-      internalID: -1161953836
+      spriteID: 1e4a483e2ed032148ab542c8c1d28c00
+      internalID: 1468823155
       vertices: []
       indices: 
       edges: []
       weights: []
-=======
-  spriteSheet:
-    serializedVersion: 2
-    sprites: []
->>>>>>> 37feda95d07489571b50ff16c02d80180cc6c1c6
     outline: []
     physicsShape: []
     bones: []
@@ -213,17 +199,11 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-<<<<<<< HEAD
     nameFileIdTable:
-      swush_0: -1512926114
-      swush_3: -1941367979
-      swush_1: -505443606
-      swush_4: -1526977665
-      swush_5: -1161953836
-      swush_2: 620181019
-=======
-    nameFileIdTable: {}
->>>>>>> 37feda95d07489571b50ff16c02d80180cc6c1c6
+      swush_0: 2009015269
+      swush_3: 1468823155
+      swush_1: -1599948876
+      swush_2: -1577104147
   spritePackingTag: 
   pSDRemoveMatte: 0
   userData: 

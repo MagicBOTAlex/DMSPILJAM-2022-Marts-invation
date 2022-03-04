@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class TowerEventHandler : MonoBehaviour
 {
-
     private void Start()
     {
 

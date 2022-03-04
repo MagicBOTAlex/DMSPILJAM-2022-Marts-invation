@@ -10,6 +10,6 @@ public class PlayerSpawner : MonoBehaviour
     /// Spawns the player in the worlds origin. Used by the spawn player abillity
     /// </summary>
     public void SpawnPlayer() {
-        Instantiate(playerPref, Vector3.zero, Quaternion.identity);
+        //Instantiate(playerPref, Vector3.zero, Quaternion.identity);
     }
 }

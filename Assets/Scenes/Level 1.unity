@@ -2023,7 +2023,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf2674ba33d3063b5bd98e35953e5157, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  overlayPref: {fileID: 0}
+  overlayPref: {fileID: 1248968637310181372, guid: 858ac13ae8f203bfb948d1da8967d52c, type: 3}
 --- !u!1001 &2021112649
 PrefabInstance:
   m_ObjectHideFlags: 0

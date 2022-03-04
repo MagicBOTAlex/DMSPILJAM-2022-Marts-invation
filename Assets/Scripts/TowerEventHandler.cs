@@ -29,7 +29,17 @@ public class TowerEventHandler : MonoBehaviour
 
     private void OnMouseDown()
     {
-        
+        if (GameManagerScript.Selected[0] == null)
+        {
+            GameManagerScript.Selected[0] = gameObject;
+            return;
+        }
+
+        if (GameManagerScript.Selected[1] == null)
+        {
+            GameManagerScript.Selected[1] = gameObject;
+            return;
+        }
     }
 
     public void OnMouseEnter()

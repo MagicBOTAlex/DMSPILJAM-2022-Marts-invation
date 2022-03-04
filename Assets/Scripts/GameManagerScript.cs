@@ -13,7 +13,10 @@ public class GameManagerScript : MonoBehaviour
     public List<AbillityInfo> Abillities_ = new List<AbillityInfo>();
     public static List<AbillityInfo> Abillities { get { return instance.Abillities_; } set { instance.Abillities_ = value; } }
     public GameObject[] Seleted_ = new GameObject[2];
-    public static GameObject[] Selected { get { return instance.Seleted_; } set { instance.Seleted_ = value; } }
+    public static GameObject[] Selected { get { return instance.Seleted_; } set { instance.Seleted_ = value; instance.CheckSelected(); } }
+    
+    // read the fucking text jeb_
+    [Header("Settings")]
     public float GainUnitsDelay_ = 1f;
     public static float GainUnitsDelay { get { return instance.GainUnitsDelay_; } set { instance.GainUnitsDelay_ = value; } }
     public float UnitSpeed_ = 1f;
@@ -99,6 +102,19 @@ public class GameManagerScript : MonoBehaviour
             unitScript.Speed = UnitSpeed_;
 
             yield return new WaitForSecondsRealtime(UnitSpawnDelay_);
+        }
+    }
+
+    void CheckSelected()
+    {
+        if (Selected[0] == null) return;
+        if (Selected[1] == null) return;
+
+        SendUnits(Towers_[Selected[0].GetComponent<TowerIndexHolder>().TowerIndex], Towers_[Selected[1].GetComponent<TowerIndexHolder>().TowerIndex], Towers_[Selected[0].GetComponent<TowerIndexHolder>().TowerIndex].UnitsInside);
+
+        for (int i = 0; i < Selected.Length; i++)
+        {
+            Selected[i] = null;
         }
     }
 }

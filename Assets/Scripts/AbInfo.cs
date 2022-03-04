@@ -5,4 +5,5 @@ using UnityEngine;
 public class AbInfo : MonoBehaviour
 {
     public float abillityCooldown = -1;
+    public string abillityName = "";
 }

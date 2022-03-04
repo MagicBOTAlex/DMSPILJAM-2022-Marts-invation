@@ -26,12 +26,13 @@ namespace Assets
 
     public class AbillityInfo
     {
+        public string AbillityName;
         public GameObject Overlay;
         public float Cooldown;
         public float curCooldown;
         public float FraqScale; // 1% of its original y-scale
         public float Dist2Center;
-
+        public bool IsCooling;
         public Vector2 StartPos;
 
     }

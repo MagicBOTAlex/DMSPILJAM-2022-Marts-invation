@@ -21,19 +21,33 @@ public class AbillityCooldDown : MonoBehaviour
     private void Update() {
         // Update every abillity overlay
         for (int i = 0; i < GameManagerScript.Abillities.Count; ++i) {
-            if (GameManagerScript.Abillities[i].curCooldown < GameManagerScript.Abillities[i].Cooldown) { // While cooling down abillity    
-                GameManagerScript.Abillities[i].curCooldown += Time.deltaTime;
-                // Get the percentage of how much the overlay should cover of the buttton
-                float distFromCompl = 1 - GameManagerScript.Abillities[i].curCooldown / GameManagerScript.Abillities[i].Cooldown;
-                UpdateOverlay(GameManagerScript.Abillities[i].Overlay, distFromCompl, GameManagerScript.Abillities[i].FraqScale, GameManagerScript.Abillities[i].Dist2Center, GameManagerScript.Abillities[i].StartPos.y);
-                //Debug.Log(distFromCompl);
+            SpriteRenderer sr = GameManagerScript.Abillities[i].Overlay.GetComponent<SpriteRenderer>();
+            if (GameManagerScript.Abillities[i].IsCooling == true) {
+                if (GameManagerScript.Abillities[i].curCooldown < GameManagerScript.Abillities[i].Cooldown) { // While cooling down abillity
+                    sr.enabled = true;
+                    GameManagerScript.Abillities[i].curCooldown += Time.deltaTime;
+                    // Get the percentage of how much the overlay should cover of the buttton
+                    float distFromCompl = 1 - GameManagerScript.Abillities[i].curCooldown / GameManagerScript.Abillities[i].Cooldown;
+                    UpdateOverlay(GameManagerScript.Abillities[i].Overlay, distFromCompl, GameManagerScript.Abillities[i].FraqScale, GameManagerScript.Abillities[i].Dist2Center, GameManagerScript.Abillities[i].StartPos.y);
+                    //Debug.Log(distFromCompl);
+                }
+                else { // Done with coolDown
+                    GameManagerScript.Abillities[i].curCooldown = 0f;
+                    GameManagerScript.Abillities[i].IsCooling = false;                 
+                }
             }
-            else { // Done with coolDown
-                GameManagerScript.Abillities[i].curCooldown = 0f;
+            else {
+                sr.enabled = false;
             }
         }
     }
 
+    /// <summary>
+    /// Apllies varies changes to the specified overlay. It scales the gameObject on the y-axis based on how what percentage of the duration
+    /// the current interval is at. It also moves the overlay down to compensate for the contraction from the bottom when scaling on the y-axis.
+    /// <param name="overlay"> The gameObject of the overlay to be affected.</param>
+    /// <param name="inter"> A normalized float, representing the percantage of duration.</param>
+    /// </summary>
     private void UpdateOverlay(GameObject overlay, float inter, float fraq, float dist2cent, float oriPos) { 
         // Perform y-scale interpolation
         overlay.transform.localScale = new Vector3(overlay.transform.localScale.x, fraq * inter * 100f, overlay.transform.localScale.z);
@@ -59,6 +73,7 @@ public class AbillityCooldDown : MonoBehaviour
                 FraqScale = overlayPref.transform.localScale.y / 100f, // 1% of the overlay's scale, to scale it
                 Dist2Center = CalcDist2Center(aInfo[i]),
                 StartPos = aInfo[i].transform.position,
+                AbillityName = aInfo[i].GetComponent<AbInfo>().abillityName,
             });
             //Debug.Log($"Found a new abillity button with cooldown of: {GameManagerScript.Abillities[i].Cooldown}");
         }
@@ -68,6 +83,9 @@ public class AbillityCooldDown : MonoBehaviour
         return Mathf.Abs(obj.transform.position.y - obj.transform.GetChild(1).transform.position.y);
     }
 
+    /// <summary>
+    /// Returns an array of all the childen of a gameobject.
+    /// </summary>
     private GameObject[] GetChildren(GameObject obj) {
         int count = obj.transform.childCount;
         GameObject[] temp = new GameObject[count];
@@ -84,7 +102,16 @@ public class AbillityCooldDown : MonoBehaviour
         return (p * ortho * 2f) / pixelH;
     }
 
+    /// <summary>
+    /// Enables cooldown for the abillity button with the specified name
+    /// <param name="name"> The abillity name to enable cooldown for.</param>
+    /// </summary>
     public void EnableCooldown(string name) {
-        
+        for (int i = 0; i < GameManagerScript.Abillities.Count; ++i) {
+            if (GameManagerScript.Abillities[i].AbillityName == name && !GameManagerScript.Abillities[i].IsCooling) {
+                Debug.Log($"Enabled cooldown for: {GameManagerScript.Abillities[i].AbillityName}");
+                GameManagerScript.Abillities[i].IsCooling = true;
+            }
+        }
     }
 }

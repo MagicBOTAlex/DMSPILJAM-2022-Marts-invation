@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class SpawnHereScript : MonoBehaviour
 {
-    public BuildingType BuildingType;
+    public TowerType Type;
     public int TowerStartLevel = 1;
     public int UnitsInside = 10;
 }

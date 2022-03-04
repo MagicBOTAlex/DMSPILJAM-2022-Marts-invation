@@ -15,10 +15,10 @@ public class BaseSpawnerScript : MonoBehaviour
 
             spawnedBase.GetComponent<TowerIndexHolder>().TowerIndex = i;
 
-            GameManagerScript.Bases.Add(new Assets.TowerInfo()
+            GameManagerScript.Towers.Add(new Assets.TowerInfo()
             {
                 Object = spawnedBase,
-                Type = scripts[i].BuildingType,
+                Type = scripts[i].Type,
                 TowerLevel = scripts[i].TowerStartLevel,
                 UnitsInside = scripts[i].UnitsInside,
                 IndexInList = i,

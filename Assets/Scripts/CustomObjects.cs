@@ -7,7 +7,7 @@ using UnityEngine;
 
 namespace Assets
 {
-    public enum BuildingType
+    public enum TowerType
     {
         Player,
         Neutral,
@@ -19,7 +19,7 @@ namespace Assets
         public GameObject Object;
         public int TowerLevel;
         public int UnitsInside;
-        public BuildingType Type;
+        public TowerType Type;
         public int IndexInList;
         public int MaxUnits;
     }

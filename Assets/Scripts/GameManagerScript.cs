@@ -8,8 +8,8 @@ public class GameManagerScript : MonoBehaviour
     public static GameManagerScript instance; // instance for accessing the non static variables
 
     // makes it visable in the inspector and is static var
-    public List<TowerInfo> Bases_ = new List<TowerInfo>();
-    public static List<TowerInfo> Bases { get { return instance.Bases_; } set { instance.Bases_ = value; } }
+    public List<TowerInfo> Towers_ = new List<TowerInfo>();
+    public static List<TowerInfo> Towers { get { return instance.Towers_; } set { instance.Towers_ = value; } }
     public List<AbillityInfo> Abillities_ = new List<AbillityInfo>();
     public static List<AbillityInfo> Abillities { get { return instance.Abillities_; } set { instance.Abillities_ = value; } }
 
@@ -48,12 +48,12 @@ public class GameManagerScript : MonoBehaviour
         while (true)
         {
             yield return new WaitForSecondsRealtime(GainUnitsDelay_);
-            for (int i = 0; i < Bases.Count; i++)
+            for (int i = 0; i < Towers.Count; i++)
             {
-                if (Bases[i].Type != BuildingType.Enemy && 
-                    Bases[i].UnitsInside < Bases[i].MaxUnits + 1)
+                if (Towers[i].Type != TowerType.Enemy && 
+                    Towers[i].UnitsInside < Towers[i].MaxUnits + 1)
                 {
-                    Bases[i].UnitsInside++;
+                    Towers[i].UnitsInside++;
                 }
             }
         }

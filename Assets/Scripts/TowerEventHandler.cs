@@ -7,17 +7,17 @@ public class TowerEventHandler : MonoBehaviour
 {
     private void Start()
     {
-        int towerLevel = GameManagerScript.Bases[GetComponent<TowerIndexHolder>().TowerIndex].TowerLevel;
-        BuildingType type = GameManagerScript.Bases[GetComponent<TowerIndexHolder>().TowerIndex].Type;
+        int towerLevel = GameManagerScript.Towers[GetComponent<TowerIndexHolder>().TowerIndex].TowerLevel;
+        TowerType type = GameManagerScript.Towers[GetComponent<TowerIndexHolder>().TowerIndex].Type;
 
         var sp = GetComponent<SpriteRenderer>();
         switch (type)
         {
-            case BuildingType.Player:
+            case TowerType.Player:
                 sp.sprite = GameManagerScript.PlayerTowerSprites[towerLevel - 1];
                 break;
 
-            case BuildingType.Enemy:
+            case TowerType.Enemy:
                 sp.sprite = GameManagerScript.EnemyTowerSprites[0];
                 break;
 

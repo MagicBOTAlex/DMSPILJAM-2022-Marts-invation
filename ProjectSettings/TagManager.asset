@@ -11,7 +11,7 @@ TagManager:
   - 
   - Water
   - UI
-  - 
+  - Sword
   - 
   - 
   - 
@@ -38,6 +38,9 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Sword
+    uniqueID: 3141194275
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0

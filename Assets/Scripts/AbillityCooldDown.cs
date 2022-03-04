@@ -27,7 +27,6 @@ public class AbillityCooldDown : MonoBehaviour
                 float distFromCompl = 1 - GameManagerScript.Abillities[i].curCooldown / GameManagerScript.Abillities[i].Cooldown;
                 UpdateOverlay(GameManagerScript.Abillities[i].Overlay, distFromCompl, GameManagerScript.Abillities[i].FraqScale, GameManagerScript.Abillities[i].Dist2Center, GameManagerScript.Abillities[i].StartPos.y);
                 //Debug.Log(distFromCompl);
-
             }
             else { // Done with coolDown
                 GameManagerScript.Abillities[i].curCooldown = 0f;
@@ -36,7 +35,6 @@ public class AbillityCooldDown : MonoBehaviour
     }
 
     private void UpdateOverlay(GameObject overlay, float inter, float fraq, float dist2cent, float oriPos) { 
-        //Debug.Log($"Dist to center: {dist2cent}");
         // Perform y-scale interpolation
         overlay.transform.localScale = new Vector3(overlay.transform.localScale.x, fraq * inter * 100f, overlay.transform.localScale.z);
         // Move sprite downwards to compensate from bottom contraction
@@ -48,12 +46,11 @@ public class AbillityCooldDown : MonoBehaviour
     /// </summary>
     private void SpawnOverlays() {
         // Get all abillities
-        //AbInfo[] aInfo = GetComponentsInChildren<AbInfo>();
         GameObject[] aInfo = GetChildren(this.gameObject);
 
         // Populate a new struct with info about the abillity (overlay prefab and ab cooldown)
         for (int i = 0; i < aInfo.Length; ++i) {
-            Debug.Log($"Rect position: {aInfo[i].GetComponent<RectTransform>().position}");
+            //Debug.Log($"Rect position: {aInfo[i].GetComponent<RectTransform>().position}");
             Vector2 abPos = aInfo[i].transform.position;
             GameManagerScript.Abillities.Add(new Assets.AbillityInfo() {
                 Overlay = Instantiate(overlayPref, abPos, Quaternion.identity),
@@ -68,9 +65,7 @@ public class AbillityCooldDown : MonoBehaviour
     }
 
     private float CalcDist2Center(GameObject obj) {
-        float tmp = Mathf.Abs(obj.transform.position.y - obj.transform.GetChild(1).transform.position.y);
-        Debug.Log($"Calculated dist to center: {tmp}");
-        return tmp;
+        return Mathf.Abs(obj.transform.position.y - obj.transform.GetChild(1).transform.position.y);
     }
 
     private GameObject[] GetChildren(GameObject obj) {

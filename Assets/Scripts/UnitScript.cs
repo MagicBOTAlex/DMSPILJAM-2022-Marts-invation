@@ -6,18 +6,18 @@ public class UnitScript : MonoBehaviour
 {
     public int Damage = 1;
     public float Speed = 1f;
-    public Vector3 From;
-    public Vector3 To;
+    public Vector2 From;
+    public Vector2 To;
 
-    Rigidbody rb;
+    Rigidbody2D rb;
 
     private void OnEnable()
     {
-        rb = GetComponent<Rigidbody>();
+        rb = GetComponent<Rigidbody2D>();
     }
 
     private void FixedUpdate()
     {
-        rb.velocity = Vector3.MoveTowards(From, To, 1) * Speed;
+        rb.velocity = Vector2.MoveTowards(To, From, Speed);
     }
 }

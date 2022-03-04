@@ -13,6 +13,8 @@ public class BaseSpawnerScript : MonoBehaviour
         {
             var spawnedBase = Instantiate(BasePrefab, scripts[i].gameObject.transform.position, Quaternion.identity) as GameObject;
 
+            spawnedBase.transform.SetParent(gameObject.transform);
+
             spawnedBase.GetComponent<TowerIndexHolder>().TowerIndex = i;
 
             GameManagerScript.Towers.Add(new Assets.TowerInfo()

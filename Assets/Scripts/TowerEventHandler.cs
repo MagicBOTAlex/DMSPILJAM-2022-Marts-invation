@@ -38,7 +38,7 @@ public class TowerEventHandler : MonoBehaviour
         if (GameManagerScript.Selected[1] == null)
         {
             GameManagerScript.Selected[1] = gameObject;
-            return;
+            GameManagerScript.instance.CheckSelected();
         }
     }
 

@@ -6,7 +6,7 @@ using UnityEngine;
 public class TowerEventHandler : MonoBehaviour
 {
     private void Start() => DoubleStarter();
-    private void OnEnable() => DoubleStarter();
+    //private void OnEnable() => DoubleStarter();
 
     private void DoubleStarter()
     {

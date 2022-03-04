@@ -14,12 +14,14 @@ namespace Assets
         Enemy
     }
 
-    public struct TowerInfo
+    public class TowerInfo
     {
         public GameObject Object;
         public int TowerLevel;
         public int UnitsInside;
         public BuildingType Type;
         public int IndexInList;
+
+        public int MaxUnits;
     }
 }

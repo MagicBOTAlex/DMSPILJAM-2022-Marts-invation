@@ -13,13 +13,16 @@ public class BaseSpawnerScript : MonoBehaviour
         {
             var spawnedBase = Instantiate(BasePrefab, scripts[i].gameObject.transform.position, Quaternion.identity) as GameObject;
 
+            spawnedBase.GetComponent<TowerIndexHolder>().TowerIndex = i;
+
             GameManagerScript.Bases.Add(new Assets.TowerInfo()
             {
                 Object = spawnedBase,
                 Type = scripts[i].BuildingType,
                 TowerLevel = 1,
                 UnitsInside = scripts[i].UnitsInside,
-                IndexInList = i
+                IndexInList = i,
+                MaxUnits = 100
             });
 
             Destroy(scripts[i].gameObject);

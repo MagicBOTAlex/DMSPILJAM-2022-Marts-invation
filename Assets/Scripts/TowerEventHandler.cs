@@ -27,6 +27,11 @@ public class TowerEventHandler : MonoBehaviour
         }
     }
 
+    private void OnMouseDown()
+    {
+        
+    }
+
     public void OnMouseEnter()
     {
         transform.GetChild(0).GetComponent<Renderer>().enabled = true;

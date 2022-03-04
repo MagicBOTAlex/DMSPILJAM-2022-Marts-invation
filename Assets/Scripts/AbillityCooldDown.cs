@@ -109,7 +109,7 @@ public class AbillityCooldDown : MonoBehaviour
     public void EnableCooldown(string name) {
         for (int i = 0; i < GameManagerScript.Abillities.Count; ++i) {
             if (GameManagerScript.Abillities[i].AbillityName == name && !GameManagerScript.Abillities[i].IsCooling) {
-                Debug.Log($"Enabled cooldown for: {GameManagerScript.Abillities[i].AbillityName}");
+                //Debug.Log($"Enabled cooldown for: {GameManagerScript.Abillities[i].AbillityName}");
                 GameManagerScript.Abillities[i].IsCooling = true;
             }
         }

@@ -10,6 +10,8 @@ public class GameManagerScript : MonoBehaviour
 
     public List<TowerInfo> Bases_ = new List<TowerInfo>();
     public static List<TowerInfo> Bases { get { return instance.Bases_; } set { instance.Bases_ = value; } }
+    public List<AbillityInfo> Abillities_ = new List<AbillityInfo>();
+    public static List<AbillityInfo> Abillities { get { return instance.Abillities_; } set { instance.Abillities_ = value; } }
 
     [Header("Settings")]
     public float GainUnitsDelay_ = 1f;

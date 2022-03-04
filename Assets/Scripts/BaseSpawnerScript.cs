@@ -19,7 +19,7 @@ public class BaseSpawnerScript : MonoBehaviour
             {
                 Object = spawnedBase,
                 Type = scripts[i].BuildingType,
-                TowerLevel = 1,
+                TowerLevel = scripts[i].TowerStartLevel,
                 UnitsInside = scripts[i].UnitsInside,
                 IndexInList = i,
                 MaxUnits = 100

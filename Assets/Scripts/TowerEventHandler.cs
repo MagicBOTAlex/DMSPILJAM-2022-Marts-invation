@@ -5,6 +5,10 @@ using UnityEngine;
 public class TowerEventHandler : MonoBehaviour
 {
 
+    private void Start()
+    {
+
+    }
 
     public void OnMouseEnter()
     {

@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class TowerEventHandler : MonoBehaviour
 {
-    private void Start()
+    private void OnEnable()
     {
         int towerLevel = GameManagerScript.Towers[GetComponent<TowerIndexHolder>().TowerIndex].TowerLevel;
         TowerType type = GameManagerScript.Towers[GetComponent<TowerIndexHolder>().TowerIndex].Type;
@@ -18,11 +18,11 @@ public class TowerEventHandler : MonoBehaviour
                 break;
 
             case TowerType.Enemy:
-                sp.sprite = GameManagerScript.EnemyTowerSprites[0];
+                sp.sprite = GameManagerScript.EnemyTowerSprites[towerLevel - 1];
                 break;
 
             default:
-                sp.sprite = GameManagerScript.NeutralTowerSprites[towerLevel - 1];
+                sp.sprite = GameManagerScript.NeutralTowerSprites[0];
                 break;
         }
     }

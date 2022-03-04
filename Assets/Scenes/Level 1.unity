@@ -309,7 +309,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3335a3aa2073cc6cbb1a6473ce5f6928, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  abillityCooldown: 2
+  abillityCooldown: 3
 --- !u!114 &204651409
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2353,6 +2353,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1970721762}
   - component: {fileID: 1970721763}
+  - component: {fileID: 1970721765}
+  - component: {fileID: 1970721764}
   m_Layer: 0
   m_Name: Bar
   m_TagString: Untagged
@@ -2396,6 +2398,32 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   overlayPref: {fileID: 1248968637310181372, guid: 858ac13ae8f203bfb948d1da8967d52c, type: 3}
+--- !u!114 &1970721764
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1970721761}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba5c23e73302491169a9d3b82021c28c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fireballPref: {fileID: 0}
+--- !u!114 &1970721765
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1970721761}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a166108f321f491a981fe59e37d26787, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerPref: {fileID: 0}
 --- !u!1001 &2021112649
 PrefabInstance:
   m_ObjectHideFlags: 0

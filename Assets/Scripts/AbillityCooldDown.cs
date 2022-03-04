@@ -17,7 +17,15 @@ public class AbillityCooldDown : MonoBehaviour
         SpawnOverlays();
     }
     private void Update() {
+        // Update every abillity overlay
+        for (int i = 0; i < GameManagerScript.Abillities.Count; ++i) {
+            if (GameManagerScript.Abillities[i].curCooldown < GameManagerScript.Abillities[i].Cooldown) { // While cooling down abillity    
+                GameManagerScript.Abillities[i].curCooldown += Time.deltaTime;
+                // Get the percentage of how much the overlay should cover of the buttton
+                float distFromCompl = 1 - GameManagerScript.Abillities[i].Cooldown / GameManagerScript.Abillities[i].curCooldown;
 
+            }
+        }
     }
 
     /// <summary>
@@ -33,12 +41,11 @@ public class AbillityCooldDown : MonoBehaviour
             Vector2 abPos = aInfo[i].transform.position;
             GameManagerScript.Abillities.Add(new Assets.AbillityInfo() {
                 Overlay = Instantiate(overlayPref, abPos, Quaternion.identity),
-                Cooldown = aInfo[i].GetComponent<AbInfo>().abillityCooldown
+                Cooldown = aInfo[i].GetComponent<AbInfo>().abillityCooldown,
+                curCooldown = 0f
             });
-            Debug.Log($"Found a new abillity button with cooldown of: {GameManagerScript.Abillities[i].Cooldown}");
+            //Debug.Log($"Found a new abillity button with cooldown of: {GameManagerScript.Abillities[i].Cooldown}");
         }
-
-
     }
 
     private GameObject[] GetChildren(GameObject obj) {

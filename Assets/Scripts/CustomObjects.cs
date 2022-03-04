@@ -28,6 +28,7 @@ namespace Assets
     {
         public GameObject Overlay;
         public float Cooldown;
+        public float curCooldown;
 
     }
 }

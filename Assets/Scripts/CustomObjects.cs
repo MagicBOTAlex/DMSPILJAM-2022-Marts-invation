@@ -29,6 +29,10 @@ namespace Assets
         public GameObject Overlay;
         public float Cooldown;
         public float curCooldown;
+        public float FraqScale; // 1% of its original y-scale
+        public float Dist2Center;
+
+        public Vector2 StartPos;
 
     }
 }

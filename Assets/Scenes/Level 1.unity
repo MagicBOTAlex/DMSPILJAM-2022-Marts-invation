@@ -156,7 +156,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   GainUnitsDelay_: 1
-  UnitSpeed_: 0.5
+  UnitSpeed_: 2
   UnitSpawnDelay_: 0.1
   PlayerTowerSprites_:
   - {fileID: 21300000, guid: b66fe6d765c117a4b93d31f82849ebf7, type: 3}

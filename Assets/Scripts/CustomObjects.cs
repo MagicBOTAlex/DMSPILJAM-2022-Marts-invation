@@ -24,4 +24,11 @@ namespace Assets
 
         public int MaxUnits;
     }
+
+    public class AbillityInfo
+    {
+        public GameObject Overlay;
+        public float Cooldown;
+
+    }
 }

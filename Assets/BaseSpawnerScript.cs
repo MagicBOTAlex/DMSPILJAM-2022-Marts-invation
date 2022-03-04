@@ -8,10 +8,13 @@ public class BaseSpawnerScript : MonoBehaviour
 
     private void Start()
     {
-        foreach (var item in GetComponentsInChildren<SpawnHereScript>())
+        var scripts = GetComponentsInChildren<SpawnHereScript>();
+        for (int i = 0; i < scripts.Length; i++)
         {
-            Instantiate(BasePrefab, item.gameObject.transform.position, Quaternion.identity);
-            Destroy(item.gameObject);
+            var spawnedBase = Instantiate(BasePrefab, scripts[i].gameObject.transform.position, Quaternion.identity) as GameObject;
+            Destroy(scripts[i].gameObject);
+
+            GameManagerScript.Bases.Add(spawnedBase);
         }
     }
 }

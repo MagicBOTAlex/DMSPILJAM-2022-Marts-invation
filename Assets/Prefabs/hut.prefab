@@ -10,8 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 7301993671996710640}
   - component: {fileID: 7301993671996710641}
-  - component: {fileID: 8766270590007388387}
-  - component: {fileID: -8536978261132720341}
   m_Layer: 0
   m_Name: hut
   m_TagString: Untagged
@@ -86,28 +84,3 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &8766270590007388387
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7301993671996710646}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 411ce02d4060c4444a8a49b639b53099, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  unit: {fileID: 4501296071730732326, guid: 23d4396c8043a7637b796dc2c3c3bc7f, type: 3}
---- !u!114 &-8536978261132720341
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7301993671996710646}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a037a03866b993a45b1893f836ae38a9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

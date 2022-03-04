@@ -27,7 +27,6 @@ public class AbillityCooldDown : MonoBehaviour
                 float distFromCompl = 1 - GameManagerScript.Abillities[i].curCooldown / GameManagerScript.Abillities[i].Cooldown;
                 UpdateOverlay(GameManagerScript.Abillities[i].Overlay, distFromCompl, GameManagerScript.Abillities[i].FraqScale, GameManagerScript.Abillities[i].Dist2Center, GameManagerScript.Abillities[i].StartPos.y);
                 //Debug.Log(distFromCompl);
-
             }
             else { // Done with coolDown
                 GameManagerScript.Abillities[i].curCooldown = 0f;

@@ -5,7 +5,7 @@ using UnityEngine;
 public class AbillityCooldDown : MonoBehaviour
 {
     public GameObject overlayPref;
-    private List<GameObject> overlays = new List<GameObject>();
+    private List<GameObject> abillities = new List<GameObject>();
 
     private void Awake() {
         if (overlayPref == null) {
@@ -24,7 +24,13 @@ public class AbillityCooldDown : MonoBehaviour
     /// <summary>
     /// Gets all the overlays needed for all abillity buttons, and spawns an overlay on that btn
     /// </summary>
-    private void SpawnOverlays() {
+    private async void SpawnOverlays() {
+        // Get all abillities
+        AbillityInfo[] aInfo = GetComponentsInChildren<AbillityInfo>();
         
+        // Populate a new struct with info about the abillity
+        for (int i = 0; i < aInfo.Length; ++i) {
+            
+        }
     }
 }

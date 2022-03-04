@@ -21,7 +21,13 @@ namespace Assets
         public int UnitsInside;
         public BuildingType Type;
         public int IndexInList;
-
         public int MaxUnits;
+    }
+
+    public class AbillityInfo
+    {
+        public GameObject Overlay;
+        public float Cooldown;
+
     }
 }

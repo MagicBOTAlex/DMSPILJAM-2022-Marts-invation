@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: d43d53ceed965d340857c37ea9720f61
+=======
+guid: 8a1adccd0646a7faa982524388945f5c
+>>>>>>> 37feda95d07489571b50ff16c02d80180cc6c1c6
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -43,7 +47,11 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
+<<<<<<< HEAD
   spriteMode: 2
+=======
+  spriteMode: 1
+>>>>>>> 37feda95d07489571b50ff16c02d80180cc6c1c6
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -78,6 +86,7 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+<<<<<<< HEAD
   - serializedVersion: 3
     buildTarget: Standalone
     maxTextureSize: 2048
@@ -189,6 +198,11 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+=======
+  spriteSheet:
+    serializedVersion: 2
+    sprites: []
+>>>>>>> 37feda95d07489571b50ff16c02d80180cc6c1c6
     outline: []
     physicsShape: []
     bones: []
@@ -199,6 +213,7 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+<<<<<<< HEAD
     nameFileIdTable:
       swush_0: -1512926114
       swush_3: -1941367979
@@ -206,6 +221,9 @@ TextureImporter:
       swush_4: -1526977665
       swush_5: -1161953836
       swush_2: 620181019
+=======
+    nameFileIdTable: {}
+>>>>>>> 37feda95d07489571b50ff16c02d80180cc6c1c6
   spritePackingTag: 
   pSDRemoveMatte: 0
   userData: 

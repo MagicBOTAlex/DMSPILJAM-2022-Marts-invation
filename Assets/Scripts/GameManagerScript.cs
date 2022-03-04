@@ -12,9 +12,8 @@ public class GameManagerScript : MonoBehaviour
     public static List<TowerInfo> Towers { get { return instance.Towers_; } set { instance.Towers_ = value; } }
     public List<AbillityInfo> Abillities_ = new List<AbillityInfo>();
     public static List<AbillityInfo> Abillities { get { return instance.Abillities_; } set { instance.Abillities_ = value; } }
-
-    // read the fucking name jeb_
-    [Header("Settings")]
+    public GameObject[] Seleted_ = new GameObject[2];
+    public static GameObject[] Selected { get { return instance.Seleted_; } set { instance.Seleted_ = value; } }
     public float GainUnitsDelay_ = 1f;
     public static float GainUnitsDelay { get { return instance.GainUnitsDelay_; } set { instance.GainUnitsDelay_ = value; } }
     public float UnitSpeed_ = 1f;

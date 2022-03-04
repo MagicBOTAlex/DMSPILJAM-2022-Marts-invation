@@ -5,7 +5,10 @@ using UnityEngine;
 
 public class TowerEventHandler : MonoBehaviour
 {
-    private void OnEnable()
+    private void Start() => DoubleStarter();
+    private void OnEnable() => DoubleStarter();
+
+    private void DoubleStarter()
     {
         int towerLevel = GameManagerScript.Towers[GetComponent<TowerIndexHolder>().TowerIndex].TowerLevel;
         TowerType type = GameManagerScript.Towers[GetComponent<TowerIndexHolder>().TowerIndex].Type;

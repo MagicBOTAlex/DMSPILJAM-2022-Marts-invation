@@ -27,11 +27,6 @@ public class player_movement : MonoBehaviour
         if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D))
         {
             Speed = Mathf.Min(Speed + Acceleration * Time.deltaTime, MaxSpeed);
-
-        }
-        else if (Input.GetKey(KeyCode.A) && Input.GetKey(KeyCode.W))
-        {
-            Speed = Mathf.Min(Speed + Acceleration * Time.deltaTime / 1.5f, MaxSpeed);
         }
         else
         {

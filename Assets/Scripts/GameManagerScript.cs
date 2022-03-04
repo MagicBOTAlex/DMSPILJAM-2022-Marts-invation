@@ -11,6 +11,10 @@ public class GameManagerScript : MonoBehaviour
     public List<TowerInfo> Bases_ = new List<TowerInfo>();
     public static List<TowerInfo> Bases { get { return instance.Bases_; } set { instance.Bases_ = value; } }
 
+    [Header("Settings")]
+    public float GainUnitsDelay_ = 1f;
+    public static float GainUnitsDelay { get { return instance.GainUnitsDelay_; } set { instance.GainUnitsDelay_ = value; } }
+
     private void Start()
     {
         if (instance == null)
@@ -20,6 +24,24 @@ public class GameManagerScript : MonoBehaviour
         else
         {
             Destroy(this);
+        }
+
+        StartCoroutine(StartGain());
+    }
+
+    IEnumerator StartGain()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(GainUnitsDelay_);
+            for (int i = 0; i < Bases.Count; i++)
+            {
+                if (Bases[i].Type != BuildingType.Enemy && 
+                    Bases[i].UnitsInside < Bases[i].MaxUnits + 1)
+                {
+                    Bases[i].UnitsInside++;
+                }
+            }
         }
     }
 }

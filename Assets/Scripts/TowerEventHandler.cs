@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class TowerEventHandler : MonoBehaviour
 {
+
+    public GameObject upgradeMenu;
     private void Start() => DoubleStarter();
     //private void OnEnable() => DoubleStarter();
 
@@ -62,6 +64,7 @@ public class TowerEventHandler : MonoBehaviour
 
     public void OnMouseEnter()
     {
+        Instantiate(upgradeMenu, new Vector3(transform.position.x, transform.position.y - 2f, transform.position.z), Quaternion.identity);
         transform.GetChild(0).GetComponent<Renderer>().enabled = true;
     }
 

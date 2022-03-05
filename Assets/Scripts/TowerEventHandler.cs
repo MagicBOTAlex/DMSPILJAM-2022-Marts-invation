@@ -42,6 +42,8 @@ public class TowerEventHandler : MonoBehaviour
         //if (collision.gameObject.CompareTag("Towers")) Physics2D.IgnoreCollision(GetComponent<Collider2D>(), collision.collider, true);
         if (gameObject != collision.gameObject.GetComponent<UnitScript>().To.Object) return;
 
+        GameManagerScript.UnitsOnMap.Remove(collision.gameObject);
+
         if (collision.gameObject.GetComponent<UnitScript>().From.Type == collision.gameObject.GetComponent<UnitScript>().To.Type)
             GameManagerScript.Towers[GetComponent<TowerIndexHolder>().TowerIndex].UnitsInside += collision.gameObject.GetComponent<UnitScript>().Damage;
         else

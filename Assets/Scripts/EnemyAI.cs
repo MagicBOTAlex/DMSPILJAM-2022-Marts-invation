@@ -39,7 +39,22 @@ public class EnemyAI : MonoBehaviour
     {
         for (int i = 0; i < EnemyTowersRandom.Length; i++)
         {
-            EnemyTowersRandom[i].Object.transform.GetChild(2).GetComponent<TowerUpgrader>().Upgrade();
+            if (EnemyTowersRandom[i].TowerLevel == 1)
+            {
+                if (EnemyTowersRandom[i].UnitsInside > GameManagerScript.UnitsNeededForLvl2)
+                {
+                    EnemyTowersRandom[i].UnitsInside -= GameManagerScript.UnitsNeededForLvl2;
+                    EnemyTowersRandom[i].TowerLevel++;
+                }
+            }
+            else if (EnemyTowersRandom[i].TowerLevel == 2)
+            {
+                if (EnemyTowersRandom[i].UnitsInside > GameManagerScript.UnitsNeededForLvl3)
+                {
+                    EnemyTowersRandom[i].UnitsInside -= GameManagerScript.UnitsNeededForLvl3;
+                    EnemyTowersRandom[i].TowerLevel++;
+                }
+            }
         }
     }
 

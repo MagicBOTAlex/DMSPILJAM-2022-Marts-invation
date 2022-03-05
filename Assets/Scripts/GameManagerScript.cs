@@ -62,6 +62,7 @@ public class GameManagerScript : MonoBehaviour
     public float UnitSpawnDelay_ = 0.1f;
     public static float UnitSpawnDelay { get { return instance.UnitSpawnDelay_; } set { instance.UnitSpawnDelay_ = value; } }
     public static Vector3 SelectedLvl3LocalScaleStretch = new Vector3(1.3f, 1f, 1f);
+    public float UnitSpawnOffset = 0.5f;
 
     [Header("Sprites and prefabs")]
     public Sprite[] PlayerTowerSprites_;
@@ -147,7 +148,7 @@ public class GameManagerScript : MonoBehaviour
 
         for (int i = 0; i < amount; i++)
         {
-            var unit = Instantiate(UnitPrefab, from.Object.transform.position, Quaternion.identity, spawnedUnitsHolder.transform) as GameObject;
+            var unit = Instantiate(UnitPrefab, from.Object.transform.position + new Vector3(Random.Range(-UnitSpawnOffset, UnitSpawnOffset), Random.Range(-UnitSpawnOffset, UnitSpawnOffset)), Quaternion.identity, spawnedUnitsHolder.transform) as GameObject;
             var unitScript = unit.GetComponent<UnitScript>();
 
             unit.GetComponent<SpriteRenderer>().sprite = unitSprite[Random.Range(0, unitSprite.Length)];

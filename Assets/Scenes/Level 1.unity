@@ -1278,6 +1278,7 @@ GameObject:
   - component: {fileID: 697466780}
   - component: {fileID: 697466782}
   - component: {fileID: 697466781}
+  - component: {fileID: 697466783}
   m_Layer: 0
   m_Name: ProgressbarBack
   m_TagString: Untagged
@@ -1345,6 +1346,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 697466779}
   m_CullTransparentMesh: 1
+--- !u!114 &697466783
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 697466779}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03fb318da5d1cf536973ba088ebd0069, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &775731730
 GameObject:
   m_ObjectHideFlags: 0

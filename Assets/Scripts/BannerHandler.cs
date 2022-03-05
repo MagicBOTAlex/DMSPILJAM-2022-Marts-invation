@@ -4,12 +4,15 @@ using UnityEngine;
 using System.Linq;
 using Assets;
 using UnityEngine.UI;
+using TMPro;
 public class BannerHandler : MonoBehaviour
 {
     
     private float fraqScale = 1f;
     public Image playerBar;
     public Image enemyBar;
+    public TMPro.TextMeshProUGUI playerText;
+    public TMPro.TextMeshProUGUI enemyText;
 
     private void Awake() {
         fraqScale = transform.localScale.y / 100f;
@@ -43,6 +46,10 @@ public class BannerHandler : MonoBehaviour
         
         playerBar.fillAmount = playerPer;
         enemyBar.fillAmount = enemyPer;
+
+        // Set units text
+        playerText.text = playerScore.ToString();
+        enemyText.text = enemyScore.ToString();
     }
 
     private float CalculatePerc(int total, int denom) {
@@ -60,7 +67,7 @@ public class BannerHandler : MonoBehaviour
                 outside++;
             }
         }*/
-        Debug.Log($"{outside} Units from player on map");
+        //Debug.Log($"{outside} Units from player on map");
         return inside + outside;
     } 
     private int GetEnemyScore() {

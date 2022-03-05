@@ -1363,6 +1363,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerBar: {fileID: 794868524}
   enemyBar: {fileID: 1454434133}
+  playerText: {fileID: 948018371}
+  enemyText: {fileID: 444007764}
 --- !u!1 &775731730
 GameObject:
   m_ObjectHideFlags: 0

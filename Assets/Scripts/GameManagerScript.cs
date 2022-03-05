@@ -155,7 +155,8 @@ public class GameManagerScript : MonoBehaviour
                 PlayerUnitsPending--;
             else
                 EnemyUnitsPending--;
-
+            
+            //from.UnitsInside--;
             yield return new WaitForSecondsRealtime(UnitSpawnDelay_);
         }
     }

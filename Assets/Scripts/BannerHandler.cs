@@ -49,12 +49,9 @@ public class BannerHandler : MonoBehaviour
             return 0f;
         return (float) denom / (float) total;
     }
-    /*
-    private async int GetPlayerScore() {
+    
+    private int GetPlayerScore() {
         int inside = GameManagerScript.instance.Towers_.Where(x => x.Type == TowerType.Player).Sum(x => x.UnitsInside);
-        GameObject[] holder = GameObject.FindGameObjectsWithTag("Units");
-        for (int i = 0; i < holder.Length; i++) {
-            
-        }
-    }*/
+        return -1;
+    }
 }

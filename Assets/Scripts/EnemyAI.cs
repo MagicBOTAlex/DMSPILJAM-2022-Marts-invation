@@ -39,7 +39,7 @@ public class EnemyAI : MonoBehaviour
     {
         for (int i = 0; i < EnemyTowersRandom.Length; i++)
         {
-            EnemyTowersRandom[i].Object.GetComponent<TowerUpgrader>().Upgrade();
+            EnemyTowersRandom[i].Object.transform.GetChild(2).GetComponent<TowerUpgrader>().Upgrade();
         }
     }
 

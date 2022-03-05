@@ -72,7 +72,7 @@ public class TowerEventHandler : MonoBehaviour
 
     public void OnMouseEnter()
     {
-        upgrademn = Instantiate(upgradeMenu, new Vector3(transform.position.x, transform.position.y - 2f, transform.position.z), upgradeMenu.transform.rotation);
+        upgrademn = Instantiate(upgradeMenu, new Vector3(transform.position.x, transform.position.y - 2f, transform.position.z), upgradeMenu.transform.rotation, transform);
         // Set the tower index in the new upgrader script so it knows which tower to upgrade
         int index = GetComponent<TowerIndexHolder>().TowerIndex;
         upgrademn.GetComponent<TowerUpgrader>().towerIndex = index;

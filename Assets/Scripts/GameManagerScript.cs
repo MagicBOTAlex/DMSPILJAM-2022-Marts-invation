@@ -14,7 +14,10 @@ public class GameManagerScript : MonoBehaviour
     public static List<AbillityInfo> Abillities { get { return instance.Abillities_; } set { instance.Abillities_ = value; } }
     public GameObject[] Seleted_ = new GameObject[2];
     public static GameObject[] Selected { get { return instance.Seleted_; } set { instance.Seleted_ = value; } }
-    
+
+    public static int UnitsNeededForLvl2 = 20;
+    public static int UnitsNeededForLvl3 = 50;
+
     // read the fucking text jeb_
     [Header("Settings")]
     public float GainUnitsDelay_ = 1f;

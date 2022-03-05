@@ -199,6 +199,10 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 1096388687}
     m_Modifications:
+    - target: {fileID: 1653489732271331185, guid: ac79df103c6ef174daa07764b75ceeb4, type: 3}
+      propertyPath: TowerStartLevel
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4930125516102996632, guid: ac79df103c6ef174daa07764b75ceeb4, type: 3}
       propertyPath: m_Name
       value: SpawnBaseHere (1)

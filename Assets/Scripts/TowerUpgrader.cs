@@ -15,12 +15,19 @@ public class TowerUpgrader : MonoBehaviour
     }
 
     private void Upgrade() {
-        Debug.Log(towerIndex);
+        Debug.Log($"Upgrading:  {towerIndex}");
         // Upgrade tower level
-        if (GameManagerScript.Towers[towerIndex].TowerLevel < 3)
+        if (GameManagerScript.Towers[towerIndex].TowerLevel == 1 && GameManagerScript.Towers[towerIndex].UnitsInside >= GameManagerScript.UnitsNeededForLvl2) {
             GameManagerScript.Towers[towerIndex].TowerLevel++;
-        // Call DoubleStarter to apply changes
-        GameManagerScript.Towers[towerIndex].Object.GetComponent<TowerEventHandler>().DoubleStarter();
+            // Call DoubleStarter to apply changes
+            GameManagerScript.Towers[towerIndex].Object.GetComponent<TowerEventHandler>().DoubleStarter();
+        }
+        else if (GameManagerScript.Towers[towerIndex].TowerLevel == 2 && GameManagerScript.Towers[towerIndex].UnitsInside >= GameManagerScript.UnitsNeededForLvl3) {
+            GameManagerScript.Towers[towerIndex].TowerLevel++;
+            // Call DoubleStarter to apply changes
+            GameManagerScript.Towers[towerIndex].Object.GetComponent<TowerEventHandler>().DoubleStarter();
+        }
+        //Debug.Log($"Upgraded to {GameManagerScript.Towers[towerIndex].TowerLevel}");
         
     }
     private IEnumerator KillMenu(float dl) {

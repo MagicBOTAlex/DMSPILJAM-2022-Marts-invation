@@ -174,9 +174,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   background: {fileID: 458086961}
-  back1: {fileID: 21300000, guid: f52eb932ffc48b449b9961cd0885f317, type: 3}
-  back2: {fileID: 21300000, guid: 6502d6a92619ef641be461548040bfcb, type: 3}
-  back3: {fileID: 21300000, guid: c82b3e794fd6cfb4f9379e1861f11ca8, type: 3}
+  back1: {fileID: 21300000, guid: 5fc59fb6aac3a4067a0588be668ad50d, type: 3}
+  back2: {fileID: 21300000, guid: c6852e176959c70469afad9e3d169f4d, type: 3}
+  back3: {fileID: 21300000, guid: 8126bb7bc518fc319b3cbfd2ce8c3123, type: 3}
   button: Level3
 --- !u!61 &42991416
 BoxCollider2D:
@@ -610,7 +610,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: d44f4d982974b594388f3df4ba1ee4c5, type: 3}
+  m_Sprite: {fileID: 21300000, guid: f67bde3b5fd7750bda142499bf3d175b, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -781,9 +781,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   background: {fileID: 458086961}
-  back1: {fileID: 21300000, guid: f52eb932ffc48b449b9961cd0885f317, type: 3}
-  back2: {fileID: 21300000, guid: 6502d6a92619ef641be461548040bfcb, type: 3}
-  back3: {fileID: 21300000, guid: c82b3e794fd6cfb4f9379e1861f11ca8, type: 3}
+  back1: {fileID: 21300000, guid: 5fc59fb6aac3a4067a0588be668ad50d, type: 3}
+  back2: {fileID: 21300000, guid: c6852e176959c70469afad9e3d169f4d, type: 3}
+  back3: {fileID: 21300000, guid: 8126bb7bc518fc319b3cbfd2ce8c3123, type: 3}
   button: Level1
 --- !u!61 &728612515
 BoxCollider2D:
@@ -1358,9 +1358,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   background: {fileID: 458086961}
-  back1: {fileID: 21300000, guid: f52eb932ffc48b449b9961cd0885f317, type: 3}
-  back2: {fileID: 21300000, guid: 6502d6a92619ef641be461548040bfcb, type: 3}
-  back3: {fileID: 21300000, guid: c82b3e794fd6cfb4f9379e1861f11ca8, type: 3}
+  back1: {fileID: 21300000, guid: 5fc59fb6aac3a4067a0588be668ad50d, type: 3}
+  back2: {fileID: 21300000, guid: c6852e176959c70469afad9e3d169f4d, type: 3}
+  back3: {fileID: 21300000, guid: 8126bb7bc518fc319b3cbfd2ce8c3123, type: 3}
   button: Level2
 --- !u!61 &2038552198
 BoxCollider2D:

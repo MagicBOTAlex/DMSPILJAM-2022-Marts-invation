@@ -40,6 +40,8 @@ public class GameManagerScript : MonoBehaviour
     public Sprite PlayerUnitSprite;
     public Sprite EnemyUnitSprite;
 
+    GameObject spawnedUnitsHolder = new GameObject("UnitHolder");
+
     private void Start()
     {
         // makes sure that there will only ever exist GameManagerScript.instance
@@ -101,6 +103,8 @@ public class GameManagerScript : MonoBehaviour
             var unitScript = unit.GetComponent<UnitScript>();
 
             unit.GetComponent<SpriteRenderer>().sprite = unitSprite;
+            unit.transform.SetParent(spawnedUnitsHolder.transform);
+            unit.name = i.ToString();
 
             unitScript.From = from;
             unitScript.To = to;

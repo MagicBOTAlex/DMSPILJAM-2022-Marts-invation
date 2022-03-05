@@ -34,7 +34,7 @@ public class TowerEventHandler : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {   
-        print("Hit!");
+        //print("Hit!");
         //if (collision.gameObject.CompareTag("Units")) Physics2D.IgnoreCollision(GetComponent<Collider2D>(), collision.collider, true);
         //if (collision.gameObject.CompareTag("Towers")) Physics2D.IgnoreCollision(GetComponent<Collider2D>(), collision.collider, true);
         if (gameObject != collision.gameObject.GetComponent<UnitScript>().To.Object) return;
@@ -55,7 +55,7 @@ public class TowerEventHandler : MonoBehaviour
             return;
         }
 
-        if (GameManagerScript.Selected[1] == null)
+        if (GameManagerScript.Selected[1] == null && GameManagerScript.Selected[0] != gameObject)
         {
             GameManagerScript.Selected[1] = gameObject;
             GameManagerScript.instance.CheckSelected();

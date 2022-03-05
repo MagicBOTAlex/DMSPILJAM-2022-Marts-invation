@@ -19,8 +19,7 @@ public class meteor_movement : MonoBehaviour
     {
         if (target != null)
         {
-            transform.right = target.position - transform.position;
-            transform.right += new Vector3(5f, 5f, 5f);
+            transform.up = (target.position - transform.position) * -1f;
         }
         try
         {
@@ -48,6 +47,10 @@ public class meteor_movement : MonoBehaviour
         else if (other.CompareTag("Player"))
         {
             Destroy(other.gameObject);
+        }
+        else if (other.CompareTag("meteor"))
+        {
+            Destroy(gameObject);
         }
     }
 }

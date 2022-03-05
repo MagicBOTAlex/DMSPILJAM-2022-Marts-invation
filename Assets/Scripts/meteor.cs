@@ -17,13 +17,13 @@ public class meteor : MonoBehaviour
     private (int, int) position2;
 
     private float nextActionTime = 0.0f;
-    public float period = 3.0f;
+    public float period = 2.0f;
 
     int a = 0;
     public (int, int) posShad()
     {
-        x = Random.Range(-8, 8);
-        y = Random.Range(-5, 5);
+        x = Random.Range(-6, 8);
+        y = Random.Range(-3, 5);
         return (x, y);
     }
     public (int, int) posMet()
@@ -32,8 +32,8 @@ public class meteor : MonoBehaviour
         y = Random.Range(8, 10);
         return (x, y);
     }
-    GameObject sus1;
-    GameObject sus2;
+    GameObject sus1; //Meteor
+    GameObject sus2; //Shadow
     void FixedUpdate()
     {
         if (Time.time > nextActionTime)

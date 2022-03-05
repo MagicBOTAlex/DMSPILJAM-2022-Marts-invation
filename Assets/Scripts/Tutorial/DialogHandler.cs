@@ -15,6 +15,7 @@ public class DialogHandler : MonoBehaviour
         if (currentPage < Dialongs.Length)
         {
             Dialongs[currentPage - 1].gameObject.SetActive(false);
+            FindObjectOfType<AudioManager>().Play("TextSkip");
             Dialongs[currentPage].gameObject.SetActive(true);
         }
         else

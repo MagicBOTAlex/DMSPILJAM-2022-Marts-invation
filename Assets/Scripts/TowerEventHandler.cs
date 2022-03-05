@@ -88,6 +88,10 @@ public class TowerEventHandler : MonoBehaviour
         upgrademn.GetComponent<TowerUpgrader>().towerIndex = index;
         upgrademn.GetComponent<TowerUpgrader>().UpdateSprite();
         upgrademn.GetComponent<TowerUpgrader>().mouseOver = true;
+
+        if (GameManagerScript.Towers[GetComponent<TowerIndexHolder>().TowerIndex].TowerLevel == 3) {
+            transform.GetChild(0).transform.localScale = GameManagerScript.SelectedLvl3LocalScaleStretch;
+        }
         transform.GetChild(0).GetComponent<Renderer>().enabled = true;
     }
 

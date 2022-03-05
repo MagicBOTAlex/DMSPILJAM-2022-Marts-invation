@@ -10,17 +10,32 @@ public class UnitScript : MonoBehaviour
     public TowerInfo From;
     public TowerInfo To;
 
+    public Vector2 FromV;
+    public Vector2 ToV;
+
     Rigidbody2D rb;
 
     private void OnEnable()
     {
         rb = GetComponent<Rigidbody2D>();
+
+        if (From != null)
+        {
+            GetComponent<SpriteRenderer>().sprite = Resources.Load("PLAYER1") as Sprite;
+        }
     }
 
     private void FixedUpdate()
     {
-        Vector2 dir = -(From.Object.transform.position - To.Object.transform.position);
-        transform.position += new Vector3(1f * dir.x, 1f * dir.y, 1f).normalized * (Speed / 100);
-        //rb.velocity = Vector2.MoveTowards(From, To, Mathf.Infinity);
+        if (From != null)
+        {
+            Vector2 dir = -(From.Object.transform.position - To.Object.transform.position);
+            transform.position += new Vector3(1f * dir.x, 1f * dir.y, 1f).normalized * (Speed / 100);
+        }
+        else
+        {
+            Vector2 dir = -(FromV - ToV);
+            transform.position += new Vector3(1f * dir.x, 1f * dir.y, 1f).normalized * (Speed / 100);
+        }
     }
 }

@@ -60,6 +60,7 @@ public class GameManagerScript : MonoBehaviour
     public static float UnitSpeed { get { return instance.UnitSpeed_; } set { instance.UnitSpeed_ = value;} }
     public float UnitSpawnDelay_ = 0.1f;
     public static float UnitSpawnDelay { get { return instance.UnitSpawnDelay_; } set { instance.UnitSpawnDelay_ = value; } }
+    public static Vector3 SelectedLvl3LocalScaleStretch = new Vector3(1.3f, 1f, 1f);
 
     [Header("Sprites and prefabs")]
     public Sprite[] PlayerTowerSprites_;

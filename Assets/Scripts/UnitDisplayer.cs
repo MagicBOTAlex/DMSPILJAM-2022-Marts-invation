@@ -6,7 +6,7 @@ public class UnitDisplayer : MonoBehaviour
 {
     public int towerIndex = -1;
     private RectTransform canvasTrans;
-    private Text text;
+    private TextMesh text;
     Camera cam;
     private void Awake() {
         canvasTrans = GameObject.Find("Canvas").GetComponent<RectTransform>();
@@ -15,14 +15,11 @@ public class UnitDisplayer : MonoBehaviour
     private void Start() {
         // Create text field, so we use the main canvas 
 
-        RectTransform trans = gameObject.AddComponent<RectTransform>();
+        
         transform.SetParent(canvasTrans);
         Debug.Log(transform.position);
-        trans.anchoredPosition = Camera.main.WorldToScreenPoint(new Vector2(transform.position.x, transform.position.y));
-        trans.pivot = new Vector2(-9, -5);
-
-        text = gameObject.AddComponent<Text>();
-        text.text = "hello";
+        text = GetComponentInChildren<TextMesh>();
+        text.text = "sussi";
     }
     private void FixedUpdate() {
         //int units = GameManagerScript.Towers[towerIndex].UnitsInside;

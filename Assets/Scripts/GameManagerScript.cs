@@ -75,6 +75,9 @@ public class GameManagerScript : MonoBehaviour
     public Sprite PlayerUnitSprite;
     public Sprite EnemyUnitSprite;
 
+    public GameObject WinScreen;
+    public GameObject LoseScreen;
+
     GameObject spawnedUnitsHolder;
 
     private void Start()
@@ -204,6 +207,23 @@ public class GameManagerScript : MonoBehaviour
             Towers[to.IndexInList].Type = (from.Type == TowerType.Player) ? TowerType.Player : TowerType.Enemy;
         }
 
+        CheckIfWin();
+    }
 
+    void CheckIfWin()
+    {
+        if (PlayerTowers.Length == 0 &&
+            PlayerUnitsPending == 0 &&
+            UnitsOnMap.Where(x=>x.GetComponent<UnitScript>().From.Type == TowerType.Player).Count() == 0)
+        {
+            LoseScreen.SetActive(true);
+        }
+
+        if (EnemyTowersRandom.Length == 0 &&
+            EnemyUnitsPending == 0 &&
+            UnitsOnMap.Where(x => x.GetComponent<UnitScript>().From.Type == TowerType.Enemy).Count() == 0)
+        {
+            WinScreen.SetActive(true);
+        }
     }
 }

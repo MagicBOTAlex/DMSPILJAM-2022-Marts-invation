@@ -564,9 +564,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   background: {fileID: 1994792078}
-  back1: {fileID: 21300000, guid: d2dcb4c6c5716a842af5eb05cbcff270, type: 3}
-  back2: {fileID: 21300000, guid: 37b1b2d84329f1c35ae3051ce08b0e2e, type: 3}
-  back3: {fileID: 21300000, guid: 200cc86a95e560d808163d25be3cda99, type: 3}
+  back1: {fileID: 21300000, guid: 1355bdc2cf3f6e641bc4c49d0653c35e, type: 3}
+  back2: {fileID: 21300000, guid: 145c27425c1f7904fa145fd7369c7d86, type: 3}
+  back3: {fileID: 21300000, guid: 20df6a8fd6b67d241974733fee83c00f, type: 3}
   button: TakeOver
 --- !u!61 &1050360206
 BoxCollider2D:
@@ -581,7 +581,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 1.2495117, y: 0}
+  m_Offset: {x: 61.63202, y: 0.00033569336}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -592,7 +592,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1782.5312, y: 300}
+  m_Size: {x: 1586.2919, y: 269.80914}
   m_EdgeRadius: 0
 --- !u!224 &1050360207
 RectTransform:
@@ -611,8 +611,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 109.339, y: -6.695}
-  m_SizeDelta: {x: 1800.35, y: 300.831}
+  m_AnchoredPosition: {x: 109.339, y: 58.516}
+  m_SizeDelta: {x: 1800.35, y: 230.385}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1185039416
 GameObject:
@@ -1001,9 +1001,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   background: {fileID: 1994792078}
-  back1: {fileID: 21300000, guid: d2dcb4c6c5716a842af5eb05cbcff270, type: 3}
-  back2: {fileID: 21300000, guid: 37b1b2d84329f1c35ae3051ce08b0e2e, type: 3}
-  back3: {fileID: 21300000, guid: 200cc86a95e560d808163d25be3cda99, type: 3}
+  back1: {fileID: 21300000, guid: 1355bdc2cf3f6e641bc4c49d0653c35e, type: 3}
+  back2: {fileID: 21300000, guid: 145c27425c1f7904fa145fd7369c7d86, type: 3}
+  back3: {fileID: 21300000, guid: 20df6a8fd6b67d241974733fee83c00f, type: 3}
   button: LevelSelect
 --- !u!61 &1463823131
 BoxCollider2D:
@@ -1018,7 +1018,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 1.2495117, y: 0}
+  m_Offset: {x: 59.11624, y: 132.08528}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -1029,7 +1029,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1782.5312, y: 300}
+  m_Size: {x: 1153.5554, y: 237.10342}
   m_EdgeRadius: 0
 --- !u!1 &1768448497
 GameObject:
@@ -1082,9 +1082,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   background: {fileID: 1994792078}
-  back1: {fileID: 21300000, guid: d2dcb4c6c5716a842af5eb05cbcff270, type: 3}
-  back2: {fileID: 21300000, guid: 37b1b2d84329f1c35ae3051ce08b0e2e, type: 3}
-  back3: {fileID: 21300000, guid: 200cc86a95e560d808163d25be3cda99, type: 3}
+  back1: {fileID: 21300000, guid: 1355bdc2cf3f6e641bc4c49d0653c35e, type: 3}
+  back2: {fileID: 21300000, guid: 145c27425c1f7904fa145fd7369c7d86, type: 3}
+  back3: {fileID: 21300000, guid: 20df6a8fd6b67d241974733fee83c00f, type: 3}
   button: Settings
 --- !u!61 &1768448500
 BoxCollider2D:
@@ -1099,7 +1099,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 22.974525, y: 16.896736}
+  m_Offset: {x: 218.69661, y: -54.818905}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -1110,7 +1110,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 252.14476, y: 237.23836}
+  m_Size: {x: 213.29929, y: 183.45184}
   m_EdgeRadius: 0
 --- !u!1 &1994792076
 GameObject:
@@ -1139,7 +1139,7 @@ RectTransform:
   m_GameObject: {fileID: 1994792076}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.16, y: 1.16, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1050360207}
@@ -1150,7 +1150,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: -37.412296}
   m_SizeDelta: {x: 3740.0002, y: 2060}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1994792078
@@ -1173,7 +1173,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: c81c926fa6d41e74f9b663c107fa0f9d, type: 3}
+  m_Sprite: {fileID: 21300000, guid: beb1e32990025544fbc25dca96385d68, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

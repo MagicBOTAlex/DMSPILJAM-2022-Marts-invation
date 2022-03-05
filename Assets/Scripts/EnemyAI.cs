@@ -39,19 +39,48 @@ public class EnemyAI : MonoBehaviour
         {
             if (i == gatherIndex) continue;
 
-            SendUnits(EnemyTowersRandom[i], EnemyTowersRandom[gatherIndex], EnemyTowersRandom[i].UnitsInside);
+            SendUnits(EnemyTowersRandom[i], EnemyTowersRandom[gatherIndex], EnemyTowersRandom[i].UnitsInside / 2);
         }
 
-        var attackHere = (Random.Range(0, 1) == 0) ? PlayerTowers[Random.Range(0, PlayerTowers.Length)] : NeutralTowers[Random.Range(0, NeutralTowers.Length)];
-        
+        TowerInfo attackHere = new TowerInfo();
+        bool targetFound = false;
+        for (int i = 0; i < PlayerTowers.Length; i++)
+        {
+            if (PlayerTowers[i].UnitsInside < EnemyTowersRandom[gatherIndex].UnitsInside - 20)
+            {
+                attackHere = PlayerTowers[i];
+                targetFound = true;
+                break;
+            }
+        }
+
+        if (!targetFound && NeutralTowers.Length != 0)
+            attackHere = NeutralTowers[Random.Range(0, NeutralTowers.Length)];
+        else if (NeutralTowers.Length == 0)
+            attackHere = PlayerTowers[Random.Range(0, PlayerTowers.Length)];
+
         print($"Enemy attacking tower: {attackHere.Object.name} {attackHere.Type}");
 
-        StartCoroutine(WaitBeforeSend(EnemyTowersRandom[gatherIndex], attackHere, attackHere.UnitsInside));
+        StartCoroutine(WaitBeforeSend(EnemyTowersRandom[gatherIndex], attackHere, (attackHere.Type == TowerType.Neutral) ? attackHere.UnitsInside + 5 : EnemyTowersRandom[gatherIndex].UnitsInside));
+
+        if (attackHere.Type == TowerType.Neutral)
+        {
+            if (NeutralTowers.Length != 0)
+                attackHere = NeutralTowers[Random.Range(0, NeutralTowers.Length)];
+            else
+                attackHere = PlayerTowers[Random.Range(0, PlayerTowers.Length)];
+
+            StartCoroutine(WaitBeforeSend(EnemyTowersRandom[gatherIndex], attackHere, (attackHere.Type == TowerType.Neutral) ? attackHere.UnitsInside + 5 : EnemyTowersRandom[gatherIndex].UnitsInside));
+        }
     }
 
     IEnumerator WaitBeforeSend(TowerInfo from, TowerInfo to, int amount)
     {
         yield return new WaitForSecondsRealtime(10);
+        if (from.UnitsInside < to.UnitsInside) goto Forward;
 
+        SendUnits(from, to, amount);
+
+    Forward:;
     }
 }

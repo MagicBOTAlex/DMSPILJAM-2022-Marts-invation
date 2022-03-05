@@ -1450,6 +1450,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1653489732271331185, guid: ac79df103c6ef174daa07764b75ceeb4, type: 3}
+      propertyPath: UnitsInside
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 1653489732271331185, guid: ac79df103c6ef174daa07764b75ceeb4, type: 3}
       propertyPath: BuildingType
       value: 2
       objectReference: {fileID: 0}

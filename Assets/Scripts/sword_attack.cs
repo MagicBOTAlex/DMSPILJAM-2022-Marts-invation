@@ -16,12 +16,11 @@ public class sword_attack : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.Mouse0))
         {
-            //player.GetComponent<Animator>().SetBool("Attact", true);
+            player.GetComponent<Animator>().SetBool("attack", true);
         }
         else
         {
-            //player.GetComponent<Animator>().SetBool("Attact", false);
-
+            player.GetComponent<Animator>().SetBool("attack", false);
         }
     }
 }

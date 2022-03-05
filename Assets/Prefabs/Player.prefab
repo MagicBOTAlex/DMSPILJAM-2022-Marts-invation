@@ -10,6 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 498623671}
   - component: {fileID: 498623673}
+  - component: {fileID: 5715910025147590965}
+  - component: {fileID: 6047987406782032448}
   m_Layer: 0
   m_Name: sword
   m_TagString: Untagged
@@ -84,6 +86,39 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &5715910025147590965
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 498623670}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67afec88cec665d48af6858d8df2667a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 498623670}
+--- !u!95 &6047987406782032448
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 498623670}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ee90352dfee13f74492eca8ad0216c78, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &4501296071730732326
 GameObject:
   m_ObjectHideFlags: 0
@@ -96,6 +131,7 @@ GameObject:
   - component: {fileID: 7567278724897491395}
   - component: {fileID: 1465240491}
   - component: {fileID: 1465240490}
+  - component: {fileID: 7575148286969392220}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -117,7 +153,7 @@ Transform:
   m_Children:
   - {fileID: 498623671}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &7567278724897491395
 SpriteRenderer:
@@ -204,8 +240,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0fe56926f754632419dccaab06d53330, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Speed: 1
+  Speed: 2
   MaxSpeed: 2
   MinSpeed: 0
-  Acceleration: 4
-  Deceleration: 5
+  Acceleration: 7
+  Deceleration: 8
+--- !u!95 &7575148286969392220
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4501296071730732326}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

@@ -15,6 +15,10 @@ public class TowerUpgrader : MonoBehaviour
 
     private void Upgrade() {
         // Get the current tower index
+
+        // Upgrade tower level
+
+        // Call DoubleStarter to apply changes
         
     }
     private IEnumerator KillMenu(float dl) {

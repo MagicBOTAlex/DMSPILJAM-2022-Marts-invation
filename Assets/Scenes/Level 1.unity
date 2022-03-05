@@ -777,7 +777,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3335a3aa2073cc6cbb1a6473ce5f6928, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  abillityCooldown: 5
+  abillityCooldown: 20
   abillityName: Player Spawner
 --- !u!1 &444007762
 GameObject:

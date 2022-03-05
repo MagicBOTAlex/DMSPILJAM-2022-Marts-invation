@@ -109,7 +109,8 @@ public class AbillityCooldDown : MonoBehaviour
     /// </summary>
     public void EnableCooldownAndSpawn(string name) {
         for (int i = 0; i < GameManagerScript.Abillities.Count; ++i) {
-            if (GameManagerScript.Abillities[i].AbillityName == name && !GameManagerScript.Abillities[i].IsCooling) {
+            if (GameManagerScript.Abillities[i].AbillityName == name && !GameManagerScript.Abillities[i].IsCooling && !GameManagerScript.IsPlayerOnMap) {
+                Debug.Log(GameManagerScript.IsPlayerOnMap);
                 if (GameManagerScript.Abillities[i].AbillityName == "Player Spawner") {
                     GetComponent<PlayerSpawner>().SpawnPlayer();
                 }

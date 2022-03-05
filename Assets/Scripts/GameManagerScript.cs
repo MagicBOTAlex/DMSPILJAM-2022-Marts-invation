@@ -68,7 +68,7 @@ public class GameManagerScript : MonoBehaviour
     public static Sprite[] NeutralTowerSprites { get { return instance.NeutralTowerSprites_; }  set { instance.NeutralTowerSprites_ = value; } }
     public Sprite[] EnemyTowerSprites_;
     public static Sprite[] EnemyTowerSprites { get { return instance.EnemyTowerSprites_; } set { instance.EnemyTowerSprites_ = value; } }
-
+    public static bool IsPlayerOnMap = false;
     public GameObject UnitPrefab;
 
     public Sprite PlayerUnitSprite;

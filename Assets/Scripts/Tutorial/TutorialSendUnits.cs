@@ -38,7 +38,6 @@ public class TutorialSendUnits : MonoBehaviour
             unitScript.ToV = transform.GetChild(3).position;
             unitScript.Speed = 2;
             firstUnits--;
-            Debug.Log(firstUnits);
 
             yield return new WaitForSecondsRealtime(0.2f);
         }

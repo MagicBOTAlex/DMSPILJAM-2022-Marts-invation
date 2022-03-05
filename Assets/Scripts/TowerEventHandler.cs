@@ -50,14 +50,14 @@ public class TowerEventHandler : MonoBehaviour
         if (GameManagerScript.Selected[0] == null)
         {
             GameManagerScript.Selected[0] = gameObject;
-            return;
         }
 
         if (GameManagerScript.Selected[1] == null && GameManagerScript.Selected[0] != gameObject)
         {
             GameManagerScript.Selected[1] = gameObject;
-            GameManagerScript.instance.CheckSelected();
         }
+
+        GameManagerScript.instance.CheckSelected();
     }
 
     public void OnMouseEnter()

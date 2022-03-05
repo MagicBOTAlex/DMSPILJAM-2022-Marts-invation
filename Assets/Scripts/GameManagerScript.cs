@@ -110,11 +110,14 @@ public class GameManagerScript : MonoBehaviour
     public void CheckSelected()
     {
         if (Selected[0] == null) return;
+        else Selected[0].transform.GetChild(1).gameObject.GetComponent<SpriteRenderer>().enabled = true;
+
         if (Selected[1] == null) return;
 
         print("Sending units");
         SendUnits(Towers_[Selected[0].GetComponent<TowerIndexHolder>().TowerIndex], Towers_[Selected[1].GetComponent<TowerIndexHolder>().TowerIndex], Towers_[Selected[0].GetComponent<TowerIndexHolder>().TowerIndex].UnitsInside);
 
+        Selected[0].gameObject.transform.GetChild(1).GetComponent<SpriteRenderer>().enabled = false;
         for (int i = 0; i < Selected.Length; i++)
         {
             Selected[i] = null;

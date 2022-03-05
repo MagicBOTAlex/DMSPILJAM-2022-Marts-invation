@@ -13,20 +13,21 @@ public class Button : MonoBehaviour
 
     private void OnMouseEnter()
     {
-        if(button == "LevelSelect")
+        if(button == "LevelSelect" || button == "Level1")
         {
             background.GetComponent<Image>().sprite = back1;
         }
-        else if (button == "TakeOver")
+        else if (button == "TakeOver" || button == "Level2")
         {
             background.GetComponent<Image>().sprite = back2;
         }
-        else if (button == "Settings")
+        else if (button == "Settings" || button == "Level3")
         {
             background.GetComponent<Image>().sprite = back3;
         }
 
     }
+
 
     private void OnMouseDown()
     {
@@ -41,6 +42,18 @@ public class Button : MonoBehaviour
         else if (button == "Settings")
         {
             SceneManager.LoadScene("Settings");
+        }
+        else if (button == "Level1")
+        {
+            SceneManager.LoadScene("Level 1");
+        }
+        else if (button == "Level2")
+        {
+            SceneManager.LoadScene("Level 2");
+        }
+        else if (button == "Level3")
+        {
+            SceneManager.LoadScene("Level 3");
         }
     }
 }

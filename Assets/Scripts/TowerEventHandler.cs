@@ -41,8 +41,12 @@ public class TowerEventHandler : MonoBehaviour
         //print("Hit!");
         //if (collision.gameObject.CompareTag("Units")) Physics2D.IgnoreCollision(GetComponent<Collider2D>(), collision.collider, true);
         //if (collision.gameObject.CompareTag("Towers")) Physics2D.IgnoreCollision(GetComponent<Collider2D>(), collision.collider, true);
-        if (gameObject.CompareTag("meteor") && gameObject.CompareTag("shadow")) return;
-        if (gameObject != collision.gameObject.GetComponent<UnitScript>().To.Object) return;
+        try
+        {
+            if (gameObject.CompareTag("meteor") || gameObject.CompareTag("shadow")) return;
+            else if (gameObject != collision.gameObject.GetComponent<UnitScript>().To.Object) return;
+        }
+        catch { return; }
 
         GameManagerScript.UnitsOnMap.Remove(collision.gameObject);
 

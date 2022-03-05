@@ -123,4 +123,30 @@ public class GameManagerScript : MonoBehaviour
             Selected[i] = null;
         }
     }
+
+    /// <summary>
+    /// Checks if the units inside the target tower is negative or not. Then converts the tower to the oppisite
+    /// </summary>
+    public void CheckTower(TowerInfo from, TowerInfo to)
+    {
+        if (Towers[to.IndexInList].UnitsInside < 0) ConvertTower(from, to);
+        print(Towers[to.IndexInList].UnitsInside.ToString());
+    }
+
+    public void ConvertTower(TowerInfo from, TowerInfo to) 
+    {
+        Towers[to.IndexInList].TowerLevel = 1;
+        Towers[to.IndexInList].UnitsInside = 0;
+
+        if (to.Type == TowerType.Neutral)
+        {
+            Towers[to.IndexInList].Type = from.Type;
+        }
+        else
+        {
+            Towers[to.IndexInList].Type = (from.Type == TowerType.Player) ? TowerType.Enemy : TowerType.Player;
+        }
+
+
+    }
 }

@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class player_movement : MonoBehaviour
 {
-    public float Speed;
-    public float MaxSpeed;
-    public float MinSpeed;
-    public float Acceleration;
-    public float Deceleration;
+    public float Speed; //Should be 2
+    public float MaxSpeed; //Should be 2
+    public float MinSpeed; //Should be 0
+    public float Acceleration; //Should be high(3 to 6 ish)
+    public float Deceleration; //Should be high(5 to 8 ish)
 
     float horizontal;
     float vertical;

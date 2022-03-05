@@ -9,6 +9,7 @@ public class UnitScript : MonoBehaviour
     public float Speed = 1f;
     public TowerInfo From;
     public TowerInfo To;
+    public TowerType Type;
 
     public Vector2 FromV;
     public Vector2 ToV;
@@ -22,6 +23,8 @@ public class UnitScript : MonoBehaviour
         if (From != null)
         {
             GetComponent<SpriteRenderer>().sprite = Resources.Load("PLAYER1") as Sprite;
+            Type = From.Type;
+            print($"{From.Type} {Type}");
         }
     }
 

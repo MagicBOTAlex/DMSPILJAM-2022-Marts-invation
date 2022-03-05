@@ -10,7 +10,7 @@ public class BaseSpawnerScript : MonoBehaviour
     private void Start()
     {
         var scripts = GetComponentsInChildren<SpawnHereScript>();
-        Debug.Log($"Found {scripts.Length} spawn locations");
+        ///Debug.Log($"Found {scripts.Length} spawn locations");
         for (int i = 0; i < scripts.Length; i++)
         {
             var spawnedBase = Instantiate(BasePrefab, scripts[i].gameObject.transform.position, Quaternion.identity) as GameObject;
@@ -18,12 +18,12 @@ public class BaseSpawnerScript : MonoBehaviour
             spawnedBase.transform.SetParent(gameObject.transform);
 
             spawnedBase.GetComponent<TowerIndexHolder>().TowerIndex = i;
-            Debug.Log($"Set index: {i} to spawnLocation");
-            Debug.Log($"Type: {scripts[i].Type}");
-            Debug.Log($"Level: {scripts[i].TowerStartLevel}");
-            Debug.Log($"Units: {scripts[i].UnitsInside}");
+            ///Debug.Log($"Set index: {i} to spawnLocation");
+            ///Debug.Log($"Type: {scripts[i].Type}");
+            ///Debug.Log($"Level: {scripts[i].TowerStartLevel}");
+            ///Debug.Log($"Units: {scripts[i].UnitsInside}");
             spawnedBase.name = i.ToString();
-            Debug.Log($"Tower arr length: {GameManagerScript.Towers.Count}");
+            ///Debug.Log($"Tower arr length: {GameManagerScript.Towers.Count}");
             GameManagerScript.Towers.Add(new Assets.TowerInfo()
             {
                 Object = spawnedBase,

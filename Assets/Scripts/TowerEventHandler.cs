@@ -51,7 +51,7 @@ public class TowerEventHandler : MonoBehaviour
 
         GameManagerScript.UnitsOnMap.Remove(collision.gameObject);
 
-        if (collision.gameObject.GetComponent<UnitScript>().From.Type == collision.gameObject.GetComponent<UnitScript>().To.Type)
+        if (collision.gameObject.GetComponent<UnitScript>().Type == collision.gameObject.GetComponent<UnitScript>().To.Type)
             GameManagerScript.Towers[GetComponent<TowerIndexHolder>().TowerIndex].UnitsInside += collision.gameObject.GetComponent<UnitScript>().Damage;
         else
             GameManagerScript.Towers[GetComponent<TowerIndexHolder>().TowerIndex].UnitsInside -= collision.gameObject.GetComponent<UnitScript>().Damage;

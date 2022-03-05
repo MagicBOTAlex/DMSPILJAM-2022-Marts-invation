@@ -97,6 +97,8 @@ public class TowerEventHandler : MonoBehaviour
 
     private void OnMouseExit()
     {
+        if (GameManagerScript.Towers[GetComponent<TowerIndexHolder>().TowerIndex].Type != TowerType.Player) return;
+
         transform.GetChild(0).GetComponent<Renderer>().enabled = false;
         upgrademn.GetComponent<TowerUpgrader>().UpdateSprite();
         StartCoroutine(upgrademn.GetComponent<TowerUpgrader>().KillMenu(2f));

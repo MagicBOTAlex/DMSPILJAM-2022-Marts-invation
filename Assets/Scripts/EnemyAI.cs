@@ -10,9 +10,9 @@ public class EnemyAI : MonoBehaviour
     public float EventDelay = 5f;
 
     List<TowerInfo> Towers { get { return GameManagerScript.instance.Towers_; } set { GameManagerScript.instance.Towers_ = value; } }
-    List<TowerInfo> PlayerTowers { get { return GameManagerScript.instance.Towers_.Where(x => x.Type == TowerType.Player).ToList(); } }
-    List<TowerInfo> NeutralTowers { get { return GameManagerScript.instance.Towers_.Where(x => x.Type == TowerType.Neutral).ToList(); } }
-    List<TowerInfo> EnemyTowersRandom { get { return GameManagerScript.instance.Towers_.Where(x=>x.Type == TowerType.Enemy).ToList(); } }
+    TowerInfo[] PlayerTowers { get { return GameManagerScript.instance.Towers_.Where(x => x.Type == TowerType.Player).ToArray(); } }
+    TowerInfo[] NeutralTowers { get { return GameManagerScript.instance.Towers_.Where(x => x.Type == TowerType.Neutral).ToArray(); } }
+    TowerInfo[] EnemyTowersRandom { get { return GameManagerScript.instance.Towers_.Where(x=>x.Type == TowerType.Enemy).ToArray(); } }
 
     void SendUnits(TowerInfo from, TowerInfo to, int amount) => GameManagerScript.instance.SendUnits(from, to, amount);
 
@@ -34,17 +34,17 @@ public class EnemyAI : MonoBehaviour
 
     void GatherAll()
     {
-        int gatherIndex = Random.Range(0, EnemyTowersRandom.Count);
-        for (int i = 0; i < EnemyTowersRandom.Count; i++)
+        int gatherIndex = Random.Range(0, EnemyTowersRandom.Length);
+        for (int i = 0; i < EnemyTowersRandom.Length; i++)
         {
             if (i == gatherIndex) continue;
 
             SendUnits(EnemyTowersRandom[i], EnemyTowersRandom[gatherIndex], EnemyTowersRandom[i].UnitsInside);
         }
 
-        var attackHere = (Random.Range(0, 1) == 0) ? PlayerTowers[Random.Range(0, PlayerTowers.Count)] : NeutralTowers[Random.Range(0, NeutralTowers.Count)];
+        var attackHere = (Random.Range(0, 1) == 0) ? PlayerTowers[Random.Range(0, PlayerTowers.Length)] : NeutralTowers[Random.Range(0, NeutralTowers.Length)];
         
-        print($"Enemy attacking tower: {attackHere.Object.name}");
+        print($"Enemy attacking tower: {attackHere.Object.name} {attackHere.Type}");
 
         StartCoroutine(WaitBeforeSend(EnemyTowersRandom[gatherIndex], attackHere, attackHere.UnitsInside));
     }

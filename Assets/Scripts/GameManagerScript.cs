@@ -12,27 +12,27 @@ public class GameManagerScript : MonoBehaviour
     public List<TowerInfo> Towers_ = new List<TowerInfo>();
     public static List<TowerInfo> Towers { get { return instance.Towers_; } set { instance.Towers_ = value; } }
     public List<AbillityInfo> Abillities_ = new List<AbillityInfo>();
-    public static List<TowerInfo> PlayerTowers { get { return instance.Towers_.Where(x => x.Type == TowerType.Player).ToList(); }
+    public static TowerInfo[] PlayerTowers { get { return instance.Towers_.Where(x => x.Type == TowerType.Player).ToArray(); }
         set
         {
-            for (int i = 0; i < value.Count; i++)
+            for (int i = 0; i < value.Length; i++)
             {
                 instance.Towers_[value[i].IndexInList] = value[i];
             }
         }
     }
-    public static List<TowerInfo> NeutralTowers { get { return instance.Towers_.Where(x => x.Type == TowerType.Neutral).ToList(); } set 
+    public static TowerInfo[] NeutralTowers { get { return instance.Towers_.Where(x => x.Type == TowerType.Neutral).ToArray(); } set 
         {
-            for (int i = 0; i < value.Count; i++)
+            for (int i = 0; i < value.Length; i++)
             {
                 instance.Towers_[value[i].IndexInList] = value[i];
             }
         } 
     }
-    public static List<TowerInfo> EnemyTowersRandom { get { return instance.Towers_.Where(x => x.Type == TowerType.Enemy).ToList(); } 
+    public static TowerInfo[] EnemyTowersRandom { get { return instance.Towers_.Where(x => x.Type == TowerType.Enemy).ToArray(); } 
         set 
         {
-            for (int i = 0; i < value.Count; i++)
+            for (int i = 0; i < value.Length; i++)
             {
                 instance.Towers_[value[i].IndexInList] = value[i];
             }

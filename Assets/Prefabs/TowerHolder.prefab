@@ -282,6 +282,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc90e1733b729634ba6aa78d91f50d62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  UMXOffset: 0.61
+  UMYOffset: 0.44
   upgradeMenu: {fileID: 4040356553568611671, guid: f888196a175757ababb85806c349308b, type: 3}
 --- !u!61 &4819696277556506207
 BoxCollider2D:

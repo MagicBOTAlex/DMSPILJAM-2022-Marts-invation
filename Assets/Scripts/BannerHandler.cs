@@ -30,7 +30,7 @@ public class BannerHandler : MonoBehaviour
     /// </summary>
     private void UpdateBanner() {
         // Get Total and team's score
-        int playerScore = GetPlayerScore(); 
+        int playerScore = 1;//GetPlayerScore(); 
         int enemyScore = GameManagerScript.instance.Towers_.Where(x => x.Type == TowerType.Enemy).Sum(x=>x.UnitsInside);
         int totalScore = playerScore + enemyScore;
         // print($"pScore: {playerScore}");

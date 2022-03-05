@@ -32,6 +32,7 @@ public class AbillityCooldDown : MonoBehaviour
                     //Debug.Log(distFromCompl);
                 }
                 else { // Done with coolDown
+                    Debug.Log("Done with cooldown");
                     GameManagerScript.Abillities[i].curCooldown = 0f;
                     GameManagerScript.Abillities[i].IsCooling = false;                 
                 }
@@ -106,10 +107,13 @@ public class AbillityCooldDown : MonoBehaviour
     /// Enables cooldown for the abillity button with the specified name
     /// <param name="name"> The abillity name to enable cooldown for.</param>
     /// </summary>
-    public void EnableCooldown(string name) {
+    public void EnableCooldownAndSpawn(string name) {
         for (int i = 0; i < GameManagerScript.Abillities.Count; ++i) {
             if (GameManagerScript.Abillities[i].AbillityName == name && !GameManagerScript.Abillities[i].IsCooling) {
-                //Debug.Log($"Enabled cooldown for: {GameManagerScript.Abillities[i].AbillityName}");
+                if (GameManagerScript.Abillities[i].AbillityName == "Player Spawner") {
+                    GetComponent<PlayerSpawner>().SpawnPlayer();
+                }
+                Debug.Log($"Enabled cooldown for: {GameManagerScript.Abillities[i].AbillityName}");
                 GameManagerScript.Abillities[i].IsCooling = true;
             }
         }

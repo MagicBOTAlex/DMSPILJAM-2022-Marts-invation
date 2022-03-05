@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerSpawner : MonoBehaviour
 {
     public GameObject playerPref;
-    private float killDelay = 5f;
+    private float killDelay = 15f;
 
     /// <summary>
     /// Spawns the player in the worlds origin. Used by the spawn player abillity

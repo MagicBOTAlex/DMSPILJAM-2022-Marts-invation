@@ -88,7 +88,6 @@ public class TowerEventHandler : MonoBehaviour
         upgrademn.GetComponent<TowerUpgrader>().towerIndex = index;
         upgrademn.GetComponent<TowerUpgrader>().UpdateSprite();
         upgrademn.GetComponent<TowerUpgrader>().mouseOver = true;
-        Debug.Log($"Setting index to {index}");
         transform.GetChild(0).GetComponent<Renderer>().enabled = true;
     }
 
@@ -96,7 +95,7 @@ public class TowerEventHandler : MonoBehaviour
     {
         transform.GetChild(0).GetComponent<Renderer>().enabled = false;
         upgrademn.GetComponent<TowerUpgrader>().UpdateSprite();
-        StartCoroutine(upgrademn.GetComponent<TowerUpgrader>().KillMenu(3f));
+        StartCoroutine(upgrademn.GetComponent<TowerUpgrader>().KillMenu(2f));
         upgrademn.GetComponent<TowerUpgrader>().mouseOver = false;
     }
 }

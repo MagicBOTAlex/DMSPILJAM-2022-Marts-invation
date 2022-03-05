@@ -2,6 +2,7 @@ using System.Linq;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using Assets;
 
 public class GameManagerScript : MonoBehaviour
@@ -72,8 +73,8 @@ public class GameManagerScript : MonoBehaviour
     public static bool IsPlayerOnMap = false;
     public GameObject UnitPrefab;
 
-    public Sprite PlayerUnitSprite;
-    public Sprite EnemyUnitSprite;
+    public Sprite[] PlayerUnitSprite;
+    public Sprite[] EnemyUnitSprite;
 
     public GameObject WinScreen;
     public GameObject LoseScreen;
@@ -149,7 +150,7 @@ public class GameManagerScript : MonoBehaviour
             var unit = Instantiate(UnitPrefab, from.Object.transform.position, Quaternion.identity, spawnedUnitsHolder.transform) as GameObject;
             var unitScript = unit.GetComponent<UnitScript>();
 
-            unit.GetComponent<SpriteRenderer>().sprite = unitSprite;
+            unit.GetComponent<SpriteRenderer>().sprite = unitSprite[Random.Range(0, unitSprite.Length)];
             unit.name = i.ToString();
             UnitsOnMap.Add(unit);
 

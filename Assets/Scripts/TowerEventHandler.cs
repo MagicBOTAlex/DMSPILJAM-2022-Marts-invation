@@ -65,6 +65,11 @@ public class TowerEventHandler : MonoBehaviour
             if (GameManagerScript.Towers[GetComponent<TowerIndexHolder>().TowerIndex].Type != TowerType.Player) return;
             GameManagerScript.Selected[0] = gameObject;
         }
+        else if (GameManagerScript.Selected[0] == gameObject)
+        {
+            GameManagerScript.Selected[0].transform.GetChild(1).gameObject.GetComponent<SpriteRenderer>().enabled = false;
+            GameManagerScript.Selected[0] = null;
+        }
         else if (GameManagerScript.Selected[1] == null && GameManagerScript.Selected[0] != gameObject)
         {
             GameManagerScript.Selected[1] = gameObject;

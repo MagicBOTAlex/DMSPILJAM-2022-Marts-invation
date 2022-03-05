@@ -4,15 +4,14 @@ using UnityEngine;
 using System.Linq;
 using Assets;
 using UnityEngine.UI;
-using TMPro;
 public class BannerHandler : MonoBehaviour
 {
     
     private float fraqScale = 1f;
     public Image playerBar;
     public Image enemyBar;
-    public TMPro.TextMeshProUGUI playerText;
-    public TMPro.TextMeshProUGUI enemyText;
+    public Text playerText;
+    public Text enemyText;
 
     private void Awake() {
         fraqScale = transform.localScale.y / 100f;

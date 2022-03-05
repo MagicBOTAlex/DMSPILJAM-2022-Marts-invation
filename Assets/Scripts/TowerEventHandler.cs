@@ -8,6 +8,7 @@ public class TowerEventHandler : MonoBehaviour
 {
 
     public GameObject upgradeMenu;
+    private GameObject upgrademn;
     private void Start() => DoubleStarter();
     //private void OnEnable() => DoubleStarter();
 
@@ -71,9 +72,11 @@ public class TowerEventHandler : MonoBehaviour
 
     public void OnMouseEnter()
     {
-        GameObject upgrademn = Instantiate(upgradeMenu, new Vector3(transform.position.x, transform.position.y - 2f, transform.position.z), upgradeMenu.transform.rotation);
+        upgrademn = Instantiate(upgradeMenu, new Vector3(transform.position.x, transform.position.y - 2f, transform.position.z), upgradeMenu.transform.rotation);
         // Set the tower index in the new upgrader script so it knows which tower to upgrade
-        upgradeMenu.GetComponent<TowerUpgrader>().towerIndex = GetComponent<TowerIndexHolder>().TowerIndex;
+        int index = GetComponent<TowerIndexHolder>().TowerIndex;
+        upgrademn.GetComponent<TowerUpgrader>().towerIndex = index;
+        Debug.Log($"Setting index to {index}");
         transform.GetChild(0).GetComponent<Renderer>().enabled = true;
     }
 

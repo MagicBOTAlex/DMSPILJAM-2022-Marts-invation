@@ -3140,13 +3140,25 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1465240490, guid: 23d4396c8043a7637b796dc2c3c3bc7f, type: 3}
+      propertyPath: Speed
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1465240490, guid: 23d4396c8043a7637b796dc2c3c3bc7f, type: 3}
+      propertyPath: Acceleration
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1465240490, guid: 23d4396c8043a7637b796dc2c3c3bc7f, type: 3}
+      propertyPath: Deceleration
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 4501296071730732326, guid: 23d4396c8043a7637b796dc2c3c3bc7f, type: 3}
       propertyPath: m_Name
       value: player
       objectReference: {fileID: 0}
     - target: {fileID: 4501296071730732326, guid: 23d4396c8043a7637b796dc2c3c3bc7f, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4664724287875455619, guid: 23d4396c8043a7637b796dc2c3c3bc7f, type: 3}
       propertyPath: m_RootOrder

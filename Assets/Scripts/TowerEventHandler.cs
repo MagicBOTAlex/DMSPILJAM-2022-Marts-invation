@@ -9,6 +9,7 @@ public class TowerEventHandler : MonoBehaviour
 
     public GameObject upgradeMenu;
     private GameObject upgrademn;
+    public float UMXOffset, UMYOffset;
     private void Start() => DoubleStarter();
     //private void OnEnable() => DoubleStarter();
 
@@ -42,6 +43,8 @@ public class TowerEventHandler : MonoBehaviour
         //if (collision.gameObject.CompareTag("Towers")) Physics2D.IgnoreCollision(GetComponent<Collider2D>(), collision.collider, true);
         if (gameObject != collision.gameObject.GetComponent<UnitScript>().To.Object) return;
 
+        GameManagerScript.UnitsOnMap.Remove(collision.gameObject);
+
         if (collision.gameObject.GetComponent<UnitScript>().From.Type == collision.gameObject.GetComponent<UnitScript>().To.Type)
             GameManagerScript.Towers[GetComponent<TowerIndexHolder>().TowerIndex].UnitsInside += collision.gameObject.GetComponent<UnitScript>().Damage;
         else
@@ -72,7 +75,7 @@ public class TowerEventHandler : MonoBehaviour
 
     public void OnMouseEnter()
     {
-        upgrademn = Instantiate(upgradeMenu, new Vector3(transform.position.x, transform.position.y - 2f, transform.position.z), upgradeMenu.transform.rotation, transform);
+        upgrademn = Instantiate(upgradeMenu, new Vector3(transform.position.x + UMXOffset, transform.position.y - UMYOffset, transform.position.z), upgradeMenu.transform.rotation);
         // Set the tower index in the new upgrader script so it knows which tower to upgrade
         int index = GetComponent<TowerIndexHolder>().TowerIndex;
         upgrademn.GetComponent<TowerUpgrader>().towerIndex = index;

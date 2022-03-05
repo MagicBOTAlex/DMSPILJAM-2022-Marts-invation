@@ -156,6 +156,7 @@ MonoBehaviour:
   Seleted_:
   - {fileID: 0}
   - {fileID: 0}
+  UnitsOnMap_: []
   GainUnitsDelay_: 1
   UnitSpeed_: 10
   UnitSpawnDelay_: 0.1
@@ -1358,6 +1359,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03fb318da5d1cf536973ba088ebd0069, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerBar: {fileID: 794868524}
+  enemyBar: {fileID: 1454434133}
 --- !u!1 &775731730
 GameObject:
   m_ObjectHideFlags: 0

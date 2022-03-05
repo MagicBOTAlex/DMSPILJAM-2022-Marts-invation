@@ -119,7 +119,7 @@ public class GameManagerScript : MonoBehaviour
         if (from.UnitsInside < amount) return false;
         if (from.Type == TowerType.Neutral) return false;
 
-        from.UnitsInside -= amount;
+        //from.UnitsInside -= amount;
 
         StartCoroutine(StartSending(from, to, amount));
         return true;
@@ -141,6 +141,8 @@ public class GameManagerScript : MonoBehaviour
             unitScript.From = from;
             unitScript.To = to;
             unitScript.Speed = UnitSpeed_;
+
+            from.UnitsInside--;
 
             yield return new WaitForSecondsRealtime(UnitSpawnDelay_);
         }

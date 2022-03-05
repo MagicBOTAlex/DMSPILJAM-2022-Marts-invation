@@ -13,22 +13,27 @@ public class meteor : MonoBehaviour
 
     private (int, int) position;
 
-    void Start()
-    {
-        position = pos();
-        Debug.Log(position);
-    }
-
+    private float nextActionTime = 0.0f;
+    public float period = 3.0f;
     public (int, int) pos()
     {
-        x = Random.Range(0, 1920);
-        y = Random.Range(0, 1080);
+        x = Random.Range(-8, 8);
+        y = Random.Range(-5, 5);
         return (x, y);
     }
 
-    // Update is called once per frame
     void Update()
     {
+        if (Time.time > nextActionTime)
+        {
+            nextActionTime += period;
 
+            position = pos();
+            x = position.Item1;
+            y = position.Item2;
+            Debug.Log(x);
+            Debug.Log(y);
+            Instantiate(shadow, new Vector2(x, y), Quaternion.identity);
+        }
     }
 }

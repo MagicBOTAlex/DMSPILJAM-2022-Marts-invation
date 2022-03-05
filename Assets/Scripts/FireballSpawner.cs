@@ -8,5 +8,7 @@ public class FireballSpawner : MonoBehaviour
 
     public void SpawnFireball() {
         // TODO implement method
+
+        // TODO Create marker
     }
 }

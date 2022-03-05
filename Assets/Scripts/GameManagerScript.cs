@@ -136,6 +136,7 @@ public class GameManagerScript : MonoBehaviour
 
             unit.GetComponent<SpriteRenderer>().sprite = unitSprite;
             unit.name = i.ToString();
+            UnitsOnMap.Add(unit);
 
             unitScript.From = from;
             unitScript.To = to;

@@ -16,15 +16,16 @@ public class UnitScript : MonoBehaviour
 
     Rigidbody2D rb;
 
+    private void OnEnable()
+    {
+        GetComponent<SpriteRenderer>().sprite = Resources.Load("PLAYER1") as Sprite;
+    }
+
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
 
-        if (From == null)
-        {
-            GetComponent<SpriteRenderer>().sprite = Resources.Load("PLAYER1") as Sprite;
-        }
-        else
+        if (From != null)
         {
             Type = From.Type;
             print($"{From.Type} {Type}");

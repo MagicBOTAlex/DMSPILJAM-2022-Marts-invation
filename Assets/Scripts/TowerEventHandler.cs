@@ -2,6 +2,7 @@ using Assets;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class TowerEventHandler : MonoBehaviour
 {
@@ -18,6 +19,7 @@ public class TowerEventHandler : MonoBehaviour
         var sp = GetComponent<SpriteRenderer>();
         switch (type)
         {
+            //Trash
             case TowerType.Player:
                 sp.sprite = GameManagerScript.PlayerTowerSprites[towerLevel - 1];
                 break;
@@ -33,7 +35,7 @@ public class TowerEventHandler : MonoBehaviour
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
-    {   
+    {
         //print("Hit!");
         //if (collision.gameObject.CompareTag("Units")) Physics2D.IgnoreCollision(GetComponent<Collider2D>(), collision.collider, true);
         //if (collision.gameObject.CompareTag("Towers")) Physics2D.IgnoreCollision(GetComponent<Collider2D>(), collision.collider, true);
@@ -43,7 +45,7 @@ public class TowerEventHandler : MonoBehaviour
             GameManagerScript.Towers[GetComponent<TowerIndexHolder>().TowerIndex].UnitsInside += collision.gameObject.GetComponent<UnitScript>().Damage;
         if (collision.gameObject.GetComponent<UnitScript>().From.Type == TowerType.Enemy)
             GameManagerScript.Towers[GetComponent<TowerIndexHolder>().TowerIndex].UnitsInside -= collision.gameObject.GetComponent<UnitScript>().Damage;
-        
+
         Destroy(collision.gameObject);
     }
 

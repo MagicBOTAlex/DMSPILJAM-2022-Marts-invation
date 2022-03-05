@@ -152,6 +152,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b106b0faba757549bde158f930bde70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Seleted_:
+  - {fileID: 0}
+  - {fileID: 0}
+  GainUnitsDelay_: 1
+  UnitSpeed_: 1
+  UnitSpawnDelay_: 0.1
+  PlayerTowerSprites_: []
+  NeutralTowerSprites_: []
+  EnemyTowerSprites_: []
+  UnitPrefab: {fileID: 0}
+  PlayerUnitSprite: {fileID: 0}
+  EnemyUnitSprite: {fileID: 0}
 --- !u!4 &24099886
 Transform:
   m_ObjectHideFlags: 0
@@ -652,7 +664,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1465240489}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0fe56926f754632419dccaab06d53330, type: 3}
   m_Name: 
@@ -851,7 +863,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67afec88cec665d48af6858d8df2667a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Sword: {fileID: 1925980926}
+  player: {fileID: 1465240489}
 --- !u!212 &1925980929
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -971,6 +983,18 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1465240490, guid: 23d4396c8043a7637b796dc2c3c3bc7f, type: 3}
+      propertyPath: Speed
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1465240490, guid: 23d4396c8043a7637b796dc2c3c3bc7f, type: 3}
+      propertyPath: Deceleration
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1465240490, guid: 23d4396c8043a7637b796dc2c3c3bc7f, type: 3}
+      propertyPath: MinSpeedStartRun
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4501296071730732326, guid: 23d4396c8043a7637b796dc2c3c3bc7f, type: 3}
       propertyPath: m_Name
       value: unit

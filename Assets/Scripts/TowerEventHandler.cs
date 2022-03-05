@@ -32,7 +32,7 @@ public class TowerEventHandler : MonoBehaviour
                 break;
 
             default:
-                sp.sprite = GameManagerScript.NeutralTowerSprites[0];
+                sp.sprite = GameManagerScript.NeutralTowerSprites[towerLevel - 1];
                 break;
         }
     }

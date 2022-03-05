@@ -44,6 +44,10 @@ public class GameManagerScript : MonoBehaviour
     public static GameObject[] Selected { get { return instance.Seleted_; } set { instance.Seleted_ = value; } }
     public List<GameObject> UnitsOnMap_;
     public static List<GameObject> UnitsOnMap { get { return instance.UnitsOnMap_; } set { instance.UnitsOnMap_ = value; } }
+    public int PlayerUnitsPending_ = 0;
+    public static int PlayerUnitsPending { get { return instance.PlayerUnitsPending_; } set { instance.PlayerUnitsPending_ = value; } }
+    public int EnemyUnitsPending_ = 0;
+    public static int EnemyUnitsPending { get { return instance.EnemyUnitsPending_; } set { instance.EnemyUnitsPending_ = value; } }
 
     public static int UnitsNeededForLvl2 = 20;
     public static int UnitsNeededForLvl3 = 50;
@@ -129,6 +133,11 @@ public class GameManagerScript : MonoBehaviour
     {
         var unitSprite = (from.Type == TowerType.Player) ? PlayerUnitSprite : EnemyUnitSprite;
 
+        if (from.Type == TowerType.Player)
+            PlayerUnitsPending += amount;
+        else
+            EnemyUnitsPending += amount;
+
         for (int i = 0; i < amount; i++)
         {
             var unit = Instantiate(UnitPrefab, from.Object.transform.position, Quaternion.identity, spawnedUnitsHolder.transform) as GameObject;
@@ -141,6 +150,11 @@ public class GameManagerScript : MonoBehaviour
             unitScript.From = from;
             unitScript.To = to;
             unitScript.Speed = UnitSpeed_;
+
+            if (from.Type == TowerType.Player)
+                PlayerUnitsPending--;
+            else
+                EnemyUnitsPending--;
 
             yield return new WaitForSecondsRealtime(UnitSpawnDelay_);
         }

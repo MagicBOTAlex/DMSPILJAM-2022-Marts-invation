@@ -22,9 +22,12 @@ public class UnitDisplayer : MonoBehaviour
         text.text = "sussi";
     }
     private void FixedUpdate() {
-        //int units = GameManagerScript.Towers[towerIndex].UnitsInside;
+        UpdateDisplay();
+    }
 
-        // Display units
+    private void UpdateDisplay() {
+        int units = GameManagerScript.Towers[towerIndex].UnitsInside;
+        text.text = units.ToString();
     }
 
     private float ConvertUnit2Px(float unit) {

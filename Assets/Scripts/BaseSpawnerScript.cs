@@ -6,6 +6,7 @@ public class BaseSpawnerScript : MonoBehaviour
 {
     public GameObject BasePrefab;
     public GameObject UDPref;
+    public float UDXOffset, UDYOffset;
     private void Start()
     {
         var scripts = GetComponentsInChildren<SpawnHereScript>();
@@ -30,7 +31,7 @@ public class BaseSpawnerScript : MonoBehaviour
             });
 
             // Spawn unit displayer
-            var spawnedUD = Instantiate(UDPref, scripts[i].gameObject.transform.position, Quaternion.identity)  as GameObject;
+            var spawnedUD = Instantiate(UDPref, new Vector3(scripts[i].gameObject.transform.position.x - UDXOffset, scripts[i].gameObject.transform.position.y + UDYOffset, scripts[i].gameObject.transform.position.z), Quaternion.identity)  as GameObject;
             spawnedUD.GetComponent<UnitDisplayer>().towerIndex = i;
 
             Destroy(scripts[i].gameObject);

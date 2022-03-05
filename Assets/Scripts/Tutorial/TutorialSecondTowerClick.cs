@@ -14,7 +14,7 @@ public class TutorialSecondTowerClick : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (GetComponent<DestroyOnTrigger>().ObjectsDestroyed > 15)
+        if (GetComponent<DestroyOnTrigger>().ObjectsDestroyed > 19)
             GetComponent<SpriteRenderer>().sprite = PlayerTowerPrefab;
     }
 }

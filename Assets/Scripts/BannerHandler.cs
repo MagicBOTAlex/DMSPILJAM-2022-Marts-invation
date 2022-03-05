@@ -59,6 +59,7 @@ public class BannerHandler : MonoBehaviour
                 outside++;
             }
         }
+        Debug.Log($"{outside} Units from player on map");
         return inside + outside;
     } 
     private int GetEnemyScore() {

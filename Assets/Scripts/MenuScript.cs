@@ -6,11 +6,21 @@ using UnityEngine.UI;
 
 public class MenuScript : MonoBehaviour
 {
-    public GameObject takeOverButton, levelSelectButton, settingsButton;
-    public Sprite back1, back2, back3;
+
+    /*[SerializeField] RectTransform fader;
 
 
-  
+    private void Awake()
+    {
+        fader.gameObject.SetActive(true);
+
+        LeanTween.scale(fader, new Vector3(1, 1, 1), 0);
+        LeanTween.scale(fader, Vector3.zero, 0.5f).setEase(LeanTweenType.easeInOutExpo).setOnComplete(() =>
+        {
+            fader.gameObject.SetActive(false);
+        });
+    }*/
+
 
     public static void LoadScene(string name) {
         try {

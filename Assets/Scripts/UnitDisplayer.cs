@@ -18,8 +18,8 @@ public class UnitDisplayer : MonoBehaviour
         
         transform.SetParent(canvasTrans);
         Debug.Log(transform.position);
-        text = GetComponent<TextMesh>();
-        text.text = "hello";
+        text = GetComponentInChildren<TextMesh>();
+        text.text = "sussi";
     }
     private void FixedUpdate() {
         //int units = GameManagerScript.Towers[towerIndex].UnitsInside;

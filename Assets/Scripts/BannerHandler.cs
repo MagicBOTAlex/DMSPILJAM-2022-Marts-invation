@@ -38,10 +38,12 @@ public class BannerHandler : MonoBehaviour
         // Calculate percantages of banner to fill
         float playerPer = CalculatePerc(totalScore, playerScore);
         float enemyPer = CalculatePerc(totalScore, enemyScore);
-        Debug.Log($"Plyerper: {playerPer}");
+        //Debug.Log($"Plyerper: {playerPer}");
         // Set fill amount
+        /*
         playerBar.fillAmount = playerPer;
         enemyBar.fillAmount = enemyPer;
+        */
     }
 
     private float CalculatePerc(int total, int denom) {

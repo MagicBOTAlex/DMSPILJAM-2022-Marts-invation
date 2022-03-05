@@ -61,10 +61,10 @@ public class GameManagerScript : MonoBehaviour
             yield return new WaitForSecondsRealtime(GainUnitsDelay_);
             for (int i = 0; i < Towers.Count; i++)
             {
-                if (Towers[i].Type != TowerType.Enemy && 
+                if (Towers[i].Type != TowerType.Neutral && 
                     Towers[i].UnitsInside < Towers[i].MaxUnits + 1)
                 {
-                    Towers[i].UnitsInside++;
+                    Towers[i].UnitsInside += Towers[i].TowerLevel;
                 }
             }
         }
@@ -130,12 +130,14 @@ public class GameManagerScript : MonoBehaviour
     public void CheckTower(TowerInfo from, TowerInfo to)
     {
         if (Towers[to.IndexInList].UnitsInside < 0) ConvertTower(from, to);
-        print(Towers[to.IndexInList].UnitsInside.ToString());
+        //print(Towers[to.IndexInList].UnitsInside.ToString());
     }
 
     public void ConvertTower(TowerInfo from, TowerInfo to) 
     {
-        Towers[to.IndexInList].TowerLevel = 1;
+        if (to.Type != TowerType.Neutral) 
+            Towers[to.IndexInList].TowerLevel = 1;
+
         Towers[to.IndexInList].UnitsInside = 0;
 
         if (to.Type == TowerType.Neutral)
@@ -144,7 +146,7 @@ public class GameManagerScript : MonoBehaviour
         }
         else
         {
-            Towers[to.IndexInList].Type = (from.Type == TowerType.Player) ? TowerType.Enemy : TowerType.Player;
+            Towers[to.IndexInList].Type = (from.Type == TowerType.Player) ? TowerType.Player : TowerType.Enemy;
         }
 
 

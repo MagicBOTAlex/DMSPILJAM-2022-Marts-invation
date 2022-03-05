@@ -17,7 +17,7 @@ public class UnitDisplayer : MonoBehaviour
 
         
         transform.SetParent(canvasTrans);
-        Debug.Log(transform.position);
+        //Debug.Log(transform.position);
         text = GetComponentInChildren<TextMesh>();
         text.text = "sussi";
     }

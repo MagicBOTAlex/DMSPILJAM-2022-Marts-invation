@@ -21,7 +21,7 @@ public class UnitDisplayer : MonoBehaviour
         text = GetComponentInChildren<TextMesh>();
         text.text = "sussi";
     }
-    private void FixedUpdate() {
+    private void Update() {
         UpdateDisplay();
     }
 

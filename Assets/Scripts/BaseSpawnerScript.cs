@@ -5,7 +5,7 @@ using UnityEngine;
 public class BaseSpawnerScript : MonoBehaviour
 {
     public GameObject BasePrefab;
-
+    public GameObject UDPref;
     private void Start()
     {
         var scripts = GetComponentsInChildren<SpawnHereScript>();
@@ -26,6 +26,10 @@ public class BaseSpawnerScript : MonoBehaviour
                 IndexInList = i,
                 MaxUnits = 100
             });
+
+            // Spawn unit displayer
+            var spawnedUD = Instantiate(UDPref, scripts[i].gameObject.transform.position, Quaternion.identity)  as GameObject;
+            spawnedUD.GetComponent<UnitDisplayer>().towerIndex = i;
 
             Destroy(scripts[i].gameObject);
         }

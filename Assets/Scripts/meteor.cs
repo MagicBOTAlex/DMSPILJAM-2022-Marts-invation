@@ -31,8 +31,6 @@ public class meteor : MonoBehaviour
             position = pos();
             x = position.Item1;
             y = position.Item2;
-            Debug.Log(x);
-            Debug.Log(y);
             Instantiate(shadow, new Vector2(x, y), Quaternion.identity);
         }
     }

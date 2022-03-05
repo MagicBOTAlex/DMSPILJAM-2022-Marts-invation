@@ -113,5 +113,6 @@ public class EnemyAI : MonoBehaviour
         SendUnits(EnemyTowersRandom[fromIndex], attackHere, (attackHere.Type == TowerType.Neutral) ? attackHere.UnitsInside + 5 : EnemyTowersRandom[fromIndex].UnitsInside);
 
     Forward:;
+        UpgradeAll();
     }
 }

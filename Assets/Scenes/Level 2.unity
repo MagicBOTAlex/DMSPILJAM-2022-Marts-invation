@@ -1564,8 +1564,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerBar: {fileID: 794868524}
   enemyBar: {fileID: 1454434133}
-  playerText: {fileID: 0}
-  enemyText: {fileID: 0}
+  playerText: {fileID: 948018374}
+  enemyText: {fileID: 444007766}
 --- !u!1 &699450538
 GameObject:
   m_ObjectHideFlags: 0

@@ -37,8 +37,6 @@ public class meteor_movement : MonoBehaviour
             {
                 Destroy(gameObject);
             }
-            target = GameObject.FindGameObjectWithTag("shadow").GetComponent<Transform>();
-            transform.position = Vector2.MoveTowards(transform.position, target.transform.position, speed * Time.deltaTime);
         }
     }
     private void OnTriggerEnter2D(Collider2D other)

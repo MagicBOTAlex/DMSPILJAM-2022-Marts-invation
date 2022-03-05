@@ -4,12 +4,15 @@ using UnityEngine;
 using System.Linq;
 using Assets;
 using UnityEngine.UI;
+using TMPro;
 public class BannerHandler : MonoBehaviour
 {
     
     private float fraqScale = 1f;
     public Image playerBar;
     public Image enemyBar;
+    public TMPro.TextMeshProUGUI playerText;
+    public TMPro.TextMeshProUGUI enemyText;
 
     private void Awake() {
         fraqScale = transform.localScale.y / 100f;
@@ -43,6 +46,10 @@ public class BannerHandler : MonoBehaviour
         
         playerBar.fillAmount = playerPer;
         enemyBar.fillAmount = enemyPer;
+
+        // Set units text
+        playerText.text = playerScore.ToString();
+        enemyText.text = enemyScore.ToString();
     }
 
     private float CalculatePerc(int total, int denom) {
@@ -53,23 +60,25 @@ public class BannerHandler : MonoBehaviour
     
     private int GetPlayerScore() {
         int inside = GameManagerScript.instance.Towers_.Where(x => x.Type == TowerType.Player).Sum(x => x.UnitsInside);
-        int outside = 0;
+        int outside = GameManagerScript.UnitsOnMap.Where(x => x.GetComponent<UnitScript>().From.Type == Assets.TowerType.Player).Count() + GameManagerScript.PlayerUnitsPending; 
+        /*
         for (int i = 0; i < GameManagerScript.UnitsOnMap.Count; ++i) {
             if (GameManagerScript.UnitsOnMap[i].GetComponent<UnitScript>().From.Type == TowerType.Player) {
                 outside++;
             }
-        }
-        Debug.Log($"{outside} Units from player on map");
+        }*/
+        //Debug.Log($"{outside} Units from player on map");
         return inside + outside;
     } 
     private int GetEnemyScore() {
         int inside = GameManagerScript.instance.Towers_.Where(x => x.Type == TowerType.Enemy).Sum(x => x.UnitsInside);
-        int outside = 0;
+        int outside = GameManagerScript.UnitsOnMap.Where(x => x.GetComponent<UnitScript>().From.Type == Assets.TowerType.Enemy).Count() + GameManagerScript.EnemyUnitsPending;
+        /*
         for (int i = 0; i < GameManagerScript.UnitsOnMap.Count; ++i) {
             if (GameManagerScript.UnitsOnMap[i].GetComponent<UnitScript>().From.Type == TowerType.Enemy) {
                 outside++;
             }
-        }
+        }*/
         return inside + outside;
     }
 }

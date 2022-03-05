@@ -30,8 +30,8 @@ public class BannerHandler : MonoBehaviour
     /// </summary>
     private void UpdateBanner() {
         // Get Total and team's score
-        int playerScore = 1;//GetPlayerScore(); 
-        int enemyScore = GameManagerScript.instance.Towers_.Where(x => x.Type == TowerType.Enemy).Sum(x=>x.UnitsInside);
+        int playerScore = GetPlayerScore();
+        int enemyScore = GetEnemyScore(); 
         int totalScore = playerScore + enemyScore;
         // print($"pScore: {playerScore}");
 
@@ -40,10 +40,9 @@ public class BannerHandler : MonoBehaviour
         float enemyPer = CalculatePerc(totalScore, enemyScore);
         //Debug.Log($"Plyerper: {playerPer}");
         // Set fill amount
-        /*
+        
         playerBar.fillAmount = playerPer;
         enemyBar.fillAmount = enemyPer;
-        */
     }
 
     private float CalculatePerc(int total, int denom) {
@@ -54,6 +53,22 @@ public class BannerHandler : MonoBehaviour
     
     private int GetPlayerScore() {
         int inside = GameManagerScript.instance.Towers_.Where(x => x.Type == TowerType.Player).Sum(x => x.UnitsInside);
-        return -1;
+        int outside = 0;
+        for (int i = 0; i < GameManagerScript.UnitsOnMap.Count; ++i) {
+            if (GameManagerScript.UnitsOnMap[i].GetComponent<UnitScript>().From.Type == TowerType.Player) {
+                outside++;
+            }
+        }
+        return inside + outside;
+    } 
+    private int GetEnemyScore() {
+        int inside = GameManagerScript.instance.Towers_.Where(x => x.Type == TowerType.Enemy).Sum(x => x.UnitsInside);
+        int outside = 0;
+        for (int i = 0; i < GameManagerScript.UnitsOnMap.Count; ++i) {
+            if (GameManagerScript.UnitsOnMap[i].GetComponent<UnitScript>().From.Type == TowerType.Enemy) {
+                outside++;
+            }
+        }
+        return inside + outside;
     }
 }

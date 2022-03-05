@@ -81,6 +81,8 @@ public class TowerEventHandler : MonoBehaviour
         // Set the tower index in the new upgrader script so it knows which tower to upgrade
         int index = GetComponent<TowerIndexHolder>().TowerIndex;
         upgrademn.GetComponent<TowerUpgrader>().towerIndex = index;
+        upgrademn.GetComponent<TowerUpgrader>().UpdateSprite();
+        upgrademn.GetComponent<TowerUpgrader>().mouseOver = true;
         Debug.Log($"Setting index to {index}");
         transform.GetChild(0).GetComponent<Renderer>().enabled = true;
     }
@@ -88,5 +90,8 @@ public class TowerEventHandler : MonoBehaviour
     private void OnMouseExit()
     {
         transform.GetChild(0).GetComponent<Renderer>().enabled = false;
+        upgrademn.GetComponent<TowerUpgrader>().UpdateSprite();
+        StartCoroutine(upgrademn.GetComponent<TowerUpgrader>().KillMenu(3f));
+        upgrademn.GetComponent<TowerUpgrader>().mouseOver = false;
     }
 }

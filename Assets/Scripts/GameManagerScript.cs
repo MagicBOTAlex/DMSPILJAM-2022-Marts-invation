@@ -40,7 +40,7 @@ public class GameManagerScript : MonoBehaviour
     public Sprite PlayerUnitSprite;
     public Sprite EnemyUnitSprite;
 
-    GameObject spawnedUnitsHolder = new GameObject("UnitHolder");
+    GameObject spawnedUnitsHolder;
 
     private void Start()
     {
@@ -53,6 +53,8 @@ public class GameManagerScript : MonoBehaviour
         {
             Destroy(this);
         }
+
+        spawnedUnitsHolder = new GameObject("UnitHolder");
 
         // read the name you half faced monke
         StartCoroutine(StartGain());
@@ -99,11 +101,10 @@ public class GameManagerScript : MonoBehaviour
 
         for (int i = 0; i < amount; i++)
         {
-            var unit = Instantiate(UnitPrefab, from.Object.transform.position, Quaternion.identity) as GameObject;
+            var unit = Instantiate(UnitPrefab, from.Object.transform.position, Quaternion.identity, spawnedUnitsHolder.transform) as GameObject;
             var unitScript = unit.GetComponent<UnitScript>();
 
             unit.GetComponent<SpriteRenderer>().sprite = unitSprite;
-            unit.transform.SetParent(spawnedUnitsHolder.transform);
             unit.name = i.ToString();
 
             unitScript.From = from;

@@ -14,12 +14,22 @@ public class player_movement : MonoBehaviour
     float vertical;
 
     string last_direction;
-
+    private bool facingRight;
     Rigidbody2D body;
+
+    public GameObject player;
 
     void Start()
     {
         body = GetComponent<Rigidbody2D>();
+    }
+
+    void Flip()
+    {
+        facingRight = !facingRight;
+        Vector3 scale = player.transform.localScale;
+        scale.x *= -1;
+        player.transform.localScale = scale;
     }
 
     private void FixedUpdate()
@@ -32,17 +42,31 @@ public class player_movement : MonoBehaviour
 
             //Shit works, dont complain
             if (Input.GetKey(KeyCode.W)) { last_direction = "Up"; }
-            if (Input.GetKey(KeyCode.A)) { last_direction = "Left"; }
+            if (Input.GetKey(KeyCode.A))
+            {
+                last_direction = "Left";
+                Vector3 local = player.transform.localScale;
+                if (local == new Vector3(1.0f, 1.0f, 1.0f))
+                {
+                    Flip();
+                }
+            }
             if (Input.GetKey(KeyCode.S)) { last_direction = "Down"; }
-            if (Input.GetKey(KeyCode.D)) { last_direction = "Right"; }
+            if (Input.GetKey(KeyCode.D))
+            {
+                last_direction = "Right";
+                Vector3 local = player.transform.localScale;
+                if (local == new Vector3(-1.0f, 1.0f, 1.0f))
+                {
+                    Flip();
+                }
+            }
 
             //Diagonal
             if (body.velocity == new Vector2(Speed * -1f, Speed)) { last_direction = "UpLeft"; }
             if (body.velocity == new Vector2(Speed, Speed)) { last_direction = "UpRight"; }
             if (body.velocity == new Vector2(Speed * -1f, Speed * -1f)) { last_direction = "LeftDown"; }
             if (body.velocity == new Vector2(Speed, Speed * -1f)) { last_direction = "DownRight"; }
-
-
 
             body.velocity = new Vector2(horizontal * Speed, vertical * Speed);
 

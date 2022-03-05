@@ -45,6 +45,7 @@ public class EnemyAI : MonoBehaviour
                 {
                     EnemyTowersRandom[i].UnitsInside -= GameManagerScript.UnitsNeededForLvl2;
                     EnemyTowersRandom[i].TowerLevel++;
+                    EnemyTowersRandom[i].Object.GetComponent<TowerEventHandler>().DoubleStarter();
                 }
             }
             else if (EnemyTowersRandom[i].TowerLevel == 2)
@@ -53,6 +54,7 @@ public class EnemyAI : MonoBehaviour
                 {
                     EnemyTowersRandom[i].UnitsInside -= GameManagerScript.UnitsNeededForLvl3;
                     EnemyTowersRandom[i].TowerLevel++;
+                    EnemyTowersRandom[i].Object.GetComponent<TowerEventHandler>().DoubleStarter();
                 }
             }
         }

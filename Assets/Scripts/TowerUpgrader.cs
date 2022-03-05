@@ -21,12 +21,15 @@ public class TowerUpgrader : MonoBehaviour
 
     private void FixedUpdate() {
         
+        if (mouseOver)
+        {
             UpdateSprite();
+        }
     }
+
     private void OnMouseDown() {
         Upgrade();
         UpdateSprite();
-
     }
 
     private void OnMouseEnter() {
@@ -60,26 +63,26 @@ public class TowerUpgrader : MonoBehaviour
     public void UpdateSprite() {
         if (GameManagerScript.Towers[towerIndex].TowerLevel == 1) {
             if (GameManagerScript.Towers[towerIndex].UnitsInside >= GameManagerScript.UnitsNeededForLvl2) {
-                Debug.Log($"Sufficient Amount of units inside for upgrade: inside {GameManagerScript.Towers[towerIndex].UnitsInside}");
+                //Debug.Log($"Sufficient Amount of units inside for upgrade: inside {GameManagerScript.Towers[towerIndex].UnitsInside}");
                 sr.sprite = upgrade;
             }
             else {
-                Debug.Log($"Not enough units to upgrade!: {GameManagerScript.Towers[towerIndex].UnitsInside}");
+                //Debug.Log($"Not enough units to upgrade!: {GameManagerScript.Towers[towerIndex].UnitsInside}");
                 sr.sprite = nonUpgrade;
             }
         }
         else if (GameManagerScript.Towers[towerIndex].TowerLevel == 2) {
             if (GameManagerScript.Towers[towerIndex].UnitsInside >= GameManagerScript.UnitsNeededForLvl3) {
-                Debug.Log($"Sufficient Amount of units inside for upgrade: inside {GameManagerScript.Towers[towerIndex].UnitsInside}");
+                //Debug.Log($"Sufficient Amount of units inside for upgrade: inside {GameManagerScript.Towers[towerIndex].UnitsInside}");
                 sr.sprite = upgrade;
             }
             else {
-                Debug.Log($"Not enough units to upgrade!: {GameManagerScript.Towers[towerIndex].UnitsInside}");
+                //Debug.Log($"Not enough units to upgrade!: {GameManagerScript.Towers[towerIndex].UnitsInside}");
                 sr.sprite = nonUpgrade;
             }
         }
         else {
-            Debug.Log($"Not enough units to upgrade!: {GameManagerScript.Towers[towerIndex].UnitsInside}");
+            //Debug.Log($"Not enough units to upgrade!: {GameManagerScript.Towers[towerIndex].UnitsInside}");
             sr.sprite = nonUpgrade;
         }
     }

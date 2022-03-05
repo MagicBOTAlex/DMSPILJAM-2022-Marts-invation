@@ -28,7 +28,7 @@ public class UnitScript : MonoBehaviour
         if (From != null)
         {
             Type = From.Type;
-            print($"{From.Type} {Type}");
+            //print($"{From.Type} {Type}");
         }
     }
 

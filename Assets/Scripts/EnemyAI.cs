@@ -31,7 +31,7 @@ public class EnemyAI : MonoBehaviour
 
             UpgradeAll();
 
-            for (int i = 0; i < Random.Range(2, 5); i++)
+            for (int i = 0; i < Random.Range(1, 3); i++)
             {
                 GatherAll();
             }

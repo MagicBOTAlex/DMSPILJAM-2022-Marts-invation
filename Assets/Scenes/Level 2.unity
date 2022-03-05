@@ -168,6 +168,8 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 5b93a2edea9631343bf337ecf085acfa, type: 3}
   NeutralTowerSprites_:
   - {fileID: 21300000, guid: 166ecb4a1f3b0fa4d9ff01ee669cb686, type: 3}
+  - {fileID: 21300000, guid: 8abf2f184b22c375cb45049d466e7cc0, type: 3}
+  - {fileID: 21300000, guid: fe37efa168bd16ca28999577b85ae944, type: 3}
   EnemyTowerSprites_:
   - {fileID: 21300000, guid: 4ae01386112ac82449a8a5b062d4a7b8, type: 3}
   - {fileID: 21300000, guid: 0b399906e2067544caaa7301c722afe1, type: 3}

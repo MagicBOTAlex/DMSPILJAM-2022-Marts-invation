@@ -31,8 +31,11 @@ public class EnemyAI : MonoBehaviour
 
             UpgradeAll();
 
-            GatherAll();
-            GatherAll();
+            for (int i = 0; i < Random.Range(2, 5); i++)
+            {
+                GatherAll();
+            }
+
             yield return new WaitForSecondsRealtime(EventDelay);
         }
     }
@@ -69,7 +72,7 @@ public class EnemyAI : MonoBehaviour
         {
             if (i == gatherIndex) continue;
 
-            SendUnits(EnemyTowersRandom[i], EnemyTowersRandom[gatherIndex], EnemyTowersRandom[i].UnitsInside / 2);
+            SendUnits(EnemyTowersRandom[i], EnemyTowersRandom[gatherIndex], EnemyTowersRandom[i].UnitsInside / (int)Random.Range(1.3f, 5.5f));
         }
 
         StartCoroutine(WaitBeforeSend(gatherIndex));
@@ -109,7 +112,16 @@ public class EnemyAI : MonoBehaviour
 
         print($"Enemy attacking tower: {attackHere.Object.name} {attackHere.Type}");
 
-        yield return new WaitForSecondsRealtime(10);
+        int j = 0;
+        while (true)
+        {
+            j++;
+            if (j < 20 || GameManagerScript.UnitsOnMap.Where(x => x.GetComponent<UnitScript>().From.Type == TowerType.Enemy).Count() < 5) 
+                break;
+            yield return new WaitForSecondsRealtime(0.5f);
+        }
+
+        //yield return new WaitForSecondsRealtime(10);
         if (EnemyTowersRandom[fromIndex].UnitsInside < attackHere.UnitsInside) goto Forward;
 
         SendUnits(EnemyTowersRandom[fromIndex], attackHere, (attackHere.Type == TowerType.Neutral) ? attackHere.UnitsInside + 5 : EnemyTowersRandom[fromIndex].UnitsInside);

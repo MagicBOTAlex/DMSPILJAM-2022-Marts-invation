@@ -14,7 +14,7 @@ public class TowerUpgrader : MonoBehaviour
 
     }
 
-    private void Upgrade() {
+    public void Upgrade() {
         Debug.Log($"Upgrading:  {towerIndex}");
         // Upgrade tower level
         if (GameManagerScript.Towers[towerIndex].TowerLevel == 1 && GameManagerScript.Towers[towerIndex].UnitsInside >= GameManagerScript.UnitsNeededForLvl2) {

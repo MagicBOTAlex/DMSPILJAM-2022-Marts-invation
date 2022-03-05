@@ -27,9 +27,19 @@ public class EnemyAI : MonoBehaviour
 
         while (true)
         {
+            UpgradeAll();
+
             GatherAll();
             GatherAll();
             yield return new WaitForSecondsRealtime(EventDelay);
+        }
+    }
+
+    private void UpgradeAll()
+    {
+        for (int i = 0; i < EnemyTowersRandom.Length; i++)
+        {
+            EnemyTowersRandom[i].Object.GetComponent<TowerUpgrader>().Upgrade();
         }
     }
 

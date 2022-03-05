@@ -142,6 +142,8 @@ public class GameManagerScript : MonoBehaviour
         else
             EnemyUnitsPending += amount;
 
+        var TypeHolder = from.Type;
+
         for (int i = 0; i < amount; i++)
         {
             var unit = Instantiate(UnitPrefab, from.Object.transform.position, Quaternion.identity, spawnedUnitsHolder.transform) as GameObject;
@@ -155,7 +157,7 @@ public class GameManagerScript : MonoBehaviour
             unitScript.To = to;
             unitScript.Speed = UnitSpeed_;
 
-            if (from.Type == TowerType.Player)
+            if (TypeHolder == TowerType.Player)
                 PlayerUnitsPending--;
             else
                 EnemyUnitsPending--;

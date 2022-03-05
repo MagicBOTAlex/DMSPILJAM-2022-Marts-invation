@@ -60,22 +60,22 @@ public class TowerEventHandler : MonoBehaviour
 
     private void OnMouseDown()
     {
-        if (GameManagerScript.Towers[GetComponent<TowerIndexHolder>().TowerIndex].Type == TowerType.Player)
-            if (GameManagerScript.Selected[0] == null)
-            {
-                GameManagerScript.Selected[0] = gameObject;
-            }
-            else if (GameManagerScript.Selected[1] == null && GameManagerScript.Selected[0] != gameObject)
-            {
-                GameManagerScript.Selected[1] = gameObject;
-            }
+        if (GameManagerScript.Selected[0] == null)
+        {
+            if (GameManagerScript.Towers[GetComponent<TowerIndexHolder>().TowerIndex].Type != TowerType.Player) return;
+            GameManagerScript.Selected[0] = gameObject;
+        }
+        else if (GameManagerScript.Selected[1] == null && GameManagerScript.Selected[0] != gameObject)
+        {
+            GameManagerScript.Selected[1] = gameObject;
+        }
 
         GameManagerScript.instance.CheckSelected();
     }
 
     public void OnMouseEnter()
     {
-        if (GameManagerScript.Towers[GetComponent<TowerIndexHolder>().TowerIndex].Type == TowerType.Enemy) return;
+        if (GameManagerScript.Towers[GetComponent<TowerIndexHolder>().TowerIndex].Type != TowerType.Player) return;
 
         upgrademn = Instantiate(upgradeMenu, new Vector3(transform.position.x + UMXOffset, transform.position.y - UMYOffset, transform.position.z), upgradeMenu.transform.rotation);
         // Set the tower index in the new upgrader script so it knows which tower to upgrade

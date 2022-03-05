@@ -123,7 +123,7 @@ public class GameManagerScript : MonoBehaviour
         if (from.UnitsInside < amount) return false;
         if (from.Type == TowerType.Neutral) return false;
 
-        //from.UnitsInside -= amount;
+        from.UnitsInside -= amount;
 
         StartCoroutine(StartSending(from, to, amount));
         return true;

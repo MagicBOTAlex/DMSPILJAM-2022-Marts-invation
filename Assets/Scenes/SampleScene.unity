@@ -671,8 +671,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Speed: 1
   MaxSpeed: 2
-  MinSpeedStartRun: 0
-  MinSpeedEndRun: 0
+  MinSpeed: 0
   Acceleration: 4
   Deceleration: 5
 --- !u!50 &1465240491
@@ -984,6 +983,10 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1465240490, guid: 23d4396c8043a7637b796dc2c3c3bc7f, type: 3}
+      propertyPath: Speed
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 1465240490, guid: 23d4396c8043a7637b796dc2c3c3bc7f, type: 3}
       propertyPath: Deceleration
       value: 5

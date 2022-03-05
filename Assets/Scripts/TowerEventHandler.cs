@@ -41,7 +41,7 @@ public class TowerEventHandler : MonoBehaviour
         //print("Hit!");
         //if (collision.gameObject.CompareTag("Units")) Physics2D.IgnoreCollision(GetComponent<Collider2D>(), collision.collider, true);
         //if (collision.gameObject.CompareTag("Towers")) Physics2D.IgnoreCollision(GetComponent<Collider2D>(), collision.collider, true);
-        if (gameObject.CompareTag("metoer") && gameObject.CompareTag("shadow")) return;
+        if (gameObject.CompareTag("meteor") && gameObject.CompareTag("shadow")) return;
         if (gameObject != collision.gameObject.GetComponent<UnitScript>().To.Object) return;
 
         GameManagerScript.UnitsOnMap.Remove(collision.gameObject);
@@ -90,7 +90,8 @@ public class TowerEventHandler : MonoBehaviour
         upgrademn.GetComponent<TowerUpgrader>().UpdateSprite();
         upgrademn.GetComponent<TowerUpgrader>().mouseOver = true;
 
-        if (GameManagerScript.Towers[GetComponent<TowerIndexHolder>().TowerIndex].TowerLevel == 3) {
+        if (GameManagerScript.Towers[GetComponent<TowerIndexHolder>().TowerIndex].TowerLevel == 3)
+        {
             transform.GetChild(0).transform.localScale = GameManagerScript.SelectedLvl3LocalScaleStretch;
         }
         transform.GetChild(0).GetComponent<Renderer>().enabled = true;

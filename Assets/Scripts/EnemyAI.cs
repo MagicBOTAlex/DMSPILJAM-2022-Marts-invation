@@ -27,6 +27,8 @@ public class EnemyAI : MonoBehaviour
 
         while (true)
         {
+            if (EnemyTowersRandom.Length == 0) break;
+
             UpgradeAll();
 
             GatherAll();

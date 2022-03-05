@@ -6,7 +6,8 @@ public class TutorialSendUnits : MonoBehaviour
 {
     public bool SecondTowerClicked = false;
     public GameObject UnitPrefab;
-
+    public int firstUnits = 20;
+    public int secondsUnits = 0;
     public bool firstClicked = false;
     public Sprite unitSprite;
 
@@ -34,8 +35,10 @@ public class TutorialSendUnits : MonoBehaviour
             unit.GetComponent<SpriteRenderer>().sprite = unitSprite;
             var unitScript = unit.GetComponent<UnitScript>();
             unitScript.FromV = transform.position;
-            unitScript.ToV = transform.GetChild(2).position;
+            unitScript.ToV = transform.GetChild(3).position;
             unitScript.Speed = 2;
+            firstUnits--;
+            Debug.Log(firstUnits);
 
             yield return new WaitForSecondsRealtime(0.2f);
         }

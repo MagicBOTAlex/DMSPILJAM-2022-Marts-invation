@@ -15,6 +15,7 @@ public class TowerEventHandler : MonoBehaviour
 
     public void DoubleStarter()
     {
+        //Debug.Log(GetComponent<TowerIndexHolder>().TowerIndex);
         int towerLevel = GameManagerScript.Towers[GetComponent<TowerIndexHolder>().TowerIndex].TowerLevel;
         TowerType type = GameManagerScript.Towers[GetComponent<TowerIndexHolder>().TowerIndex].Type;
 

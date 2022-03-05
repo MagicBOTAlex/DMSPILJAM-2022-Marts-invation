@@ -110,16 +110,20 @@ public class EnemyAI : MonoBehaviour
         else if (NeutralTowers.Length == 0)
             attackHere = PlayerTowers[Random.Range(0, PlayerTowers.Length)];
 
-        print($"Enemy attacking tower: {attackHere.Object.name} {attackHere.Type}");
+        //print($"Enemy attacking tower: {attackHere.Object.name} {attackHere.Type}");
+        yield return new WaitForSecondsRealtime(0.5f);
 
         int j = 0;
         while (true)
         {
             j++;
-            if (j < 20 || GameManagerScript.UnitsOnMap.Where(x => x.GetComponent<UnitScript>().From.Type == TowerType.Enemy).Count() < 5) 
+            if (j > 20 || GameManagerScript.UnitsOnMap.Where(x => x.GetComponent<UnitScript>().From.Type == TowerType.Enemy).Count() < 5) 
                 break;
             yield return new WaitForSecondsRealtime(0.5f);
         }
+
+        //print(GameManagerScript.UnitsOnMap.Where(x => x.GetComponent<UnitScript>().From.Type == TowerType.Enemy).Count() < 5);
+        //print(j);
 
         //yield return new WaitForSecondsRealtime(10);
         if (EnemyTowersRandom[fromIndex].UnitsInside < attackHere.UnitsInside) goto Forward;

@@ -20,7 +20,7 @@ public class DialogHandler : MonoBehaviour
         }
         else
         {
-            SceneManager.LoadScene(NextSceneIndex);
+            SceneManager.LoadScene("Level 1");
         }
     }
 }

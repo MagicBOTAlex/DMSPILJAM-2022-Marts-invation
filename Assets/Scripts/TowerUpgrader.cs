@@ -96,12 +96,14 @@ public class TowerUpgrader : MonoBehaviour
 
     }
     public IEnumerator KillMenu(float dl) {
+        bool isDestroyed = false;
         do {
             yield return new WaitForSecondsRealtime(dl);
-            if (!mouseOver && this.gameObject != null) {
+            if (!mouseOver) {
+                isDestroyed = true;
                 Destroy(gameObject);
             }
-        } while (true);
+        } while (!isDestroyed);
         
     }
     public void UpdateSprite() {

@@ -20,7 +20,14 @@ public class MenuScript : MonoBehaviour
             fader.gameObject.SetActive(false);
         });
     }*/
-
+    void Awake() { 
+        
+        if (!PlayerPrefs.HasKey("Volume")) {
+            Debug.Log("NEWWW");
+            PlayerPrefs.SetFloat("Volume", 1f);
+        }
+        
+    }
 
     public static void LoadScene(string name) {
         try {

@@ -25,6 +25,7 @@ public class EnemyAI : MonoBehaviour
     {
         yield return new WaitForSecondsRealtime(FirstEventDelay);
 
+        int attacks = 0;
         while (true)
         {
             while (GameManagerScript.instance.Towers_.Where(x => x.Type == TowerType.Player).Count() == 0)
@@ -35,7 +36,7 @@ public class EnemyAI : MonoBehaviour
             UpgradeAll();
 
             //print(PlayerTowers.Length);
-            if (PlayerTowers.Length > 2)
+            if (PlayerTowers.Length > 2 || attacks > 2)
             {
                 for (int i = 0; i < Random.Range(1, 3); i++)
                 {
@@ -47,6 +48,7 @@ public class EnemyAI : MonoBehaviour
                 AllInAttack();
             }
 
+            attacks++;
             yield return new WaitForSecondsRealtime(EventDelay);
         }
     }

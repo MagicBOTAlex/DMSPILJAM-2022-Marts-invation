@@ -69,6 +69,11 @@ public class TowerEventHandler : MonoBehaviour
             ZhenAudioManager.PlaySound(ZhenAudioManager.audioClips[6]);
         }
 
+        if (collision.GetComponent<UnitScript>().To.Type == TowerType.Player && collision.GetComponent<UnitScript>().Type == TowerType.Player)
+        {
+            ZhenAudioManager.PlaySound(ZhenAudioManager.audioClips[5]);
+        }
+
         if (collision.gameObject.GetComponent<UnitScript>().Type == collision.gameObject.GetComponent<UnitScript>().To.Type)
             GameManagerScript.Towers[GetComponent<TowerIndexHolder>().TowerIndex].UnitsInside += collision.gameObject.GetComponent<UnitScript>().Damage;
         else

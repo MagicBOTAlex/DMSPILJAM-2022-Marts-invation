@@ -205,7 +205,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &487521958
 GameObject:
@@ -372,6 +372,96 @@ RectTransform:
   m_AnchoredPosition: {x: 1657, y: 855}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &911792880
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 911792882}
+  - component: {fileID: 911792881}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &911792881
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 911792880}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1133acc00b227b64b82c9d6bbb2b0249, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: UnitBloop
+    clip: {fileID: 8300000, guid: acc24eb9286bdc84d8d9286d5dd7514d, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: TextSkip
+    clip: {fileID: 8300000, guid: 86d45211dc7437f40aaad0b6891dfdf5, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: UpgradeTower
+    clip: {fileID: 8300000, guid: 913ad309e06725b4ba5e928913d9dc95, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: ClickButton
+    clip: {fileID: 8300000, guid: d0966544d71e54c4fa4e67247591eaeb, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: EnemyTakeTower
+    clip: {fileID: 8300000, guid: 7df6a5c8c78b54a4896035a3b88393cd, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: HighlightButton
+    clip: {fileID: 8300000, guid: bca7ea781000dcb46b610592bfdc93aa, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: HitEnemyTower
+    clip: {fileID: 8300000, guid: 9433c9ee8503f0e468c67c653f95bea2, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: PlayerTakeTower
+    clip: {fileID: 8300000, guid: 6ccef4a0e8db26d44aa1ac3023766396, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: Sword
+    clip: {fileID: 8300000, guid: b3531b64550772c44898e369147793e4, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+--- !u!4 &911792882
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 911792880}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1042674991
 GameObject:
   m_ObjectHideFlags: 0
@@ -787,7 +877,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1420671713
 GameObject:
@@ -833,7 +923,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1424234185
 GameObject:
@@ -1273,7 +1363,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1994792076
 GameObject:
@@ -1622,7 +1712,7 @@ RectTransform:
   - {fileID: 487521959}
   - {fileID: 581718060}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}

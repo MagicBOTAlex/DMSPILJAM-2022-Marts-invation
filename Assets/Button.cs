@@ -15,14 +15,17 @@ public class Button : MonoBehaviour
     {
         if(button == "LevelSelect" || button == "Level1")
         {
+            FindObjectOfType<AudioManager>().Play("HighlightButton");
             background.GetComponent<Image>().sprite = back1;
         }
         else if (button == "TakeOver" || button == "Level2")
         {
+            FindObjectOfType<AudioManager>().Play("HighlightButton");
             background.GetComponent<Image>().sprite = back2;
         }
         else if (button == "Settings" || button == "Level3")
         {
+            FindObjectOfType<AudioManager>().Play("HighlightButton");
             background.GetComponent<Image>().sprite = back3;
         }
 
@@ -31,6 +34,7 @@ public class Button : MonoBehaviour
 
     private void OnMouseDown()
     {
+        FindObjectOfType<AudioManager>().Play("ClickButton");
         if (button == "LevelSelect")
         {
             fader.gameObject.SetActive(true);

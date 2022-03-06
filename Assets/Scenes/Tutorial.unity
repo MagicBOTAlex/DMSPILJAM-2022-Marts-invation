@@ -4376,6 +4376,36 @@ MonoBehaviour:
     volume: 1
     pitch: 1
     source: {fileID: 0}
+  - name: ClickButton
+    clip: {fileID: 8300000, guid: d0966544d71e54c4fa4e67247591eaeb, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: EnemyTakeTower
+    clip: {fileID: 8300000, guid: 7df6a5c8c78b54a4896035a3b88393cd, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: HighlightButton
+    clip: {fileID: 8300000, guid: bca7ea781000dcb46b610592bfdc93aa, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: HitEnemyTower
+    clip: {fileID: 8300000, guid: 9433c9ee8503f0e468c67c653f95bea2, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: PlayerTakeTower
+    clip: {fileID: 8300000, guid: 6ccef4a0e8db26d44aa1ac3023766396, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: Sword
+    clip: {fileID: 8300000, guid: b3531b64550772c44898e369147793e4, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
 --- !u!4 &1713898129
 Transform:
   m_ObjectHideFlags: 0

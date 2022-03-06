@@ -48,6 +48,9 @@ public class TowerEventHandler : MonoBehaviour
         //    else if (gameObject != collision.gameObject.GetComponent<UnitScript>().To.Object) return;
         //}
         //catch { return; }
+        if (gameObject.CompareTag("meteor") || gameObject.CompareTag("shadow")) {
+            return;
+        }
         if (gameObject != collision.gameObject.GetComponent<UnitScript>().To.Object) return;
 
         GameManagerScript.UnitsOnMap.Remove(collision.gameObject);

@@ -19,7 +19,7 @@ public class meteor : MonoBehaviour
     private float nextActionTime = 0.0f;
     public float period = 2.0f;
 
-    int a = 0;
+
     public (int, int) posShad()
     {
         x = Random.Range(-6, 8);
@@ -38,28 +38,23 @@ public class meteor : MonoBehaviour
     {
         if (Time.time > nextActionTime)
         {
-            if (a < 1)
-            {
-                nextActionTime += period;
 
-                position1 = posShad();
-                position2 = posMet();
+            nextActionTime += period;
 
-                x = position1.Item1;
-                y = position1.Item2;
+            position1 = posShad();
+            position2 = posMet();
 
-                x2 = position2.Item1;
-                y2 = position2.Item2;
+            x = position1.Item1;
+            y = position1.Item2;
 
-                sus1 = Instantiate(meteorite, new Vector2(x2, y2), Quaternion.identity);
-                sus2 = Instantiate(shadow, new Vector2(x, y), Quaternion.identity);
-                a += 1;
-            }
-            else if (a > 0)
-            {
-                //Destroy(sus);
-                a -= 1;
-            }
+            x2 = position2.Item1;
+            y2 = position2.Item2;
+
+            //sus1 = Instantiate(meteorite, new Vector2(x2, y2), Quaternion.identity);
+            //sus2 = Instantiate(shadow, new Vector2(x, y), Quaternion.identity);
+            Instantiate(meteorite, new Vector2(x2, y2), Quaternion.identity);
+            Instantiate(shadow, new Vector2(x, y), Quaternion.identity);
+
         }
     }
 }

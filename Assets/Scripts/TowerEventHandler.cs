@@ -55,6 +55,12 @@ public class TowerEventHandler : MonoBehaviour
 
         GameManagerScript.UnitsOnMap.Remove(collision.gameObject);
 
+        if (collision.GetComponent<UnitScript>().To.Type == TowerType.Enemy && collision.GetComponent<UnitScript>().Type == TowerType.Player)
+        {
+            FindObjectOfType<AudioManager>().Play(ZhenAudioManager.audioClips[6].name);
+            //ZhenAudioManager.PlaySound(ZhenAudioManager.audioClips[6]);
+        }
+
         if (collision.gameObject.GetComponent<UnitScript>().Type == collision.gameObject.GetComponent<UnitScript>().To.Type)
             GameManagerScript.Towers[GetComponent<TowerIndexHolder>().TowerIndex].UnitsInside += collision.gameObject.GetComponent<UnitScript>().Damage;
         else
@@ -64,8 +70,6 @@ public class TowerEventHandler : MonoBehaviour
 
         GameManagerScript.instance.CheckTower(collision.gameObject.GetComponent<UnitScript>().From, GameManagerScript.Towers[GetComponent<TowerIndexHolder>().TowerIndex]);
         DoubleStarter();
-        
-        BetterAudioManager.PlaySound(BetterAudioManager.audioClips[0]);
 
         Destroy(collision.gameObject);
     }

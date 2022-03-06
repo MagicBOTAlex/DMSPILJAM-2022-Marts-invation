@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BetterAudioManager : MonoBehaviour
+public class ZhenAudioManager : MonoBehaviour
 {
-    static BetterAudioManager Instance;
+    static ZhenAudioManager Instance;
     public List<AudioClip> audioClips_ = new List<AudioClip>();
     public static List<AudioClip> audioClips = new List<AudioClip>();
     AudioSource audioSource;
@@ -45,7 +45,8 @@ public class BetterAudioManager : MonoBehaviour
         audioSource = AS;
 
         AS.Play();
-        yield return new WaitUntil(() => AS.isPlaying);
+        yield return new WaitUntil(() => !AS.isPlaying);
+        Destroy(AS);
     }
 
     public IEnumerator StartMusicFadeIn(AudioSource AS)

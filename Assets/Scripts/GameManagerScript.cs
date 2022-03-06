@@ -148,10 +148,14 @@ public class GameManagerScript : MonoBehaviour
 
         for (int i = 0; i < amount; i++)
         {
-            var unit = Instantiate(UnitPrefab, from.Object.transform.position + new Vector3(Random.Range(-UnitSpawnOffset, UnitSpawnOffset), Random.Range(-UnitSpawnOffset, UnitSpawnOffset)), Quaternion.identity, spawnedUnitsHolder.transform) as GameObject;
+            var unit = Instantiate(UnitPrefab, from.Object.transform.position + new Vector3(Random.Range(-UnitSpawnOffset, UnitSpawnOffset), Random.Range(-UnitSpawnOffset, UnitSpawnOffset)), Quaternion.identity, spawnedUnitsHolder.transform);
             var unitScript = unit.GetComponent<UnitScript>();
 
-            unit.GetComponent<SpriteRenderer>().sprite = unitSprite[Random.Range(0, unitSprite.Length)];
+            Sprite selectedSprite = (i % 10 == 0) ? unitSprite[1] : unitSprite[0];
+            if (TypeHolder == TowerType.Enemy)
+                selectedSprite = (i % 20 == 0) ? unitSprite[2] : selectedSprite;
+
+            unit.GetComponent<SpriteRenderer>().sprite = selectedSprite;
             unit.name = i.ToString();
             UnitsOnMap.Add(unit);
 

@@ -17,6 +17,10 @@ public class meteor_movement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (gameObject == null)
+        {
+            GetComponent<Animator>().SetBool("explode", false);
+        }
         if (target != null)
         {
             transform.up = (target.position - transform.position) * -1f;
@@ -43,14 +47,24 @@ public class meteor_movement : MonoBehaviour
         if (other.CompareTag("shadow"))
         {
             Destroy(other.gameObject);
+            StartCoroutine(destroy_self());
         }
         else if (other.CompareTag("Player"))
         {
             Destroy(other.gameObject);
+            StartCoroutine(destroy_self());
         }
         else if (other.CompareTag("meteor"))
         {
             Destroy(gameObject);
         }
+    }
+    IEnumerator destroy_self()
+    {
+        var rb = GetComponent<Rigidbody2D>();
+        rb.bodyType = RigidbodyType2D.Kinematic;
+        GetComponent<Animator>().SetBool("explode", true);
+        yield return new WaitForSecondsRealtime(1);
+        Destroy(gameObject);
     }
 }

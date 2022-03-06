@@ -164,12 +164,17 @@ public class GameManagerScript : MonoBehaviour
             unitScript.Speed = UnitSpeed_;
 
             if (TypeHolder == TowerType.Player)
+            {
                 PlayerUnitsPending--;
+                ZhenAudioManager.PlaySound(ZhenAudioManager.audioClips[5]);
+            }
             else
+            {
                 EnemyUnitsPending--;
-            
-            //from.UnitsInside--;
-            yield return new WaitForSecondsRealtime(UnitSpawnDelay_);
+            }
+
+                //from.UnitsInside--;
+                yield return new WaitForSecondsRealtime(UnitSpawnDelay_);
         }
     }
 

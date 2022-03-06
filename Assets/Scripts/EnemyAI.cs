@@ -31,7 +31,7 @@ public class EnemyAI : MonoBehaviour
 
             UpgradeAll();
 
-            print(PlayerTowers.Length);
+            //print(PlayerTowers.Length);
             if (PlayerTowers.Length > 2)
             {
                 for (int i = 0; i < Random.Range(1, 3); i++)

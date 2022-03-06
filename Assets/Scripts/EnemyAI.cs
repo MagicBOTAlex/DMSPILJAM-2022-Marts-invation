@@ -95,32 +95,42 @@ public class EnemyAI : MonoBehaviour
     {
         TowerInfo attackHere = new TowerInfo();
         bool targetFound = false;
-        for (int i = 0; i < PlayerTowers.Length; i++)
-        {
-            if (PlayerTowers[i].UnitsInside < EnemyTowersRandom[fromIndex].UnitsInside - 20)
-            {
-                attackHere = PlayerTowers[i];
-                targetFound = true;
+
+        int j = 0;
+        while (true)
                 break;
+            yield return new WaitForSecondsRealtime(0.5f);
+        }
+
+        if (NeutralTowers.Length != 0)
+        {
+            int randomIndex = Random.Range(0, NeutralTowers.Length);
+            if (NeutralTowers[randomIndex].UnitsInside < EnemyTowersRandom[fromIndex].UnitsInside - 5)
+            {
+                attackHere = NeutralTowers[randomIndex];
+                targetFound = true;
             }
         }
 
-        if (!targetFound && NeutralTowers.Length != 0)
-            attackHere = NeutralTowers[Random.Range(0, NeutralTowers.Length)];
-        else if (NeutralTowers.Length == 0)
-            attackHere = PlayerTowers[Random.Range(0, PlayerTowers.Length)];
+        if (!targetFound)
+        {
+            for (int i = 0; i < PlayerTowers.Length; i++)
+            {
+                if (PlayerTowers[i].UnitsInside < EnemyTowersRandom[fromIndex].UnitsInside - 20)
+                {
+                    attackHere = PlayerTowers[i];
+                    targetFound = true;
+                    break;
+                }
+            }
+        }
+
+        if (!targetFound) goto Forward;
 
         //print($"Enemy attacking tower: {attackHere.Object.name} {attackHere.Type}");
         yield return new WaitForSecondsRealtime(0.5f);
 
-        int j = 0;
-        while (true)
-        {
-            j++;
-            if (j > 20 || GameManagerScript.UnitsOnMap.Where(x => x.GetComponent<UnitScript>().From.Type == TowerType.Enemy).Count() < 5) 
-                break;
-            yield return new WaitForSecondsRealtime(0.5f);
-        }
+        //print(attackHere.Object.name);
 
         //print(GameManagerScript.UnitsOnMap.Where(x => x.GetComponent<UnitScript>().From.Type == TowerType.Enemy).Count() < 5);
         //print(j);

@@ -17,28 +17,31 @@ public class meteor_movement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (gameObject == null)
+        if (GetComponent<Animator>().GetBool("explode") != true)
         {
-            GetComponent<Animator>().SetBool("explode", false);
-        }
-        if (target != null)
-        {
-            transform.up = (target.position - transform.position) * -1f;
-        }
-        try
-        {
-            transform.position = Vector2.MoveTowards(transform.position, target.transform.position, speed * Time.deltaTime);
-        }
-        catch
-        {
+            if (gameObject == null)
+            {
+                GetComponent<Animator>().SetBool("explode", false);
+            }
+            if (target != null)
+            {
+                transform.up = (target.position - transform.position) * -1f;
+            }
             try
             {
-                target = GameObject.FindGameObjectWithTag("shadow").GetComponent<Transform>();
                 transform.position = Vector2.MoveTowards(transform.position, target.transform.position, speed * Time.deltaTime);
             }
             catch
             {
-                Destroy(gameObject);
+                try
+                {
+                    target = GameObject.FindGameObjectWithTag("shadow").GetComponent<Transform>();
+                    transform.position = Vector2.MoveTowards(transform.position, target.transform.position, speed * Time.deltaTime);
+                }
+                catch
+                {
+                    //Runs when no shadow exists
+                }
             }
         }
     }
@@ -46,13 +49,13 @@ public class meteor_movement : MonoBehaviour
     {
         if (other.CompareTag("shadow"))
         {
-            Destroy(other.gameObject);
             StartCoroutine(destroy_self());
+            Destroy(other.gameObject);
         }
         else if (other.CompareTag("Player"))
         {
-            Destroy(other.gameObject);
             StartCoroutine(destroy_self());
+            Destroy(other.gameObject);
         }
         else if (other.CompareTag("meteor"))
         {
@@ -62,7 +65,10 @@ public class meteor_movement : MonoBehaviour
     IEnumerator destroy_self()
     {
         var rb = GetComponent<Rigidbody2D>();
+
         rb.bodyType = RigidbodyType2D.Kinematic;
+        rb.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezePositionY;
+
         GetComponent<Animator>().SetBool("explode", true);
         yield return new WaitForSecondsRealtime(1);
         Destroy(gameObject);

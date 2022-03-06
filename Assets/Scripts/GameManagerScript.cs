@@ -167,7 +167,7 @@ public class GameManagerScript : MonoBehaviour
             if (TypeHolder == TowerType.Player)
             {
                 PlayerUnitsPending--;
-                ZhenAudioManager.PlaySound("Troop Enter_Leave");
+                ZhenAudioManager.PlaySound("Troop Enter_Leave").volume = 0.5f;
             }
             else
             {

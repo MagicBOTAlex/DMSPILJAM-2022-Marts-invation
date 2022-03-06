@@ -73,8 +73,8 @@ public class TowerEventHandler : MonoBehaviour
         GameManagerScript.instance.CheckTower(collision.gameObject.GetComponent<UnitScript>().From, GameManagerScript.Towers[GetComponent<TowerIndexHolder>().TowerIndex]);
         DoubleStarter();
         
-        BetterAudioManager.PlaySound(BetterAudioManager.audioClips[0]);
-
+        // BetterAudioManager.PlaySound(BetterAudioManager.audioClips[0]);
+        auM.Play("UnitBloop");
         Destroy(collision.gameObject);
     }
 

@@ -264,6 +264,8 @@ public class GameManagerScript : MonoBehaviour
     public RectTransform fader;
     IEnumerator ChangeToMenu()
     {
+        instance = null;
+
         yield return new WaitForSecondsRealtime(3);
 
         fader.gameObject.SetActive(true);

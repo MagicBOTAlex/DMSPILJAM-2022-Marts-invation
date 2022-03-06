@@ -218,6 +218,14 @@ public class GameManagerScript : MonoBehaviour
         else
         {
             Towers[to.IndexInList].Type = (from.Type == TowerType.Player) ? TowerType.Player : TowerType.Enemy;
+            if (from.Type == TowerType.Player)
+            {
+                ZhenAudioManager.PlaySound("PlayerTakeTower");
+            }
+            else
+            {
+                ZhenAudioManager.PlaySound("EnemyTakeTower");
+            }
         }
 
         CheckIfWin();

@@ -86,12 +86,16 @@ public class TowerUpgrader : MonoBehaviour
             // Call DoubleStarter to apply changes
             GameManagerScript.Towers[towerIndex].Object.GetComponent<TowerEventHandler>().DoubleStarter();
             GameManagerScript.Towers[towerIndex].UnitsInside -= GameManagerScript.UnitsNeededForLvl2;
+
+            ZhenAudioManager.PlaySound("UpgradeTower");
         }
         else if (GameManagerScript.Towers[towerIndex].TowerLevel == 2 && GameManagerScript.Towers[towerIndex].UnitsInside >= GameManagerScript.UnitsNeededForLvl3) {
             GameManagerScript.Towers[towerIndex].TowerLevel++;
             // Call DoubleStarter to apply changes
             GameManagerScript.Towers[towerIndex].Object.GetComponent<TowerEventHandler>().DoubleStarter();
             GameManagerScript.Towers[towerIndex].UnitsInside -= GameManagerScript.UnitsNeededForLvl3;
+
+            ZhenAudioManager.PlaySound("UpgradeTower");
         }
 
     }

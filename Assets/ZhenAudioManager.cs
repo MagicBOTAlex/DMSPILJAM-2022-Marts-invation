@@ -12,7 +12,7 @@ public class ZhenAudioManager : MonoBehaviour
 
     private static bool mute, sfxMute;
     private static void Awake() {
-        LoadSettings();
+        
     }
 
     /// <summary>
@@ -36,6 +36,9 @@ public class ZhenAudioManager : MonoBehaviour
         // Apply settings
         Instance.audioSource.volume = volume;
 
+        Debug.Log($"Setting volume to {volume}");
+        Debug.Log($"Setting sfx mute to {sfxMute}");
+
     }
     private void Start()
     {
@@ -46,6 +49,8 @@ public class ZhenAudioManager : MonoBehaviour
 
         audioClips = audioClips_;
         Instance = this;
+        Debug.Log("awiking");
+        LoadSettings();
         //PlaySound(audioClips[1], true).loop = true;
     }
 

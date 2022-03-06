@@ -6,7 +6,9 @@ public class DestroyAndRemoveFromList : MonoBehaviour
 {
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        GameManagerScript.UnitsOnMap.Remove(collision.gameObject);
-        Destroy(collision.gameObject);
+        if (collision.gameObject.CompareTag("Units")) {
+            GameManagerScript.UnitsOnMap.Remove(collision.gameObject);
+            Destroy(collision.gameObject);
+        }
     }
 }

@@ -185,6 +185,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 36f2113ab06b5a74195e5cd238ce9a0a, type: 3}
   WinScreen: {fileID: 413624852}
   LoseScreen: {fileID: 155076513}
+  fader: {fileID: 400582131}
 --- !u!4 &24099886
 Transform:
   m_ObjectHideFlags: 0

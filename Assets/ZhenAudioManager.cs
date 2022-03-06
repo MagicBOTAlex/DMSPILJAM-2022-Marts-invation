@@ -16,9 +16,9 @@ public class ZhenAudioManager : MonoBehaviour
         //PlaySound(audioClips[1], true).loop = true;
     }
 
-    public static AudioSource PlaySound(AudioClip clip, bool fadeIn = false)
+    public static AudioSource PlaySound(string nameOfClip, bool fadeIn = false)
     {
-        Instance.StartCoroutine(Instance.StartSound(clip, fadeIn));
+        Instance.StartCoroutine(Instance.StartSound(audioClips.Find(x=>x.name == nameOfClip), fadeIn));
         return Instance.audioSource;
     }
 

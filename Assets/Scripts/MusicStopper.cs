@@ -6,6 +6,13 @@ public class MusicStopper : MonoBehaviour
 {
     private void Awake()
     {
-        Destroy(GameObject.FindGameObjectWithTag("Music"));
+        try
+        {
+            Destroy(GameObject.FindGameObjectWithTag("Music"));
+        }
+        catch
+        {
+
+        }
     }
 }

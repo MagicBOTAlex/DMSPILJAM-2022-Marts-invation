@@ -165,7 +165,7 @@ public class GameManagerScript : MonoBehaviour
 
             if (TypeHolder == TowerType.Player)
             {
-                EnemyUnitsPending++;
+                PlayerUnitsPending--;
                 ZhenAudioManager.PlaySound(ZhenAudioManager.audioClips[5]);
             }
             else

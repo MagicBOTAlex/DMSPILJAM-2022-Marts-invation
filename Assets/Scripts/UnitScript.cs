@@ -13,12 +13,14 @@ public class UnitScript : MonoBehaviour
 
     public Vector2 FromV;
     public Vector2 ToV;
+    public Sprite unitSprite;
 
     Rigidbody2D rb;
 
     private void OnEnable()
     {
-        GetComponent<SpriteRenderer>().sprite = Resources.Load("PLAYER1") as Sprite;
+        GetComponent<SpriteRenderer>().sprite = Resources.Load("PLAYER1") as Sprite; //Sussy amongus
+
     }
 
     private void Start()

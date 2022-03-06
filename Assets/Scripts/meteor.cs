@@ -51,8 +51,8 @@ public class meteor : MonoBehaviour
                 x2 = position2.Item1;
                 y2 = position2.Item2;
 
-                sus1 = Instantiate(shadow, new Vector2(x, y), Quaternion.identity);
-                sus2 = Instantiate(meteorite, new Vector2(x2, y2), Quaternion.identity);
+                sus1 = Instantiate(meteorite, new Vector2(x2, y2), Quaternion.identity);
+                sus2 = Instantiate(shadow, new Vector2(x, y), Quaternion.identity);
                 a += 1;
             }
             else if (a > 0)

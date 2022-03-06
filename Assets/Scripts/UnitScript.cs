@@ -13,7 +13,6 @@ public class UnitScript : MonoBehaviour
 
     public Vector2 FromV;
     public Vector2 ToV;
-    public Sprite unitSprite;
 
     Rigidbody2D rb;
 

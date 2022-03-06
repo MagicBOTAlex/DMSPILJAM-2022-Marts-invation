@@ -27,16 +27,40 @@ public class EnemyAI : MonoBehaviour
 
         while (true)
         {
-            if (EnemyTowersRandom.Length == 0) break;
+            if (GameManagerScript.instance.Towers_.Where(x => x.Type == TowerType.Player).Count() == 0) break;
 
             UpgradeAll();
 
-            for (int i = 0; i < Random.Range(1, 3); i++)
+            print(PlayerTowers.Length);
+            if (PlayerTowers.Length > 2)
             {
-                GatherAll();
+                for (int i = 0; i < Random.Range(1, 3); i++)
+                {
+                    GatherAll();
+                }
+            }
+            else
+            {
+                AllInAttack();
             }
 
             yield return new WaitForSecondsRealtime(EventDelay);
+        }
+    }
+
+    void AllInAttack()
+    {
+        int attackIndex = Random.Range(0, PlayerTowers.Length);
+        for (int i = 0; i < EnemyTowersRandom.Length; i++)
+        {
+            SendUnits(EnemyTowersRandom[i], PlayerTowers[attackIndex], EnemyTowersRandom[i].UnitsInside / (int)Random.Range(1.3f, 5.5f));
+        }
+        for (int i = 0; i < GameManagerScript.UnitsOnMap.Count; i++)
+        {
+            if (GameManagerScript.UnitsOnMap[i].GetComponent<UnitScript>().Type == TowerType.Enemy)
+            {
+                GameManagerScript.UnitsOnMap[i].GetComponent<UnitScript>().To = PlayerTowers[attackIndex];
+            }
         }
     }
 
@@ -95,32 +119,48 @@ public class EnemyAI : MonoBehaviour
     {
         TowerInfo attackHere = new TowerInfo();
         bool targetFound = false;
-        for (int i = 0; i < PlayerTowers.Length; i++)
-        {
-            if (PlayerTowers[i].UnitsInside < EnemyTowersRandom[fromIndex].UnitsInside - 20)
-            {
-                attackHere = PlayerTowers[i];
-                targetFound = true;
-                break;
-            }
-        }
-
-        if (!targetFound && NeutralTowers.Length != 0)
-            attackHere = NeutralTowers[Random.Range(0, NeutralTowers.Length)];
-        else if (NeutralTowers.Length == 0)
-            attackHere = PlayerTowers[Random.Range(0, PlayerTowers.Length)];
-
-        //print($"Enemy attacking tower: {attackHere.Object.name} {attackHere.Type}");
-        yield return new WaitForSecondsRealtime(0.5f);
 
         int j = 0;
         while (true)
         {
             j++;
-            if (j > 20 || GameManagerScript.UnitsOnMap.Where(x => x.GetComponent<UnitScript>().From.Type == TowerType.Enemy).Count() < 5) 
+            if (j > 20 || GameManagerScript.UnitsOnMap.Where(x => x.GetComponent<UnitScript>().To.Object == EnemyTowersRandom[fromIndex].Object).Count() < 5)
                 break;
             yield return new WaitForSecondsRealtime(0.5f);
         }
+
+        if (NeutralTowers.Length != 0)
+        {
+            for (int i = NeutralTowers.Length - 1; i >= 0; i--)
+            {
+                if (NeutralTowers[i].UnitsInside < EnemyTowersRandom[fromIndex].UnitsInside - 2)
+                {
+                    attackHere = NeutralTowers[i];
+                    targetFound = true;
+                    break;
+                }
+            }
+        }
+
+        if (!targetFound)
+        {
+            for (int i = 0; i < PlayerTowers.Length; i++)
+            {
+                if (PlayerTowers[i].UnitsInside < EnemyTowersRandom[fromIndex].UnitsInside - 20)
+                {
+                    attackHere = PlayerTowers[i];
+                    targetFound = true;
+                    break;
+                }
+            }
+        }
+
+        if (!targetFound) goto Forward;
+
+        //print($"Enemy attacking tower: {attackHere.Object.name} {attackHere.Type}");
+        yield return new WaitForSecondsRealtime(0.5f);
+
+        //print(attackHere.Object.name);
 
         //print(GameManagerScript.UnitsOnMap.Where(x => x.GetComponent<UnitScript>().From.Type == TowerType.Enemy).Count() < 5);
         //print(j);

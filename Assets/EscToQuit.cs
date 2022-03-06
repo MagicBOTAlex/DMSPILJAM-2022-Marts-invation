@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class EscToQuit : MonoBehaviour
 {
+    private void Start()
+    {
+        Screen.fullScreen = false;
+    }
+
     // Update is called once per frame
     void Update()
     {

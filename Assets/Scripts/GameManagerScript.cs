@@ -221,11 +221,11 @@ public class GameManagerScript : MonoBehaviour
             Towers[to.IndexInList].Type = (from == TowerType.Player) ? TowerType.Player : TowerType.Enemy;
             if (from == TowerType.Player)
             {
-                ZhenAudioManager.PlaySound("PlayerTakeTower");
+                ZhenAudioManager.PlaySound("PlayerTakeTower").volume = 0.5f;
             }
             else
             {
-                ZhenAudioManager.PlaySound("EnemyTakeTower");
+                ZhenAudioManager.PlaySound("EnemyTakeTower").volume = 0.5f;
             }
         }
 

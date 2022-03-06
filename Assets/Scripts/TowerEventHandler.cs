@@ -74,7 +74,8 @@ public class TowerEventHandler : MonoBehaviour
             ZhenAudioManager.PlaySound(ZhenAudioManager.audioClips[6].name);
         }
 
-        if (collision.GetComponent<UnitScript>().To.Type == TowerType.Player && collision.GetComponent<UnitScript>().Type == TowerType.Player)
+        if ((collision.GetComponent<UnitScript>().To.Type == TowerType.Player && collision.GetComponent<UnitScript>().Type == TowerType.Player)||
+            (collision.GetComponent<UnitScript>().To.Type == TowerType.Neutral && collision.GetComponent<UnitScript>().Type == TowerType.Player))
         {
             ZhenAudioManager.PlaySound(ZhenAudioManager.audioClips[5].name);
         }

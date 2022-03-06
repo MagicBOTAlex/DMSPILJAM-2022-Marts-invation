@@ -185,7 +185,7 @@ public class GameManagerScript : MonoBehaviour
 
         if (Selected[1] == null) return;
 
-        print("Sending units");
+        //print("Sending units");
         SendUnits(Towers_[Selected[0].GetComponent<TowerIndexHolder>().TowerIndex], Towers_[Selected[1].GetComponent<TowerIndexHolder>().TowerIndex], Towers_[Selected[0].GetComponent<TowerIndexHolder>().TowerIndex].UnitsInside);
 
         Selected[0].gameObject.transform.GetChild(1).GetComponent<SpriteRenderer>().enabled = false;
@@ -218,6 +218,14 @@ public class GameManagerScript : MonoBehaviour
         else
         {
             Towers[to.IndexInList].Type = (from.Type == TowerType.Player) ? TowerType.Player : TowerType.Enemy;
+            if (from.Type == TowerType.Player)
+            {
+                ZhenAudioManager.PlaySound("PlayerTakeTower");
+            }
+            else
+            {
+                ZhenAudioManager.PlaySound("EnemyTakeTower");
+            }
         }
 
         CheckIfWin();

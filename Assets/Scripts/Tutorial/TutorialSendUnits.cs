@@ -17,13 +17,15 @@ public class TutorialSendUnits : MonoBehaviour
         transform.GetChild(1).gameObject.GetComponent<SpriteRenderer>().enabled = firstClicked;
     }
 
+    bool hasSent = false;
     private void Update()
     {
-        if (SecondTowerClicked)
+        if (SecondTowerClicked && !hasSent)
         {
             print("Sending units");
             StartCoroutine(SendUnits());
             SecondTowerClicked = false;
+            hasSent = true;
         }
     }
 
@@ -31,7 +33,7 @@ public class TutorialSendUnits : MonoBehaviour
     {
         for (int i = 0; i < 20; i++)
         {
-            GameObject unit = Instantiate(UnitPrefab, transform.position, Quaternion.identity) as GameObject;
+            GameObject unit = Instantiate(UnitPrefab, transform.position + new Vector3(Random.Range(-0.5f, 0.5f), Random.Range(-0.5f, 0.5f)), Quaternion.identity) as GameObject;
             unit.GetComponent<SpriteRenderer>().sprite = unitSprite;
             var unitScript = unit.GetComponent<UnitScript>();
             unitScript.FromV = transform.position;

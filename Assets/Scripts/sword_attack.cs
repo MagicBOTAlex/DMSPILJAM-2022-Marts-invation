@@ -55,7 +55,7 @@ public class sword_attack : MonoBehaviour
             Debug.Log("Index:");
             Debug.Log(index);
             //EnemyTower[index].UnitsInside -= sword_damage;
-            if (GameManagerScript.Towers[index].UnitsInside > 1)
+            if (GameManagerScript.Towers[index].UnitsInside > 1 && GameManagerScript.Towers[index].Type == TowerType.Enemy)
             {
                 GameManagerScript.Towers[index].UnitsInside -= sword_damage;
                 yield return new WaitForSecondsRealtime(0.3f);

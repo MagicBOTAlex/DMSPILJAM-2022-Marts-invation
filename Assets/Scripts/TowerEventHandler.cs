@@ -58,7 +58,12 @@ public class TowerEventHandler : MonoBehaviour
         if (gameObject.CompareTag("meteor") || gameObject.CompareTag("shadow")) {
             return;
         }
-        if (gameObject != collision.gameObject.GetComponent<UnitScript>().To.Object) return;
+        try {
+            if (gameObject != collision.gameObject.GetComponent<UnitScript>().To.Object) return;
+        }
+        catch {
+            return;
+        }
 
         GameManagerScript.UnitsOnMap.Remove(collision.gameObject);
         
@@ -69,7 +74,8 @@ public class TowerEventHandler : MonoBehaviour
             ZhenAudioManager.PlaySound(ZhenAudioManager.audioClips[6].name);
         }
 
-        if (collision.GetComponent<UnitScript>().To.Type == TowerType.Player && collision.GetComponent<UnitScript>().Type == TowerType.Player)
+        if ((collision.GetComponent<UnitScript>().To.Type == TowerType.Player && collision.GetComponent<UnitScript>().Type == TowerType.Player)||
+            (collision.GetComponent<UnitScript>().To.Type == TowerType.Neutral && collision.GetComponent<UnitScript>().Type == TowerType.Player))
         {
             ZhenAudioManager.PlaySound(ZhenAudioManager.audioClips[5].name);
         }

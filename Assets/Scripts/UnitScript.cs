@@ -18,7 +18,7 @@ public class UnitScript : MonoBehaviour
 
     private void Start()
     {
-        BetterAudioManager.PlaySound();
+        //BetterAudioManager.PlaySound();
 
         if (From != null)
         {

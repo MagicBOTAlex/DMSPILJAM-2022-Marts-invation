@@ -13,7 +13,7 @@ public class BetterAudioManager : MonoBehaviour
     {
         audioClips = audioClips_;
         Instance = this;
-        PlaySound(audioClips[1], true).loop = true;
+        //PlaySound(audioClips[1], true).loop = true;
     }
 
     public static AudioSource PlaySound(AudioClip clip, bool fadeIn = false)

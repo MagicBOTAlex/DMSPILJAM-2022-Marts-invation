@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,11 +10,15 @@ public class TowerUpgrader : MonoBehaviour
     public Sprite upgrade;
     public bool mouseOver;
     public Sprite nonUpgrade;
+    public TextMesh speedText;
+    public TextMesh costText;
     SpriteRenderer sr;
 
 
     void Awake() {
         sr = GetComponent<SpriteRenderer>();
+        speedText.gameObject.SetActive(false);
+        costText.gameObject.SetActive(false);
     }
     private void Start() {
         //StartCoroutine(KillMenu(killDelay));
@@ -24,7 +29,37 @@ public class TowerUpgrader : MonoBehaviour
         if (mouseOver)
         {
             UpdateSprite();
+            UpdateText();
         }
+    }
+
+    /// <summary>
+    /// Update cost and units pr s text
+    /// </summary>
+    private void UpdateText()
+    {
+        // Cost and units
+        string cost = "";
+        string unitsPrS = "";
+        if (GameManagerScript.Towers[towerIndex].TowerLevel == 1) {
+            cost = GameManagerScript.UnitsNeededForLvl2.ToString();
+            unitsPrS = "2 units/s";
+        }
+        else if (GameManagerScript.Towers[towerIndex].TowerLevel == 2) {
+            cost = GameManagerScript.UnitsNeededForLvl3.ToString();
+            unitsPrS = "3 units/s";
+        }
+        else {
+            costText.gameObject.SetActive(false);
+            speedText.gameObject.SetActive(false);
+            return;
+        }
+
+        costText.gameObject.SetActive(true);
+        speedText.gameObject.SetActive(true);
+        costText.text = cost;
+        speedText.text = unitsPrS;
+
     }
 
     private void OnMouseDown() {

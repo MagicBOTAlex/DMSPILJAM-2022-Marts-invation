@@ -64,13 +64,13 @@ public class meteor_movement : MonoBehaviour
     }
     IEnumerator destroy_self()
     {
+        GetComponent<Animator>().SetBool("explode", true);
         var rb = GetComponent<Rigidbody2D>();
 
         rb.bodyType = RigidbodyType2D.Kinematic;
         rb.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezePositionY;
 
-        GetComponent<Animator>().SetBool("explode", true);
-        yield return new WaitForSecondsRealtime(1);
+        yield return new WaitForSecondsRealtime(0.45f);
         Destroy(gameObject);
     }
 }

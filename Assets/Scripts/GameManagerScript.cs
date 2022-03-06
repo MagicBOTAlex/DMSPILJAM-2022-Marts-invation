@@ -96,6 +96,8 @@ public class GameManagerScript : MonoBehaviour
 
         spawnedUnitsHolder = new GameObject("UnitHolder");
 
+        AudioListener.volume = PlayerPrefs.GetFloat("Volume");
+
         // read the name you half faced monke
         StartCoroutine(StartGain());
     }

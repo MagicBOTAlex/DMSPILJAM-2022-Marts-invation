@@ -160,6 +160,7 @@ public class GameManagerScript : MonoBehaviour
             UnitsOnMap.Add(unit);
 
             unitScript.From = from;
+            unitScript.Type = TypeHolder;
             unitScript.To = to;
             unitScript.Speed = UnitSpeed_;
 
@@ -198,13 +199,13 @@ public class GameManagerScript : MonoBehaviour
     /// <summary>
     /// Checks if the units inside the target tower is negative or not. Then converts the tower to the oppisite
     /// </summary>
-    public void CheckTower(TowerInfo from, TowerInfo to)
+    public void CheckTower(TowerType from, TowerInfo to)
     {
         if (Towers[to.IndexInList].UnitsInside < 0) ConvertTower(from, to);
         //print(Towers[to.IndexInList].UnitsInside.ToString());
     }
 
-    public void ConvertTower(TowerInfo from, TowerInfo to) 
+    public void ConvertTower(TowerType from, TowerInfo to) 
     {
         if (to.Type != TowerType.Neutral) 
             Towers[to.IndexInList].TowerLevel = 1;
@@ -213,12 +214,12 @@ public class GameManagerScript : MonoBehaviour
 
         if (to.Type == TowerType.Neutral)
         {
-            Towers[to.IndexInList].Type = from.Type;
+            Towers[to.IndexInList].Type = from;
         }
         else
         {
-            Towers[to.IndexInList].Type = (from.Type == TowerType.Player) ? TowerType.Player : TowerType.Enemy;
-            if (from.Type == TowerType.Player)
+            Towers[to.IndexInList].Type = (from == TowerType.Player) ? TowerType.Player : TowerType.Enemy;
+            if (from == TowerType.Player)
             {
                 ZhenAudioManager.PlaySound("PlayerTakeTower");
             }

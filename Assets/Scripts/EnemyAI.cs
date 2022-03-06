@@ -27,7 +27,10 @@ public class EnemyAI : MonoBehaviour
 
         while (true)
         {
-            if (GameManagerScript.instance.Towers_.Where(x => x.Type == TowerType.Player).Count() == 0) break;
+            while (GameManagerScript.instance.Towers_.Where(x => x.Type == TowerType.Player).Count() == 0)
+            {
+                yield return new WaitForSecondsRealtime(0.5f);
+            }
 
             UpgradeAll();
 

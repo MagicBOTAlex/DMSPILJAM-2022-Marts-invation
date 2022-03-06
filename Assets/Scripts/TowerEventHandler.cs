@@ -79,7 +79,6 @@ public class TowerEventHandler : MonoBehaviour
         {
             ZhenAudioManager.PlaySound(ZhenAudioManager.audioClips[5].name);
         }
-
         if (collision.gameObject.GetComponent<UnitScript>().Type == collision.gameObject.GetComponent<UnitScript>().To.Type)
             GameManagerScript.Towers[GetComponent<TowerIndexHolder>().TowerIndex].UnitsInside += collision.gameObject.GetComponent<UnitScript>().Damage;
         else
@@ -87,7 +86,7 @@ public class TowerEventHandler : MonoBehaviour
 
         //print($"Units inside: {GameManagerScript.Towers[GetComponent<TowerIndexHolder>().TowerIndex].UnitsInside}");
 
-        GameManagerScript.instance.CheckTower(collision.gameObject.GetComponent<UnitScript>().From, GameManagerScript.Towers[GetComponent<TowerIndexHolder>().TowerIndex]);
+        GameManagerScript.instance.CheckTower(collision.gameObject.GetComponent<UnitScript>().Type, GameManagerScript.Towers[GetComponent<TowerIndexHolder>().TowerIndex]);
         DoubleStarter();
         
         // BetterAudioManager.PlaySound(BetterAudioManager.audioClips[0]);

@@ -20,11 +20,12 @@ public class UnitScript : MonoBehaviour
     {
         //ZhenAudioManager.PlaySound();
 
+        /*
         if (From != null)
         {
             Type = From.Type;
             //print($"{From.Type} {Type}");
-        }
+        }*/
     }
 
     private void FixedUpdate()

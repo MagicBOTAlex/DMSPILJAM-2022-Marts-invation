@@ -52,8 +52,8 @@ public class sword_attack : MonoBehaviour
 
             index = othr.GetComponent<TowerIndexHolder>().TowerIndex;
 
-            Debug.Log("Index:");
-            Debug.Log(index);
+            //Debug.Log("Index:");
+            //Debug.Log(index);
             //EnemyTower[index].UnitsInside -= sword_damage;
             if (GameManagerScript.Towers[index].UnitsInside > 1 && GameManagerScript.Towers[index].Type == TowerType.Enemy)
             {

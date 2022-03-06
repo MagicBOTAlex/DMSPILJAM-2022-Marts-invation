@@ -42,11 +42,11 @@ public class TowerUpgrader : MonoBehaviour
         string cost = "";
         string unitsPrS = "";
         if (GameManagerScript.Towers[towerIndex].TowerLevel == 1) {
-            cost = GameManagerScript.UnitsNeededForLvl2.ToString();
+            cost = "Cost: " + GameManagerScript.UnitsNeededForLvl2.ToString();
             unitsPrS = "2 units/s";
         }
         else if (GameManagerScript.Towers[towerIndex].TowerLevel == 2) {
-            cost = GameManagerScript.UnitsNeededForLvl3.ToString();
+            cost = "Cost: " + GameManagerScript.UnitsNeededForLvl3.ToString();
             unitsPrS = "3 units/s";
         }
         else {

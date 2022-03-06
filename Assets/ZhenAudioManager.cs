@@ -15,31 +15,7 @@ public class ZhenAudioManager : MonoBehaviour
         
     }
 
-    /// <summary>
-    /// Checks if there is a preset of sounds settings in player prefs and applies the settings
-    /// </summary>
-    private static void LoadSettings() {
-        // Get settings
-        float volume = PlayerPrefs.GetFloat("Volume");
-        if (PlayerPrefs.GetInt("Mute") == 1) {
-            mute = true;
-        }
-        else {
-            mute = false;
-        }
-        if (PlayerPrefs.GetInt("SFXMute") == 1) {
-            sfxMute = true;
-        }
-        else {
-            sfxMute = false;
-        }
-        // Apply settings
-        Instance.audioSource.volume = volume;
-
-        Debug.Log($"Setting volume to {volume}");
-        Debug.Log($"Setting sfx mute to {sfxMute}");
-
-    }
+    
     private void Start()
     {
         if (audioClips_.Count == 0)
@@ -49,8 +25,6 @@ public class ZhenAudioManager : MonoBehaviour
 
         audioClips = audioClips_;
         Instance = this;
-        Debug.Log("awiking");
-        LoadSettings();
         //PlaySound(audioClips[1], true).loop = true;
     }
 

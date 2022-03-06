@@ -15,18 +15,7 @@ public class SettingsAplier : MonoBehaviour
     private void LoadSettings() {
         // Get settings
         float volume = PlayerPrefs.GetFloat("Volume");
-        if (PlayerPrefs.GetInt("Mute") == 1) {
-            mute = true;
-        }
-        else {
-            mute = false;
-        }
-        if (PlayerPrefs.GetInt("SFXMute") == 1) {
-            sfxMute = true;
-        }
-        else {
-            sfxMute = false;
-        }
+
         // Apply settings
         AudioListener.volume = volume;
 

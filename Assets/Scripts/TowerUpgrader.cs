@@ -98,7 +98,7 @@ public class TowerUpgrader : MonoBehaviour
     public IEnumerator KillMenu(float dl) {
         do {
             yield return new WaitForSecondsRealtime(dl);
-            if (!mouseOver) {
+            if (!mouseOver && this.gameObject != null) {
                 Destroy(gameObject);
             }
         } while (true);

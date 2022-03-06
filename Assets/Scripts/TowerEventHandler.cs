@@ -65,8 +65,8 @@ public class TowerEventHandler : MonoBehaviour
 
         if (collision.GetComponent<UnitScript>().To.Type == TowerType.Enemy && collision.GetComponent<UnitScript>().Type == TowerType.Player)
         {
-            FindObjectOfType<AudioManager>().Play(ZhenAudioManager.audioClips[6].name);
-            //ZhenAudioManager.PlaySound(ZhenAudioManager.audioClips[6]);
+            //FindObjectOfType<AudioManager>().Play(ZhenAudioManager.audioClips[6].name);
+            ZhenAudioManager.PlaySound(ZhenAudioManager.audioClips[6]);
         }
 
         if (collision.gameObject.GetComponent<UnitScript>().Type == collision.gameObject.GetComponent<UnitScript>().To.Type)
@@ -80,7 +80,7 @@ public class TowerEventHandler : MonoBehaviour
         DoubleStarter();
         
         // BetterAudioManager.PlaySound(BetterAudioManager.audioClips[0]);
-        auM.Play("UnitBloop");
+        //auM.Play("UnitBloop");
         Destroy(collision.gameObject);
     }
 

@@ -166,7 +166,7 @@ public class GameManagerScript : MonoBehaviour
             if (TypeHolder == TowerType.Player)
             {
                 PlayerUnitsPending--;
-                ZhenAudioManager.PlaySound(ZhenAudioManager.audioClips[5]);
+                ZhenAudioManager.PlaySound(ZhenAudioManager.audioClips[5].name);
             }
             else
             {
@@ -223,6 +223,8 @@ public class GameManagerScript : MonoBehaviour
         CheckIfWin();
     }
 
+
+    bool IsChanging = false;
     void CheckIfWin()
     {
         if (PlayerTowers.Length == 0 &&
@@ -230,6 +232,11 @@ public class GameManagerScript : MonoBehaviour
             UnitsOnMap.Where(x=>x.GetComponent<UnitScript>().From.Type == TowerType.Player).Count() == 0)
         {
             LoseScreen.SetActive(true);
+            if (!IsChanging)
+            {
+                IsChanging = true;
+                StartCoroutine(ChangeToMenu());
+            }
         }
 
         if (EnemyTowersRandom.Length == 0 &&
@@ -237,6 +244,24 @@ public class GameManagerScript : MonoBehaviour
             UnitsOnMap.Where(x => x.GetComponent<UnitScript>().From.Type == TowerType.Enemy).Count() == 0)
         {
             WinScreen.SetActive(true);
+            if (!IsChanging)
+            {
+                IsChanging = true;
+                StartCoroutine(ChangeToMenu());
+            }
         }
+    }
+
+    public RectTransform fader;
+    IEnumerator ChangeToMenu()
+    {
+        yield return new WaitForSecondsRealtime(3);
+
+        fader.gameObject.SetActive(true);
+        LeanTween.scale(fader, Vector3.zero, 0f);
+        LeanTween.scale(fader, new Vector3(1, 1, 1), 0.5f).setEase(LeanTweenType.easeInOutExpo).setOnComplete(() =>
+        {
+            SceneManager.LoadScene("Menu");
+        });
     }
 }

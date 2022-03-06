@@ -15,8 +15,21 @@ public class meteor_movement : MonoBehaviour
     }
 
     // Update is called once per frame
+    //private GameObject obj;
     void Update()
     {
+        if (GameObject.FindGameObjectsWithTag("shadow").Length > 1)
+        {
+            GameObject[] taggedObjects = GameObject.FindGameObjectsWithTag("shadow");
+            foreach (GameObject obj in taggedObjects)
+            {
+                if (GameObject.FindGameObjectsWithTag("shadow").Length > 1)
+                {
+                    Destroy(obj);
+                }
+                else { break; }
+            }
+        }
         if (GetComponent<Animator>().GetBool("explode") != true)
         {
             if (gameObject == null)
@@ -41,6 +54,7 @@ public class meteor_movement : MonoBehaviour
                 catch
                 {
                     //Runs when no shadow exists
+                    StartCoroutine(destroy_self());
                 }
             }
         }

@@ -16,6 +16,11 @@ public class AudioManager : MonoBehaviour
             s.source.volume = s.volume;
             s.source.pitch = s.pitch;
         }
+
+        if (gameObject.TryGetComponent<ZhenAudioManager>(out _))
+        {
+            gameObject.AddComponent<ZhenAudioManager>();
+        }
     }
 
     public void Play(string name)

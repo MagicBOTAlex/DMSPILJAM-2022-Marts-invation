@@ -1,3 +1,4 @@
+using System.Linq;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,6 +12,11 @@ public class ZhenAudioManager : MonoBehaviour
 
     private void Start()
     {
+        if (audioClips_.Count == 0)
+        {
+            audioClips_ = GetComponent<AudioManager>().sounds.Select(x=>x.clip).ToList();
+        }
+
         audioClips = audioClips_;
         Instance = this;
         //PlaySound(audioClips[1], true).loop = true;

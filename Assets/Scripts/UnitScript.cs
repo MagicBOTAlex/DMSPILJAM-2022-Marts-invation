@@ -36,7 +36,7 @@ public class UnitScript : MonoBehaviour
     {
         if (From != null)
         {
-            Vector2 dir = -(From.Object.transform.position - To.Object.transform.position);
+            Vector2 dir = -(transform.position - To.Object.transform.position);
             transform.position += new Vector3(1f * dir.x, 1f * dir.y, 1f).normalized * (Speed / 100);
         }
         else

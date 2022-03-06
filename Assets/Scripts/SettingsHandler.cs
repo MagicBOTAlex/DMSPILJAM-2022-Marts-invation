@@ -9,6 +9,7 @@ public class SettingsHandler : MonoBehaviour
     private TextMeshProUGUI sfxMute;
     private Slider soundSlider;
     private string muteBText, sfxMuteBText;
+    private bool bMute, bSfxMute;
 
     private void Awake() {
         mute = transform.GetChild(0).GetComponent<TextMeshProUGUI>();
@@ -19,7 +20,32 @@ public class SettingsHandler : MonoBehaviour
         sfxMuteBText = sfxMute.text;
     }
 
+    public void ToggleMute() {
+        Debug.Log("toggling mute!");
+        bMute = !bMute;
+    }
+    public void ToggleSfxMute() {
+        Debug.Log("toggling sfx mute!");
+        bSfxMute = !bSfxMute;
+    }
+
     private void FixedUpdate() {
         // Set volume
+        PlayerPrefs.SetFloat("Volume", soundSlider.value);
+        // Set mute
+        if (bMute) {
+            PlayerPrefs.SetInt("Mute", 1);
+        }
+        else {
+            PlayerPrefs.SetInt("Mute", 0);
+        }
+        // Set sfx mute
+        if (bSfxMute) {
+            PlayerPrefs.SetInt("SFXMute", 1);
+        }
+        else {
+            PlayerPrefs.SetInt("SFXMute", 0);
+        }
+        
     }
 }

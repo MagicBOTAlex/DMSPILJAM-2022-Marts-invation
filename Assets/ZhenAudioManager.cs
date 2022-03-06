@@ -10,6 +10,33 @@ public class ZhenAudioManager : MonoBehaviour
     public static List<AudioClip> audioClips = new List<AudioClip>();
     AudioSource audioSource;
 
+    private static bool mute, sfxMute;
+    private static void Awake() {
+        LoadSettings();
+    }
+
+    /// <summary>
+    /// Checks if there is a preset of sounds settings in player prefs and applies the settings
+    /// </summary>
+    private static void LoadSettings() {
+        // Get settings
+        float volume = PlayerPrefs.GetFloat("Volume");
+        if (PlayerPrefs.GetInt("Mute") == 1) {
+            mute = true;
+        }
+        else {
+            mute = false;
+        }
+        if (PlayerPrefs.GetInt("SFXMute") == 1) {
+            sfxMute = true;
+        }
+        else {
+            sfxMute = false;
+        }
+        // Apply settings
+        Instance.audioSource.volume = volume;
+
+    }
     private void Start()
     {
         if (audioClips_.Count == 0)
@@ -24,6 +51,10 @@ public class ZhenAudioManager : MonoBehaviour
 
     public static AudioSource PlaySound(string nameOfClip, bool fadeIn = false)
     {
+        // Return if sfx mute
+        if (sfxMute) {
+            return new AudioSource();
+        }
         Instance.StartCoroutine(Instance.StartSound(audioClips.Find(x=>x.name == nameOfClip), fadeIn));
         return Instance.audioSource;
     }

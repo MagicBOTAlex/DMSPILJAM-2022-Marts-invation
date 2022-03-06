@@ -98,6 +98,9 @@ public class EnemyAI : MonoBehaviour
 
         int j = 0;
         while (true)
+        {
+            j++;
+            if (j > 20 || GameManagerScript.UnitsOnMap.Where(x => x.GetComponent<UnitScript>().To == EnemyTowersRandom[fromIndex]).Count() < 5)
                 break;
             yield return new WaitForSecondsRealtime(0.5f);
         }

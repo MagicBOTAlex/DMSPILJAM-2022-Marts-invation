@@ -11,8 +11,15 @@ public class TowerEventHandler : MonoBehaviour
     private GameObject upgrademn;
     public float UMXOffset, UMYOffset;
     private void Start() => DoubleStarter();
-    //private void OnEnable() => DoubleStarter();
+    AudioManager auM;
 
+    void Awake() {
+        auM = FindObjectOfType<AudioManager>();
+    }
+    //private void OnEnable() => DoubleStarter();
+    void Update() {
+        auM.Play("UnitBloop");
+    }
     public void DoubleStarter()
     {
         //Debug.Log(GetComponent<TowerIndexHolder>().TowerIndex);
@@ -54,6 +61,7 @@ public class TowerEventHandler : MonoBehaviour
         if (gameObject != collision.gameObject.GetComponent<UnitScript>().To.Object) return;
 
         GameManagerScript.UnitsOnMap.Remove(collision.gameObject);
+        
 
         if (collision.GetComponent<UnitScript>().To.Type == TowerType.Enemy && collision.GetComponent<UnitScript>().Type == TowerType.Player)
         {
@@ -118,7 +126,7 @@ public class TowerEventHandler : MonoBehaviour
 
         transform.GetChild(0).GetComponent<Renderer>().enabled = false;
         upgrademn.GetComponent<TowerUpgrader>().UpdateSprite();
-        StartCoroutine(upgrademn.GetComponent<TowerUpgrader>().KillMenu(2f));
+        StartCoroutine(upgrademn.GetComponent<TowerUpgrader>().KillMenu(0f));
         upgrademn.GetComponent<TowerUpgrader>().mouseOver = false;
     }
 }

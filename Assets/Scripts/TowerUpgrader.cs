@@ -17,6 +17,7 @@ public class TowerUpgrader : MonoBehaviour
 
     void Awake() {
         sr = GetComponent<SpriteRenderer>();
+        sr.enabled = false;
         speedText.gameObject.SetActive(false);
         costText.gameObject.SetActive(false);
     }
@@ -30,6 +31,9 @@ public class TowerUpgrader : MonoBehaviour
         {
             UpdateSprite();
             UpdateText();
+        }
+        else {
+            sr.enabled = false;
         }
     }
 
@@ -92,10 +96,18 @@ public class TowerUpgrader : MonoBehaviour
 
     }
     public IEnumerator KillMenu(float dl) {
-        yield return new WaitForSecondsRealtime(dl);
-        Destroy(gameObject);
+        do {
+            yield return new WaitForSecondsRealtime(dl);
+            if (!mouseOver) {
+                Destroy(gameObject);
+            }
+        } while (true);
+        
     }
     public void UpdateSprite() {
+        if (GameManagerScript.Towers[towerIndex].TowerLevel != 3) {
+            sr.enabled = true;
+        }
         if (GameManagerScript.Towers[towerIndex].TowerLevel == 1) {
             if (GameManagerScript.Towers[towerIndex].UnitsInside >= GameManagerScript.UnitsNeededForLvl2) {
                 //Debug.Log($"Sufficient Amount of units inside for upgrade: inside {GameManagerScript.Towers[towerIndex].UnitsInside}");

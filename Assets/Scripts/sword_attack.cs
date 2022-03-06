@@ -1,14 +1,15 @@
+using System.Linq;
+using Assets;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using System.Threading;
 
 public class sword_attack : MonoBehaviour
 {
     public GameObject player;
 
-    //List<TowerInfo> Towers { get { return GameManagerScript.instance.Towers_; } set { GameManagerScript.instance.Towers_ = value; } }
-    //TowerInfo[] EnemyTower { get { return GameManagerScript.instance.Towers_.Where(x => x.Type == TowerType.Enemy).ToArray(); } }
+    List<TowerInfo> Towers { get { return GameManagerScript.instance.Towers_; } set { GameManagerScript.instance.Towers_ = value; } }
+    TowerInfo[] EnemyTower { get { return GameManagerScript.instance.Towers_.Where(x => x.Type == TowerType.Enemy).ToArray(); } }
 
     int total_units;
 
@@ -21,10 +22,7 @@ public class sword_attack : MonoBehaviour
 
     bool attacking;
 
-    void Start()
-    {
-
-    }
+    // GameObject othr;
 
     private void Update()
     {
@@ -41,20 +39,28 @@ public class sword_attack : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Towers") || player.GetComponent<Animator>().GetBool("attack") == true)
+        if (other.CompareTag("Towers"))
         {
-            StartCoroutine(attacking_fn());
+            StartCoroutine(attacking_fn(other.gameObject));
         }
     }
-    IEnumerator attacking_fn()
+    IEnumerator attacking_fn(GameObject othr)
     {
         while (Time.time > nextActionTime || attacking == true)
         {
             nextActionTime += period;
 
-            //index = other.GetComponent<TowerIndexHolder>().TowerIndex;
-            //total_units = EnemyTower[index].UnitsInside;
+            index = othr.GetComponent<TowerIndexHolder>().TowerIndex;
+
+            Debug.Log("Index:");
+            Debug.Log(index);
             //EnemyTower[index].UnitsInside -= sword_damage;
+            if (GameManagerScript.Towers[index].UnitsInside > 1)
+            {
+                GameManagerScript.Towers[index].UnitsInside -= sword_damage;
+                yield return new WaitForSecondsRealtime(0.3f);
+            }
+            else { break; }
         }
         yield return null;
     }

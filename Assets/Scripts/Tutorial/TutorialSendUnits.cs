@@ -17,13 +17,15 @@ public class TutorialSendUnits : MonoBehaviour
         transform.GetChild(1).gameObject.GetComponent<SpriteRenderer>().enabled = firstClicked;
     }
 
+    bool hasSent = false;
     private void Update()
     {
-        if (SecondTowerClicked)
+        if (SecondTowerClicked && !hasSent)
         {
             print("Sending units");
             StartCoroutine(SendUnits());
             SecondTowerClicked = false;
+            hasSent = true;
         }
     }
 
